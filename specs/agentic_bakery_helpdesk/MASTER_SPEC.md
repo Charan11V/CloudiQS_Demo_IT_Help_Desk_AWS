@@ -1,4 +1,4 @@
-# CURSOR MASTER IMPLEMENTATION SPEC
+# Implementation Specification
 ## Agentic Bakery Pro — Guided, Stateful, Data-Consistent Autonomous IT Helpdesk
 
 **Read this entire document, `guided_flow_catalog.json`, `demo_seed.json` and `evaluation_cases.json` before changing code. Implement a functioning system, not illustrative-only screens.**
@@ -703,7 +703,7 @@ Minimum safety assertions:
 
 Operational metrics include actual run count, test pass/fail, mean/95th percentile latency, tool-call counts, estimated Bedrock token cost from measured usage, open/closed ticket counts, and verifier pass rate. No fabricated metrics.
 
-## 13. Implementation sequence for Cursor (one-day vibe-coding focus)
+## 13. Suggested implementation sequence
 
 **First implement vertical slices that work in the real app and real DB; don't create placeholder-only screens.**
 
@@ -728,7 +728,7 @@ Operational metrics include actual run count, test pass/fail, mean/95th percenti
 
 **P2 for a production roadmap:** Real Entra/Jira/ServiceNow integrations, real device-management mutations, secure privileged actions, account-level isolated customer AWS deployments, live CloudWatch traces, full compliance assessments, hardened security incident workflows, multiregion reliability.
 
-## 14. Implementation constraints and Cursor instructions
+## 14. Implementation constraints
 
 - Build the **running app**; do not merely paraphrase this document or output architectural diagrams.
 - Never generate static dashboards with success cards disconnected from database records.

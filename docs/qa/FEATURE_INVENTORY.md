@@ -1,6 +1,6 @@
 # FEATURE INVENTORY — Agentic Bakery Pro
 
-Source of truth: `specs/agentic_bakery_helpdesk/CURSOR_MASTER_SPEC.md`, catalogue, seed, implemented code under `services/bakery_api` + `apps/bakery_web`.
+Source of truth: `specs/agentic_bakery_helpdesk/MASTER_SPEC.md`, catalogue, seed, implemented code under `services/bakery_api` + `apps/bakery_web`.
 
 Status legend: COMPLETE_AND_VERIFIED | IMPLEMENTED_UNTESTED | PARTIALLY_IMPLEMENTED | BROKEN | UI_ONLY | MOCK_ONLY | NOT_IMPLEMENTED | BLOCKED_EXTERNAL_DEPENDENCY
 

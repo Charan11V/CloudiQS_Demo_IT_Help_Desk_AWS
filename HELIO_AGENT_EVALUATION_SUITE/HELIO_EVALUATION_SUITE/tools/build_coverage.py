@@ -28,7 +28,7 @@ for x in features:
  if unknown:raise RuntimeError((n,unknown))
  # Coverage labels require different levels of verification.
  status='explicit_test_case' if ids and not all(i.startswith('LEG-') for i in ids) else ('legacy_exploratory_only' if ids else 'not_explicitly_tested')
- # UI acceptance scenario is only a specification until Cursor implements Playwright test.
+ # UI acceptance scenario is only a specification until Playwright coverage exists.
  if ids and all(i.startswith('UI-') for i in ids):status='ui_acceptance_defined_not_automated'
  rows.append({'feature_id':x['feature_id'],'module':x['module'],'capability':x['capability'],'operation_class':x['operation_class'],'data_support_status':x['status'],
               'mapped_case_ids':ids,'coverage_label':status,'note':'A test case exists; this is not proof that the app implements/passes the feature.'})

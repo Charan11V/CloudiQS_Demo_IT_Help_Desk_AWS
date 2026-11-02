@@ -58,7 +58,6 @@ curl -s -i -X POST http://localhost:8000/v1/tickets \
 | `mock_api/app.py` | Runnable FastAPI with role/tenant enforcement, actions, faults and audit |
 | `docs/openapi.json` | Generated OpenAPI specification for the implemented API |
 | `tests/test_mock_api.py` | Automated mock-service tests; not an AI model benchmark |
-| `docs/CURSOR_BUILD_PROMPT.md` | Detailed prompt for your coding agent to build the application on top |
 | `docs/REFERENCE_FLOWS.md` | Deep incident walkthroughs and multi-source reconciliation |
 
 ## The two fictional customers
@@ -126,15 +125,13 @@ Source timestamps are different things: `occurred_at`, `event_time`, `last_sync`
 
 All demo tokens are intentionally public and trivial. They are never to be used on a network-accessible deployment. Never attach real employee accounts, credentials, AWS IAM roles, or real production remediation actions to the mock API.
 
-## How to build the actual agent
+## Application layering
 
-Follow `docs/CURSOR_BUILD_PROMPT.md`. Keep two separate components:
+Keep two separate components when extending this pack:
 
-**Agent (AWS-backed):** Amazon Bedrock model + Strands reasoning, controlled calls through a tool registry / AgentCore Gateway where configured, source-grounded answers, short workflows.
+**Orchestration layer:** model provider (Bedrock/simulator), tool registry, source-grounded answers, and short workflows.
 
-**Deterministic business layer:** authenticated actor/tenant, policy engine, approval state, idempotency, records, evidence logs, evaluation oracle. This layer must not depend on the model following its own prompt instructions.
-
-For a one-day build, get one complete Northstar flow working end-to-end, then test Beacon isolation and reliability. Treat the rest as breadth fixtures and reproducible future extensions.
+**Deterministic business layer:** authenticated actor/tenant, policy engine, approval state, idempotency, records, evidence logs, and evaluation fixtures. This layer must not depend on the model following its own prompt instructions.
 
 ## Regeneration and modification
 

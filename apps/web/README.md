@@ -1,140 +1,51 @@
-# HELIO Web Application
+# CloudiQS Web
 
-Next.js 15 App Router frontend for the HELIO Autonomous IT Operations platform.
+Next.js App Router frontend for the CloudiQS enterprise IT helpdesk demo.
 
-## Tech Stack
+## Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS with custom design tokens
-- **UI Components**: Radix UI primitives (shadcn-style)
-- **Icons**: Lucide React
-- **State Management**: TanStack Query
-- **Tables**: TanStack Table
-- **Forms**: React Hook Form + Zod
-- **Charts**: Recharts
-- **Notifications**: Sonner
-- **Fonts**: Inter + JetBrains Mono
-
-## Design System
-
-The application uses exact design tokens from the specification:
-
-### Dark Theme (Primary)
-- Background: `#0B101A`
-- Sidebar: `#0D1420`
-- Surface: `#111B29`, `#162334`, `#1B2B3D`
-- Accent: `#8A9EFF` (periwinkle)
-- Success: `#43D8AF`
-- Warning: `#F3B562`
-- Danger: `#F47F89`
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- TanStack Query
+- Lucide icons
+- Sonner toasts
 
 ## Development
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Run development server
 pnpm dev
-
-# Type check
-pnpm typecheck
-
-# Lint
-pnpm lint
-
-# Build
-pnpm build
-
-# Run E2E tests
-pnpm test:e2e
 ```
 
-## Environment Variables
+Environment variables are documented in `.env.example`. Prefer Docker Compose from the repository root for the full stack.
 
-Create a `.env` file:
+## Pages
 
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8001
-DEMO_MODE=true
-```
+| Route | Purpose |
+|---|---|
+| `/login` | Demo persona sign-in |
+| `/` | Home / workspace summary |
+| `/support` | Get help (guided + free-text support) |
+| `/tickets` | Ticket list and detail |
+| `/devices` | Assigned devices |
+| `/approvals` | Approval review (IT roles) |
+| `/admin` | Tenant administration |
+| `/security` | Security findings |
+| `/analytics` | Operational metrics |
+| `/evaluations` | Evaluation runs |
 
-## Features
+## API integration
 
-### Implemented Pages
+Browser calls use `/api-backend/*`, rewritten by Next.js to the agent API (`http://agent-api:8001` in Docker, `http://localhost:8001` locally). Session auth uses HttpOnly cookies with `credentials: 'include'`.
 
-1. **Login** (`/login`) - Persona chooser for demo authentication
-2. **Overview** (`/`) - Employee workspace dashboard
-3. **AI Support** (`/support`) - Chat interface with agent
-4. **Tickets** (`/tickets`) - Ticket queue and detail views
-5. **Devices** (`/devices`) - Hardware inventory
-6. **Approvals** (`/approvals`) - Review pending actions
-7. **Agent Activity** (`/agent`) - Run traces and diagnostics
-8. **Analytics** (`/analytics`) - Metrics and KPIs
-9. **Admin** (`/admin`) - System configuration
-10. **Security** (`/security`) - Security findings
-11. **Evaluations** (`/evaluations`) - Test runs
-12. **Knowledge** (`/knowledge`) - KB search
+## Role-based navigation
 
-### API Integration
+- **Employee:** Home, Get help, Tickets, Devices
+- **IT Engineer / Manager:** + Approvals
+- **Tenant Admin:** + Admin
+- **Security Analyst:** + Approvals, Security
 
-All API calls use relative `/api-backend/*` paths which are proxied via Next.js rewrites to the FastAPI backend:
+## Notes
 
-- In Docker: proxies to `http://agent-api:8001`
-- Locally: proxies to `http://localhost:8001`
-
-Requests include `credentials: 'include'` for HttpOnly cookie authentication.
-
-## Docker Build
-
-```bash
-# Build image
-docker build -t helio-web .
-
-# Run container
-docker run -p 3000:3000 -e AGENT_API_URL=http://agent-api:8001 helio-web
-```
-
-## Testing
-
-E2E tests use Playwright:
-
-1. Login flow with Asha persona
-2. Navigation and logout
-3. Support chat smoke test
-4. Terminated user blocked
-
-## Architecture
-
-- **App Router**: Server and client components
-- **Authentication**: Session-based via API cookies
-- **API Client**: Centralized fetch wrapper with error handling
-- **Layouts**: Nested layouts for authenticated routes
-- **Components**: Reusable UI primitives in `/components/ui`
-
-## Role-Based Navigation
-
-Navigation items are filtered based on user role:
-
-- **Employee**: Overview, Support, Tickets, Devices
-- **IT Engineer**: + Approvals, Agent Activity
-- **IT Manager**: + Analytics
-- **Tenant Admin**: + Admin, Knowledge
-- **Security Analyst**: + Security
-
-## Design Principles
-
-- Dark-first theme with light mode support
-- 248px sidebar (72px collapsed)
-- Max content width: 1500px
-- Tabular numbers for metrics
-- Accessible focus management
-- Responsive: Desktop (1280+), Tablet (768-1279), Mobile (360-767)
-
-## Known Limitations
-
-- Some actions are disabled (marked in UI)
-- Simulated enterprise data (synthetic)
-- Offline simulator mode by default
-- Demo authentication (not production-ready)
+- Demo data is synthetic.
+- Default orchestration mode is the offline simulator unless Bedrock credentials are configured.

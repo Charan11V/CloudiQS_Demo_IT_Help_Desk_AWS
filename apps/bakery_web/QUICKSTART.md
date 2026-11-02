@@ -365,7 +365,7 @@ This frontend expects the backend to implement:
 
 ## 📚 Related Documentation
 
-- [Spec](../../specs/agentic_bakery_helpdesk/CURSOR_MASTER_SPEC.md): Full system requirements
+- [Spec](../../specs/agentic_bakery_helpdesk/MASTER_SPEC.md): Full system requirements
 - [Backend API](../bakery_api/README.md): FastAPI implementation
 - [Catalog](../../specs/agentic_bakery_helpdesk/guided_flow_catalog.json): Issue taxonomy
 

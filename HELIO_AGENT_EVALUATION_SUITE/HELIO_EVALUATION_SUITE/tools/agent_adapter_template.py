@@ -1,4 +1,4 @@
-"""IMPLEMENT the adapter against YOUR Cursor-built HELIO backend.
+"""Implement the adapter against the HELIO backend under test.
 
 Required sync API:
     invoke_case(case:dict, turn_index:int, user_text:str, session_id:str) -> dict

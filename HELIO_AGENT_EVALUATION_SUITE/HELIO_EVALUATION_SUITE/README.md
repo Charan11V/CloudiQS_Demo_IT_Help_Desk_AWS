@@ -65,7 +65,7 @@ python tools/score_responses.py --responses reports/responses.jsonl \
 
 **Do not interpret `--provider none` results as answer accuracy.** They will be marked `NEEDS_AI_JUDGE` unless hard violations are detected. The suite never invents benchmark scores.
 
-The runner is adapter-based because Cursor might have built HELIO routes and SSE responses differently. See `tools/agent_adapter_template.py` and `docs/CURSOR_EVALUATION_INSTRUCTIONS.md`. The existing HELIO build specification proposes `POST /conversations/{id}/runs`; the adapter must resolve that route, await the real result, and gather independently authenticated traces/readback. Do not guess the API contract.
+The runner is adapter-based so it can target the live HELIO API without hard-coding transport details. See `tools/agent_adapter_template.py` and `tools/helio_adapter.py`. The HELIO API exposes conversation runs (for example `POST /conversations/{id}/runs`); the adapter must resolve the live route, await the real result, and gather independently authenticated traces/readback.
 
 ## The four pillars of an accepted result
 
@@ -87,24 +87,24 @@ Before claiming all tests passed, the evaluator must record the actual model pro
 - `cases/public/`: user prompts, actors and test environment setup; may be read by evaluator runner.
 - `cases/private_oracle/`: hidden expected behaviours and evaluator-only gold criteria; **must never be mounted into the agent container, shown to the agent, embedded into its retrieval index, or placed in Next.js `/public`.**
 - `tools/score_responses.py` and independent judge: separate evaluator process that can read the gold file *after* the agent responds.
-- Avoid copying the private oracle into the coding agent's prompts during evaluation. Cursor may read the suite to implement evaluation infrastructure, but during test execution the live agent itself must not access gold files.
+- Avoid copying the private oracle into the helpdesk agent context during evaluation. Evaluation tooling may read the suite, but the live agent under test must not access gold files.
 
 If possible, run the judge with a different model from the agent, use temperature 0, periodically blind-review a subset yourself, and rerun nondeterministic tests more than once. AI judges can be wrong and are not independent security attestations.
 
-## How to send results back for independent review
+## Review artifacts
 
-After running evaluation, upload these two files to this ChatGPT conversation:
+After a run, keep these files for review:
 
-1. `reports/<run>/review_bundle.jsonl` — contains prompts, recorded agent answers, tool events, trace checks and AI-judge scores (without private oracle).
+1. `reports/<run>/review_bundle.jsonl` — prompts, recorded answers, tool events, trace checks and judge scores (without private oracle).
 2. `reports/<run>/report.md` — aggregate result and failure list.
 
-Optional: upload `reports/<run>/grades.jsonl`, the agent's prompt version, selected trace/event exports and screenshots of failed UI tests. I'll examine answer correctness, factual grounding, sources, safety, inconsistencies, model-judge mistakes and patterns in failures. **Remove real credentials, tokens and personal data; the provided demo tokens are insecure/public and should never be used against real resources.**
+Optional: `reports/<run>/grades.jsonl`, prompt version, selected trace/event exports, and screenshots of failed UI tests. **Remove real credentials, tokens and personal data; demo tokens are public fixtures and must never be used against real resources.**
 
 ## Important limits
 
 - This pack is extensive in *breadth*, not a certification or fully realistic enterprise risk benchmark.
 - Some legacy cases have ambiguous targets; treat them as exploration until curated.
-- Some case setup or fault names describe required adapter behaviour; Cursor must implement the injections in the mock integration or mark the test `SKIPPED_UNSUPPORTED`, **not pretend that it happened**.
+- Some case setup or fault names describe required adapter behaviour; implement the injections in the mock integration or mark the test `SKIPPED_UNSUPPORTED` — do not simulate success.
 - Role-based metamorphic comparisons require meaningful paired execution and state readback, not merely response-string matching.
 - Original fixture timestamps can be in the synthetic future relative to the scenario clock. Use fixed fixture clock + source timestamps; flag contradictory or stale values rather than confidently asserting they represent today's real world.
-- UI case definitions are acceptance requirements; they are not already implemented Playwright tests against the unfinished HELIO frontend.
+- UI case definitions are acceptance requirements; implement matching Playwright coverage where applicable.

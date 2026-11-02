@@ -2,7 +2,7 @@
 from typing import Dict, List, Any, Optional, Tuple
 
 
-# Source authority rules from BUILD_WITH_CURSOR.md section 6.5
+# Source authority rules for multi-feed reconciliation
 SOURCE_AUTHORITY = {
     "employment_status": "hris_employee_records",
     "account_enabled": "identity_directory",

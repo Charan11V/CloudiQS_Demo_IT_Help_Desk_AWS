@@ -1,29 +1,27 @@
-# HELIO — Autonomous Enterprise Service Desk (local Docker demo)
+# CloudiQS Demo — Enterprise IT Helpdesk
 
-Independent hiring demonstration inspired by AWS-native agent workflows. **Not** an official CloudiQS or Agentic Bakery product. Enterprise connectors are synthetic; agent tools, policies, approvals, persistence and UI are real application code.
+Local Docker demo of an enterprise IT helpdesk with guided support, tickets, devices, approvals, and policy-aware remediations. Enterprise connectors are synthetic; application APIs, policies, approvals, persistence, and UI are real demo code.
 
-## Quick start (Docker only)
+## Quick start
 
 ```bash
 cp .env.example .env
 docker compose up --build -d
 ```
 
-Open **http://localhost:3000** → choose persona **Asha Patel** (Northstar employee).
+Open **http://localhost:3000** and sign in with a Northstar persona (for example Asha Rao).
 
 | Service | URL | Notes |
 |---|---|---|
 | Web UI | http://localhost:3000 | Bound to localhost |
 | Agent API | http://localhost:8001 | Session cookies; OpenAPI `/docs` |
-| Enterprise mock API | http://localhost:8000 | Private Docker network preferred; localhost for diagnostics |
+| Enterprise mock API | http://localhost:8000 | Diagnostics / fixtures |
 
-Default `MODEL_PROVIDER=simulator` (deterministic golden paths calling **real** mock tools). Set `MODEL_PROVIDER=bedrock` plus AWS credentials for live Strands+Bedrock. AgentCore Runtime is **not** deployed locally.
+Default `MODEL_PROVIDER=simulator` runs deterministic scenario paths against the mock tools. Set `MODEL_PROVIDER=bedrock` with AWS credentials for Bedrock-backed orchestration.
 
-## Demo personas
+## Personas
 
-Northstar: `northstar-asha`, `northstar-rahul`, `northstar-priya`, `northstar-vikram`, `northstar-arjun-security`  
-Beacon: `beacon-neha`, `beacon-david`, `beacon-james`, `beacon-meera`, `beacon-noah-security`  
-Denied: `northstar-omar-terminated`
+Northstar employees and IT staff are available from the login screen (`northstar-asha`, `northstar-rahul`, `northstar-priya`, `northstar-vikram`, `northstar-arjun-security`, and related employee personas).
 
 ## Useful commands
 
@@ -38,13 +36,13 @@ make reset-demo CONFIRM=YES
 
 ## Architecture
 
-Browser → Next.js (rewrites `/api-backend`) → FastAPI agent control plane → Strands (Bedrock) or Offline Simulator → typed tools → enterprise mock FastAPI → SQLite fixtures.
+Browser → Next.js → FastAPI control plane → simulator or Bedrock orchestration → typed tools → enterprise mock API → SQLite fixtures.
 
-See `docs/ARCHITECTURE.md`, `docs/SECURITY_MODEL.md`, `docs/DEMO_WALKTHROUGH.md`, `docs/TEST_RESULTS.md`.
+See `docs/ARCHITECTURE.md`, `docs/SECURITY_MODEL.md`, `docs/DEMO_WALKTHROUGH.md`, and `docs/TEST_RESULTS.md`.
 
 ## Known limitations
 
-- Offline simulator is labelled and is **not** model inference.
-- Bedrock requires account model access; without credentials the UI stays on Offline mode.
-- No Cognito/OIDC, no AgentCore Runtime/Gateway, no real MFA reset / remote wipe.
+- Simulator mode is labelled and is not model inference.
+- Bedrock requires account model access; without credentials the stack stays on simulator mode.
+- No Cognito/OIDC, no production AgentCore Runtime, and no real MFA reset / remote wipe.
 - All identities and remediations are fictional simulations.
