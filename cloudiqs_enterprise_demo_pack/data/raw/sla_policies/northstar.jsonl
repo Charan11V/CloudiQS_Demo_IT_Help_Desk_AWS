@@ -1,0 +1,4 @@
+{"calendar": "24x7", "escalation_minutes": 15, "pause_states": ["waiting_customer", "waiting_vendor"], "priority": "P1", "resolution_minutes": 30, "response_minutes": 7, "tenant_id": "northstar"}
+{"calendar": "24x7", "escalation_minutes": 60, "pause_states": ["waiting_customer", "waiting_vendor"], "priority": "P2", "resolution_minutes": 120, "response_minutes": 30, "tenant_id": "northstar"}
+{"calendar": "business_hours", "escalation_minutes": 240, "pause_states": ["waiting_customer", "waiting_vendor"], "priority": "P3", "resolution_minutes": 480, "response_minutes": 120, "tenant_id": "northstar"}
+{"calendar": "business_hours", "escalation_minutes": 720, "pause_states": ["waiting_customer", "waiting_vendor"], "priority": "P4", "resolution_minutes": 1440, "response_minutes": 360, "tenant_id": "northstar"}

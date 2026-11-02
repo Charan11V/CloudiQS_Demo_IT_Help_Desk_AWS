@@ -1,0 +1,1307 @@
+{
+  "schema_version": "1.0",
+  "intro": "Hi! I’m your IT assistant. What would you like help with?",
+  "root_options": [
+    {
+      "id": "identity",
+      "label": "Account, password & access",
+      "icon": "key-round",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "identity__password_and_login",
+          "label": "Password and login",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "ID-01",
+              "label": "Account locked",
+              "type": "issue"
+            },
+            {
+              "id": "ID-02",
+              "label": "Forgot password",
+              "type": "issue"
+            },
+            {
+              "id": "ID-03",
+              "label": "Password expired",
+              "type": "issue"
+            },
+            {
+              "id": "ID-07",
+              "label": "Suspicious sign-in / lock",
+              "type": "issue"
+            },
+            {
+              "id": "ID-09",
+              "label": "Disabled employee account",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "identity__mfa_and_sessions",
+          "label": "MFA and sessions",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "ID-04",
+              "label": "MFA push/code not arriving",
+              "type": "issue"
+            },
+            {
+              "id": "ID-05",
+              "label": "Lost MFA device",
+              "type": "issue"
+            },
+            {
+              "id": "ID-08",
+              "label": "Session expired",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "identity__application_access",
+          "label": "Application access",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "ID-06",
+              "label": "Access denied to application",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "label": "VPN, Wi-Fi & internet",
+      "icon": "wifi",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "network__vpn",
+          "label": "VPN",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "NET-01",
+              "label": "VPN certificate expired",
+              "type": "issue"
+            },
+            {
+              "id": "NET-02",
+              "label": "Outdated VPN client",
+              "type": "issue"
+            },
+            {
+              "id": "NET-03",
+              "label": "VPN sign-in fails due to account",
+              "type": "issue"
+            },
+            {
+              "id": "NET-04",
+              "label": "VPN service outage",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "network__wi-fi_and_internet",
+          "label": "Wi-Fi and internet",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "NET-05",
+              "label": "DNS resolution failure",
+              "type": "issue"
+            },
+            {
+              "id": "NET-06",
+              "label": "Wi-Fi disabled",
+              "type": "issue"
+            },
+            {
+              "id": "NET-07",
+              "label": "Weak Wi-Fi signal",
+              "type": "issue"
+            },
+            {
+              "id": "NET-08",
+              "label": "Proxy or firewall issue",
+              "type": "issue"
+            },
+            {
+              "id": "NET-09",
+              "label": "Internet provider outage",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "device",
+      "label": "Laptop performance & updates",
+      "icon": "laptop",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "device__performance",
+          "label": "Performance",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "DEV-01",
+              "label": "Low disk space",
+              "type": "issue"
+            },
+            {
+              "id": "DEV-02",
+              "label": "High CPU use",
+              "type": "issue"
+            },
+            {
+              "id": "DEV-03",
+              "label": "High memory use",
+              "type": "issue"
+            },
+            {
+              "id": "DEV-06",
+              "label": "Overheating",
+              "type": "issue"
+            },
+            {
+              "id": "DEV-09",
+              "label": "Storage performance slow",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "device__updates_and_reboot",
+          "label": "Updates and reboot",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "DEV-04",
+              "label": "Restart pending",
+              "type": "issue"
+            },
+            {
+              "id": "DEV-05",
+              "label": "OS patches outdated",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "device__hardware_health",
+          "label": "Hardware health",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "DEV-07",
+              "label": "Battery failing",
+              "type": "issue"
+            },
+            {
+              "id": "DEV-08",
+              "label": "Device fails to boot",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apps",
+      "label": "Applications, email & meetings",
+      "icon": "app-window",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "apps__application_errors",
+          "label": "Application errors",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "APP-01",
+              "label": "App crashes on startup",
+              "type": "issue"
+            },
+            {
+              "id": "APP-02",
+              "label": "Application outdated",
+              "type": "issue"
+            },
+            {
+              "id": "APP-08",
+              "label": "Application provider outage",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "apps__licences_and_access",
+          "label": "Licences and access",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "APP-03",
+              "label": "Software licence unavailable",
+              "type": "issue"
+            },
+            {
+              "id": "APP-04",
+              "label": "Missing application permission",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "apps__email",
+          "label": "Email",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "APP-05",
+              "label": "Email not syncing",
+              "type": "issue"
+            },
+            {
+              "id": "APP-06",
+              "label": "Mailbox full",
+              "type": "issue"
+            },
+            {
+              "id": "APP-09",
+              "label": "Undelivered outgoing email",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "apps__meetings_and_audio",
+          "label": "Meetings and audio",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "APP-07",
+              "label": "Microphone or camera blocked",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "printing",
+      "label": "Printing & scanners",
+      "icon": "printer",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "printing__printer_connection",
+          "label": "Printer connection",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "PRINT-01",
+              "label": "Printer offline",
+              "type": "issue"
+            },
+            {
+              "id": "PRINT-04",
+              "label": "Printer driver mismatch",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "printing__printing_queue",
+          "label": "Printing queue",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "PRINT-02",
+              "label": "My print job is stuck",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "printing__printer_supplies",
+          "label": "Printer supplies",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "PRINT-03",
+              "label": "Out of paper or paper jam",
+              "type": "issue"
+            },
+            {
+              "id": "PRINT-05",
+              "label": "Toner low or printer hardware broken",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security & suspicious activity",
+      "icon": "shield-alert",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "security__suspicious_messages",
+          "label": "Suspicious messages",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "SEC-01",
+              "label": "Report phishing email",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "security__malware",
+          "label": "Malware",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "SEC-02",
+              "label": "Endpoint malware alert",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "security__lost_or_stolen",
+          "label": "Lost or stolen",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "SEC-03",
+              "label": "Lost or stolen company device",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "security__suspicious_sign-ins",
+          "label": "Suspicious sign-ins",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "SEC-04",
+              "label": "Unrecognised login",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "security__data_exposure",
+          "label": "Data exposure",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "SEC-05",
+              "label": "Potential data leak",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "security__policy_bypass",
+          "label": "Policy bypass",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "SEC-06",
+              "label": "Disable MFA or security controls",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "label": "Hardware & accessories",
+      "icon": "keyboard",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "hardware__peripherals",
+          "label": "Peripherals",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "HW-01",
+              "label": "Camera not detected",
+              "type": "issue"
+            },
+            {
+              "id": "HW-02",
+              "label": "Keyboard or mouse not working",
+              "type": "issue"
+            },
+            {
+              "id": "HW-04",
+              "label": "Docking station disconnects",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "hardware__physical_damage",
+          "label": "Physical damage",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "HW-03",
+              "label": "Broken screen",
+              "type": "issue"
+            },
+            {
+              "id": "HW-05",
+              "label": "Lost hardware",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "requests",
+      "label": "Software, access & hardware requests",
+      "icon": "list-plus",
+      "type": "submenu",
+      "children": [
+        {
+          "id": "requests__software_request",
+          "label": "Software request",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "REQ-01",
+              "label": "Install approved software",
+              "type": "issue"
+            },
+            {
+              "id": "REQ-02",
+              "label": "Request restricted software",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "requests__access_request",
+          "label": "Access request",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "REQ-03",
+              "label": "Access shared drive",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "requests__hardware_request",
+          "label": "Hardware request",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "REQ-04",
+              "label": "Request new laptop/peripheral",
+              "type": "issue"
+            }
+          ]
+        },
+        {
+          "id": "requests__general_service",
+          "label": "General service",
+          "type": "submenu",
+          "children": [
+            {
+              "id": "REQ-05",
+              "label": "Other service request",
+              "type": "issue"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "global_options": [
+    {
+      "id": "cant_find",
+      "label": "Others",
+      "type": "fallback"
+    },
+    {
+      "id": "my_tickets",
+      "label": "My existing tickets",
+      "type": "ticket_lookup"
+    }
+  ],
+  "common_controls": [
+    "Back",
+    "Start over",
+    "Something else",
+    "Talk to IT",
+    "Cancel",
+    "Resume my issue"
+  ],
+  "issues": [
+    {
+      "issue_code": "ID-01",
+      "category": "identity",
+      "subcategory": "Password and login",
+      "label": "Account locked",
+      "clarifying_question": "Do you see an account locked message?",
+      "evidence_to_fetch": "account.status=locked, lock_reason, sign-in events",
+      "action_code": "unlock_own_account",
+      "approval_type": "conditional",
+      "verify": "account.status=active and new login simulation succeeds",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "ID-02",
+      "category": "identity",
+      "subcategory": "Password and login",
+      "label": "Forgot password",
+      "clarifying_question": "Do you need to reset your own password?",
+      "evidence_to_fetch": "verified user identity, reset policy, account state",
+      "action_code": "issue_self_reset_challenge",
+      "approval_type": "self_verification",
+      "verify": "reset challenge completed and credentials_version incremented",
+      "nominal_outcome": "resolved_after_user_action",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "ID-03",
+      "category": "identity",
+      "subcategory": "Password and login",
+      "label": "Password expired",
+      "clarifying_question": "Does your sign-in say the password has expired?",
+      "evidence_to_fetch": "account.password_expired=true",
+      "action_code": "issue_self_reset_challenge",
+      "approval_type": "self_verification",
+      "verify": "password_expired=false after confirmed reset",
+      "nominal_outcome": "resolved_after_user_action",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "ID-04",
+      "category": "identity",
+      "subcategory": "MFA and sessions",
+      "label": "MFA push/code not arriving",
+      "clarifying_question": "Is your registered MFA method available?",
+      "evidence_to_fetch": "mfa method, delivery simulator, sign-in status",
+      "action_code": "retry_mfa_delivery",
+      "approval_type": "none",
+      "verify": "mfa_delivery_status=delivered and user confirms",
+      "nominal_outcome": "resolved_after_user_action",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "ID-05",
+      "category": "identity",
+      "subcategory": "MFA and sessions",
+      "label": "Lost MFA device",
+      "clarifying_question": "Have you lost access to your registered authenticator device?",
+      "evidence_to_fetch": "mfa methods, sign-in risk flags",
+      "action_code": "request_mfa_recovery",
+      "approval_type": "security_approval",
+      "verify": "approved recovery completed and sign-in verified",
+      "nominal_outcome": "pending_approval",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "ID-06",
+      "category": "identity",
+      "subcategory": "Application access",
+      "label": "Access denied to application",
+      "clarifying_question": "Which application shows access denied?",
+      "evidence_to_fetch": "entitlements, role, licence status, application policy",
+      "action_code": "request_entitlement_grant",
+      "approval_type": "app_owner_approval",
+      "verify": "entitlement exists and app permission check succeeds",
+      "nominal_outcome": "pending_approval",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "ID-07",
+      "category": "identity",
+      "subcategory": "Password and login",
+      "label": "Suspicious sign-in / lock",
+      "clarifying_question": "Are you seeing security warnings or an unfamiliar login?",
+      "evidence_to_fetch": "security events, sign-in risk flags",
+      "action_code": "create_security_escalation",
+      "approval_type": "security_review",
+      "verify": "security team explicitly closes incident",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "ID-08",
+      "category": "identity",
+      "subcategory": "MFA and sessions",
+      "label": "Session expired",
+      "clarifying_question": "Can you authenticate normally but your app keeps signing you out?",
+      "evidence_to_fetch": "session token expiry, auth logs",
+      "action_code": "refresh_mock_session",
+      "approval_type": "none",
+      "verify": "session.status=active and test access succeeds",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "ID-09",
+      "category": "identity",
+      "subcategory": "Password and login",
+      "label": "Disabled employee account",
+      "clarifying_question": "Does the message say your account has been disabled by an administrator?",
+      "evidence_to_fetch": "employment status, account.disabled_reason",
+      "action_code": "create_identity_ticket",
+      "approval_type": "identity_admin_review",
+      "verify": "reinstatement verified by authorised admin",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "NET-01",
+      "category": "network",
+      "subcategory": "VPN",
+      "label": "VPN certificate expired",
+      "clarifying_question": "Does VPN fail with a certificate or trust error?",
+      "evidence_to_fetch": "vpn certificate expiry, device ownership, VPN log",
+      "action_code": "renew_mock_vpn_certificate",
+      "approval_type": "it_approval",
+      "verify": "certificate valid and simulated VPN handshake succeeds",
+      "nominal_outcome": "pending_approval",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "NET-02",
+      "category": "network",
+      "subcategory": "VPN",
+      "label": "Outdated VPN client",
+      "clarifying_question": "Is the VPN client asking for an update?",
+      "evidence_to_fetch": "installed VPN version vs policy minimum",
+      "action_code": "update_mock_vpn_client",
+      "approval_type": "none",
+      "verify": "client version compliant and connection check passes",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "NET-03",
+      "category": "network",
+      "subcategory": "VPN",
+      "label": "VPN sign-in fails due to account",
+      "clarifying_question": "Does the same company login fail outside VPN?",
+      "evidence_to_fetch": "identity status, VPN failure codes",
+      "action_code": "route_identity_flow",
+      "approval_type": "per_identity",
+      "verify": "resolved by linked identity flow",
+      "nominal_outcome": "routed",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "NET-04",
+      "category": "network",
+      "subcategory": "VPN",
+      "label": "VPN service outage",
+      "clarifying_question": "Are coworkers having the same VPN problem?",
+      "evidence_to_fetch": "tenant VPN service health and incident alerts",
+      "action_code": "create_outage_linked_ticket",
+      "approval_type": "none",
+      "verify": "service recovered by incident service, then user confirms",
+      "nominal_outcome": "waiting_external",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "NET-05",
+      "category": "network",
+      "subcategory": "Wi-Fi and internet",
+      "label": "DNS resolution failure",
+      "clarifying_question": "Do websites fail by name while the network is connected?",
+      "evidence_to_fetch": "device dns_status, network tests",
+      "action_code": "reset_mock_dns_config",
+      "approval_type": "none",
+      "verify": "dns_status=healthy and lookup simulation passes",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "NET-06",
+      "category": "network",
+      "subcategory": "Wi-Fi and internet",
+      "label": "Wi-Fi disabled",
+      "clarifying_question": "Is Wi-Fi shown as turned off on your laptop?",
+      "evidence_to_fetch": "device.wifi_enabled, adapter state",
+      "action_code": "enable_mock_wifi",
+      "approval_type": "none",
+      "verify": "wifi_enabled=true and adapter connects",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "NET-07",
+      "category": "network",
+      "subcategory": "Wi-Fi and internet",
+      "label": "Weak Wi-Fi signal",
+      "clarifying_question": "Is the connection slow or dropping frequently?",
+      "evidence_to_fetch": "signal strength, access point distance",
+      "action_code": "guided_wifi_steps",
+      "approval_type": "user_confirmation",
+      "verify": "user confirms connection stable",
+      "nominal_outcome": "awaiting_user",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "NET-08",
+      "category": "network",
+      "subcategory": "Wi-Fi and internet",
+      "label": "Proxy or firewall issue",
+      "clarifying_question": "Does the problem only happen with particular company sites?",
+      "evidence_to_fetch": "proxy state and policy, network diagnostics",
+      "action_code": "create_network_escalation",
+      "approval_type": "network_team",
+      "verify": "network specialist verifies fix",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "NET-09",
+      "category": "network",
+      "subcategory": "Wi-Fi and internet",
+      "label": "Internet provider outage",
+      "clarifying_question": "Do all devices lose internet at this location?",
+      "evidence_to_fetch": "external provider incident, network checks",
+      "action_code": "create_external_outage_ticket",
+      "approval_type": "none",
+      "verify": "provider marks recovered and user confirms",
+      "nominal_outcome": "waiting_external",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-01",
+      "category": "device",
+      "subcategory": "Performance",
+      "label": "Low disk space",
+      "clarifying_question": "Does your computer show a low storage warning?",
+      "evidence_to_fetch": "device disk_total_gb, disk_free_gb, safe temp files inventory",
+      "action_code": "run_mock_safe_cleanup",
+      "approval_type": "user_confirmation",
+      "verify": "disk_free_gb rises by recorded bytes, disk_free_pct above policy",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "DEV-02",
+      "category": "device",
+      "subcategory": "Performance",
+      "label": "High CPU use",
+      "clarifying_question": "Is the laptop very slow and the fan constantly loud?",
+      "evidence_to_fetch": "process list, cpu_percent and protected process list",
+      "action_code": "restart_mock_noncritical_process",
+      "approval_type": "conditional",
+      "verify": "cpu_percent below threshold and process state healthy",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-03",
+      "category": "device",
+      "subcategory": "Performance",
+      "label": "High memory use",
+      "clarifying_question": "Are apps freezing or showing out-of-memory errors?",
+      "evidence_to_fetch": "memory_percent and active app process",
+      "action_code": "restart_mock_app_process",
+      "approval_type": "user_confirmation",
+      "verify": "memory_percent falls and application health good",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-04",
+      "category": "device",
+      "subcategory": "Updates and reboot",
+      "label": "Restart pending",
+      "clarifying_question": "Have updates asked you to restart your device?",
+      "evidence_to_fetch": "device.restart_pending and active task state",
+      "action_code": "perform_mock_restart",
+      "approval_type": "user_confirmation",
+      "verify": "restart_pending=false, reboot_count incremented and health test passes",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "DEV-05",
+      "category": "device",
+      "subcategory": "Updates and reboot",
+      "label": "OS patches outdated",
+      "clarifying_question": "Does the device show missing security or system updates?",
+      "evidence_to_fetch": "device patch level, scheduled updates",
+      "action_code": "schedule_mock_patch",
+      "approval_type": "it_approval",
+      "verify": "patch version updated and patch compliance verified",
+      "nominal_outcome": "pending_action",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-06",
+      "category": "device",
+      "subcategory": "Performance",
+      "label": "Overheating",
+      "clarifying_question": "Does the device feel unusually hot or shut down unexpectedly?",
+      "evidence_to_fetch": "device temperature sensor and hardware diagnostics",
+      "action_code": "create_hardware_escalation",
+      "approval_type": "none",
+      "verify": "technician confirms safe operational state",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-07",
+      "category": "device",
+      "subcategory": "Hardware health",
+      "label": "Battery failing",
+      "clarifying_question": "Is the battery swelling, draining rapidly, or not charging?",
+      "evidence_to_fetch": "device battery_health, safety flag",
+      "action_code": "create_hardware_escalation",
+      "approval_type": "none",
+      "verify": "technician confirms physical repair",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-08",
+      "category": "device",
+      "subcategory": "Hardware health",
+      "label": "Device fails to boot",
+      "clarifying_question": "Is the device unable to boot into the operating system?",
+      "evidence_to_fetch": "last heartbeat, boot errors",
+      "action_code": "create_hardware_escalation",
+      "approval_type": "none",
+      "verify": "technician validates repair",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "DEV-09",
+      "category": "device",
+      "subcategory": "Performance",
+      "label": "Storage performance slow",
+      "clarifying_question": "Is storage showing persistent read/write errors?",
+      "evidence_to_fetch": "disk SMART health, I/O alerts",
+      "action_code": "create_hardware_escalation",
+      "approval_type": "none",
+      "verify": "storage replacement and data integrity checked",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-01",
+      "category": "apps",
+      "subcategory": "Application errors",
+      "label": "App crashes on startup",
+      "clarifying_question": "Which application fails when you open it?",
+      "evidence_to_fetch": "app installation, crash logs, service state",
+      "action_code": "restart_mock_app_and_cache",
+      "approval_type": "user_confirmation",
+      "verify": "application status=running and simulated health check passes",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "APP-02",
+      "category": "apps",
+      "subcategory": "Application errors",
+      "label": "Application outdated",
+      "clarifying_question": "Does your application request an update?",
+      "evidence_to_fetch": "installed version, approved version catalogue",
+      "action_code": "install_mock_app_update",
+      "approval_type": "conditional",
+      "verify": "installed version >= required and app health pass",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-03",
+      "category": "apps",
+      "subcategory": "Licences and access",
+      "label": "Software licence unavailable",
+      "clarifying_question": "Does the software say a licence is missing or expired?",
+      "evidence_to_fetch": "licence pool, user assignment, contract status",
+      "action_code": "request_licence_assignment",
+      "approval_type": "app_owner_approval",
+      "verify": "licence allocated, remaining capacity nonnegative",
+      "nominal_outcome": "pending_approval",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-04",
+      "category": "apps",
+      "subcategory": "Licences and access",
+      "label": "Missing application permission",
+      "clarifying_question": "Can you sign in but cannot open a required feature?",
+      "evidence_to_fetch": "user entitlement, group and policy",
+      "action_code": "request_entitlement_grant",
+      "approval_type": "app_owner_approval",
+      "verify": "approved entitlement grants correct scope",
+      "nominal_outcome": "pending_approval",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "APP-05",
+      "category": "apps",
+      "subcategory": "Email",
+      "label": "Email not syncing",
+      "clarifying_question": "Can you open your mailbox but recent messages are missing?",
+      "evidence_to_fetch": "mailbox token state, sync timestamp, provider health",
+      "action_code": "refresh_mock_mail_sync",
+      "approval_type": "none",
+      "verify": "sync_status=healthy and timestamp advanced",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-06",
+      "category": "apps",
+      "subcategory": "Email",
+      "label": "Mailbox full",
+      "clarifying_question": "Are you seeing a mailbox quota exceeded message?",
+      "evidence_to_fetch": "mailbox used_gb, quota_gb, archive candidates",
+      "action_code": "mock_archive_selected_mail",
+      "approval_type": "user_confirmation",
+      "verify": "used_gb decreases, archived count increases, quota compliance verified",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-07",
+      "category": "apps",
+      "subcategory": "Meetings and audio",
+      "label": "Microphone or camera blocked",
+      "clarifying_question": "Does the meeting app say access to microphone or camera is blocked?",
+      "evidence_to_fetch": "device app permissions, device status",
+      "action_code": "enable_mock_app_permission",
+      "approval_type": "user_confirmation",
+      "verify": "permission=allowed and device probe passes",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-08",
+      "category": "apps",
+      "subcategory": "Application errors",
+      "label": "Application provider outage",
+      "clarifying_question": "Does the app fail for several coworkers too?",
+      "evidence_to_fetch": "service incident and provider status",
+      "action_code": "create_outage_linked_ticket",
+      "approval_type": "none",
+      "verify": "provider recovery and user confirmation",
+      "nominal_outcome": "waiting_external",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "APP-09",
+      "category": "apps",
+      "subcategory": "Email",
+      "label": "Undelivered outgoing email",
+      "clarifying_question": "Did you receive a delivery failure notice?",
+      "evidence_to_fetch": "SMTP failure status, recipient pattern and policy",
+      "action_code": "create_email_routing_ticket",
+      "approval_type": "mail_admin_review",
+      "verify": "mail system verifies successful delivery",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "PRINT-01",
+      "category": "printing",
+      "subcategory": "Printer connection",
+      "label": "Printer offline",
+      "clarifying_question": "Does the printer appear offline?",
+      "evidence_to_fetch": "printer current status, queue and network",
+      "action_code": "restart_mock_printer_service",
+      "approval_type": "conditional",
+      "verify": "printer.status=online and test page queued",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "PRINT-02",
+      "category": "printing",
+      "subcategory": "Printing queue",
+      "label": "My print job is stuck",
+      "clarifying_question": "Is your own print job stuck in the queue?",
+      "evidence_to_fetch": "print_job.owner, status, printer queue health",
+      "action_code": "retry_or_cancel_own_print_job",
+      "approval_type": "user_confirmation",
+      "verify": "own job state updated; other users jobs untouched",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "PRINT-03",
+      "category": "printing",
+      "subcategory": "Printer supplies",
+      "label": "Out of paper or paper jam",
+      "clarifying_question": "Does the printer show paper out or paper jam?",
+      "evidence_to_fetch": "printer supplies and jam status",
+      "action_code": "guided_manual_printer_fix",
+      "approval_type": "user_confirmation",
+      "verify": "printer sensor simulation confirms ready after user action",
+      "nominal_outcome": "resolved_after_user_action",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "PRINT-04",
+      "category": "printing",
+      "subcategory": "Printer connection",
+      "label": "Printer driver mismatch",
+      "clarifying_question": "Did printing fail after an OS or printer update?",
+      "evidence_to_fetch": "driver version, device and printer model",
+      "action_code": "install_mock_printer_driver",
+      "approval_type": "conditional",
+      "verify": "driver version compatible and test print passes",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "PRINT-05",
+      "category": "printing",
+      "subcategory": "Printer supplies",
+      "label": "Toner low or printer hardware broken",
+      "clarifying_question": "Is the printer asking for toner or service?",
+      "evidence_to_fetch": "printer toner and hardware fault",
+      "action_code": "create_facilities_ticket",
+      "approval_type": "none",
+      "verify": "facility confirms replacement or repair",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "SEC-01",
+      "category": "security",
+      "subcategory": "Suspicious messages",
+      "label": "Report phishing email",
+      "clarifying_question": "Did you receive a suspicious link or attachment?",
+      "evidence_to_fetch": "reported message metadata, available indicators",
+      "action_code": "create_security_incident",
+      "approval_type": "security_review",
+      "verify": "security analyst closes incident; employee report acknowledged",
+      "nominal_outcome": "escalated",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "SEC-02",
+      "category": "security",
+      "subcategory": "Malware",
+      "label": "Endpoint malware alert",
+      "clarifying_question": "Does antivirus show malware or a threat?",
+      "evidence_to_fetch": "EDR findings, device status",
+      "action_code": "request_mock_isolation",
+      "approval_type": "security_approval",
+      "verify": "containment verified and security analyst closes",
+      "nominal_outcome": "pending_approval",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "SEC-03",
+      "category": "security",
+      "subcategory": "Lost or stolen",
+      "label": "Lost or stolen company device",
+      "clarifying_question": "Have you lost a company laptop or phone?",
+      "evidence_to_fetch": "ownership, device last heartbeat, sessions",
+      "action_code": "create_urgent_security_incident",
+      "approval_type": "security_approval",
+      "verify": "security-led response complete",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "SEC-04",
+      "category": "security",
+      "subcategory": "Suspicious sign-ins",
+      "label": "Unrecognised login",
+      "clarifying_question": "Did you receive a sign-in alert you do not recognise?",
+      "evidence_to_fetch": "identity risk events, sign-in history",
+      "action_code": "create_urgent_security_incident",
+      "approval_type": "security_review",
+      "verify": "security analyst closes incident",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "SEC-05",
+      "category": "security",
+      "subcategory": "Data exposure",
+      "label": "Potential data leak",
+      "clarifying_question": "Do you think company information was sent to the wrong person?",
+      "evidence_to_fetch": "reporter statement, file metadata",
+      "action_code": "create_urgent_security_incident",
+      "approval_type": "security_review",
+      "verify": "security analyst verifies containment",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "SEC-06",
+      "category": "security",
+      "subcategory": "Policy bypass",
+      "label": "Disable MFA or security controls",
+      "clarifying_question": "Are you asking to bypass MFA or disable a company security safeguard?",
+      "evidence_to_fetch": "request and caller permissions",
+      "action_code": "refuse_and_escalate_security_request",
+      "approval_type": "security_review",
+      "verify": "no automated bypass; specialist closes request",
+      "nominal_outcome": "refused",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "HW-01",
+      "category": "hardware",
+      "subcategory": "Peripherals",
+      "label": "Camera not detected",
+      "clarifying_question": "Is the camera missing from device settings?",
+      "evidence_to_fetch": "device camera permission and driver state",
+      "action_code": "enable_mock_camera_permission",
+      "approval_type": "user_confirmation",
+      "verify": "mock camera probe succeeds",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "HW-02",
+      "category": "hardware",
+      "subcategory": "Peripherals",
+      "label": "Keyboard or mouse not working",
+      "clarifying_question": "Is a connected keyboard or mouse failing?",
+      "evidence_to_fetch": "peripheral connection state, driver health",
+      "action_code": "restart_mock_peripheral_driver",
+      "approval_type": "user_confirmation",
+      "verify": "peripheral health probe succeeds",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "HW-03",
+      "category": "hardware",
+      "subcategory": "Physical damage",
+      "label": "Broken screen",
+      "clarifying_question": "Is the screen cracked or physically damaged?",
+      "evidence_to_fetch": "device fault inventory",
+      "action_code": "create_hardware_escalation",
+      "approval_type": "none",
+      "verify": "repair verified by technician",
+      "nominal_outcome": "escalated",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "HW-04",
+      "category": "hardware",
+      "subcategory": "Peripherals",
+      "label": "Docking station disconnects",
+      "clarifying_question": "Is the dock disconnecting your screens or peripherals?",
+      "evidence_to_fetch": "dock firmware, connection logs",
+      "action_code": "refresh_mock_dock_driver",
+      "approval_type": "user_confirmation",
+      "verify": "dock connection simulation stable",
+      "nominal_outcome": "resolved",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "HW-05",
+      "category": "hardware",
+      "subcategory": "Physical damage",
+      "label": "Lost hardware",
+      "clarifying_question": "Did you lose a company-owned device?",
+      "evidence_to_fetch": "device asset assignment",
+      "action_code": "route_lost_device_security",
+      "approval_type": "security_review",
+      "verify": "security-led resolution",
+      "nominal_outcome": "routed",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "REQ-01",
+      "category": "requests",
+      "subcategory": "Software request",
+      "label": "Install approved software",
+      "clarifying_question": "Which approved application do you need installed?",
+      "evidence_to_fetch": "software allowlist, device ownership, licence availability",
+      "action_code": "install_mock_approved_software",
+      "approval_type": "conditional",
+      "verify": "app installed, assigned licence valid and health check passes",
+      "nominal_outcome": "resolved",
+      "tier": "P0"
+    },
+    {
+      "issue_code": "REQ-02",
+      "category": "requests",
+      "subcategory": "Software request",
+      "label": "Request restricted software",
+      "clarifying_question": "Which unapproved application do you need for work?",
+      "evidence_to_fetch": "catalogue status, business justification",
+      "action_code": "create_software_approval_request",
+      "approval_type": "app_owner_approval",
+      "verify": "approved install and verification or denied request",
+      "nominal_outcome": "pending_approval",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "REQ-03",
+      "category": "requests",
+      "subcategory": "Access request",
+      "label": "Access shared drive",
+      "clarifying_question": "Which shared folder or group do you need?",
+      "evidence_to_fetch": "resource ACL, project membership, owner",
+      "action_code": "request_shared_drive_access",
+      "approval_type": "resource_owner_approval",
+      "verify": "authorised ACL grant and test read",
+      "nominal_outcome": "pending_approval",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "REQ-04",
+      "category": "requests",
+      "subcategory": "Hardware request",
+      "label": "Request new laptop/peripheral",
+      "clarifying_question": "Which company device or accessory do you need?",
+      "evidence_to_fetch": "asset catalogue, eligibility, manager",
+      "action_code": "create_procurement_ticket",
+      "approval_type": "manager_approval",
+      "verify": "asset delivered and assigned",
+      "nominal_outcome": "pending_approval",
+      "tier": "P1"
+    },
+    {
+      "issue_code": "REQ-05",
+      "category": "requests",
+      "subcategory": "General service",
+      "label": "Other service request",
+      "clarifying_question": "Describe the request and why you need it.",
+      "evidence_to_fetch": "user description and allowed categories",
+      "action_code": "create_general_request_ticket",
+      "approval_type": "triage",
+      "verify": "support team verifies fulfilment",
+      "nominal_outcome": "ticket_created",
+      "tier": "P1"
+    }
+  ]
+}

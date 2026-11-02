@@ -1,0 +1,55 @@
+# Dependencies
+**/node_modules/
+**/.pnpm-store/
+**/.pnp
+**/.pnp.js
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+*.pem
+.cookies.txt
+cookies.txt
+cookies_bakery.txt
+
+# Build / cache
+**/.next/
+**/out/
+**/build/
+**/dist/
+**/.turbo/
+**/.cache/
+**/coverage/
+**/playwright-report/
+**/test-results/
+**/.pytest_cache/
+**/__pycache__/
+**/*.py[cod]
+**/*.tsbuildinfo
+**/next-env.d.ts
+
+# Python / venv
+**/.venv/
+**/venv/
+**/*.egg-info/
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local agent / runtime noise
+.cursor/
+agent-transcripts/
+terminals/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel/

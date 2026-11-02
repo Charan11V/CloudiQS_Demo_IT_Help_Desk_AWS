@@ -1,0 +1,1231 @@
+[
+  {
+    "tool_id": "TOOL-001",
+    "name": "identity_get_self",
+    "domain": "identity",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/identity/accounts/{user_id}",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "self_or_authorised_support",
+    "data_sources": [
+      "identity_directory"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-002",
+    "name": "identity_get_signin_history",
+    "domain": "identity",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/identity/signins/{user_id}",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "self_or_authorised_support",
+    "data_sources": [
+      "identity_signins"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-003",
+    "name": "identity_request_unlock",
+    "domain": "identity",
+    "action_class": "approval",
+    "mock_api_endpoint": "/v1/approvals",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "human_required",
+    "data_sources": [
+      "identity_directory",
+      "tenant_policies"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-004",
+    "name": "identity_reset_mfa",
+    "domain": "identity",
+    "action_class": "forbidden",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "none",
+    "required_authorisation": "always_denied",
+    "data_sources": [
+      "identity_mfa_factors",
+      "tenant_policies"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-005",
+    "name": "identity_grant_admin",
+    "domain": "identity",
+    "action_class": "forbidden",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "none",
+    "required_authorisation": "always_denied",
+    "data_sources": [
+      "saas_entitlements",
+      "tenant_policies"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-006",
+    "name": "asset_get_my_devices",
+    "domain": "device",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/devices",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "self_or_authorised_support",
+    "data_sources": [
+      "asset_register"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-007",
+    "name": "device_get_diagnostics",
+    "domain": "device",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/devices/{device_id}/diagnostics",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "assigned_or_authorised_support",
+    "data_sources": [
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-008",
+    "name": "device_request_vpn_cert_renewal",
+    "domain": "device",
+    "action_class": "approval",
+    "mock_api_endpoint": "/v1/approvals",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "requires_approval_and_compliance",
+    "data_sources": [
+      "mdm_managed_devices",
+      "vpn_sessions"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-009",
+    "name": "device_remote_wipe",
+    "domain": "device",
+    "action_class": "forbidden",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "none",
+    "required_authorisation": "always_denied",
+    "data_sources": [
+      "tenant_policies"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-010",
+    "name": "vpn_get_sessions",
+    "domain": "network",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/vpn/sessions",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "self_or_authorised_support",
+    "data_sources": [
+      "vpn_sessions"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-011",
+    "name": "vpn_query_gateway_health",
+    "domain": "network",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT",
+    "required_authorisation": "tenant_scoped",
+    "data_sources": [
+      "service_health_outages",
+      "vendor_status"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-012",
+    "name": "wifi_get_radius_errors",
+    "domain": "network",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT",
+    "required_authorisation": "device_scoped",
+    "data_sources": [
+      "wifi_auth_events"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-013",
+    "name": "dns_lookup_history",
+    "domain": "network",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT",
+    "required_authorisation": "device_scoped",
+    "data_sources": [
+      "dns_queries"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-014",
+    "name": "itsm_get_ticket",
+    "domain": "itsm",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/tickets/{ticket_id}",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "own_or_tenant_IT",
+    "data_sources": [
+      "itsm_tickets"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-015",
+    "name": "itsm_list_tickets",
+    "domain": "itsm",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/tickets",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "own_or_tenant_IT",
+    "data_sources": [
+      "itsm_tickets"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-016",
+    "name": "itsm_create_ticket",
+    "domain": "itsm",
+    "action_class": "mutate",
+    "mock_api_endpoint": "/v1/tickets",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "idempotency_key_required",
+    "data_sources": [
+      "itsm_tickets"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "504_unknown_outcome_on_write"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-017",
+    "name": "itsm_assign_ticket",
+    "domain": "itsm",
+    "action_class": "mutate",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT",
+    "required_authorisation": "manager_permission_and_audit",
+    "data_sources": [
+      "itsm_tickets"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "504_unknown_outcome_on_write"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-018",
+    "name": "itsm_get_sla",
+    "domain": "itsm",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT",
+    "required_authorisation": "tenant_scoped",
+    "data_sources": [
+      "sla_policies",
+      "itsm_tickets"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-019",
+    "name": "knowledge_search",
+    "domain": "knowledge",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/knowledge/search",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "filter_ACL_before_retrieval",
+    "data_sources": [
+      "knowledge_index"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-020",
+    "name": "knowledge_get_current_policy",
+    "domain": "knowledge",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "only_valid_current_policy",
+    "data_sources": [
+      "knowledge_index",
+      "tenant_policies"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-021",
+    "name": "security_get_findings",
+    "domain": "security",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "Security",
+    "required_authorisation": "security_analyst_role_only",
+    "data_sources": [
+      "security_findings"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-022",
+    "name": "security_escalate",
+    "domain": "security",
+    "action_class": "notify",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT,Security",
+    "required_authorisation": "oncall_and_ticket",
+    "data_sources": [
+      "security_findings",
+      "oncall_rotations"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-023",
+    "name": "hr_lookup_lifecycle",
+    "domain": "people",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "HR,Security",
+    "required_authorisation": "privileged_lifecycle_access",
+    "data_sources": [
+      "hris_people",
+      "hr_joiner_leaver_tasks"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-024",
+    "name": "software_get_license_seats",
+    "domain": "software",
+    "action_class": "read",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "IT",
+    "required_authorisation": "tenant_scoped",
+    "data_sources": [
+      "saas_licenses"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-025",
+    "name": "software_request_access",
+    "domain": "software",
+    "action_class": "approval",
+    "mock_api_endpoint": null,
+    "endpoint_implemented": false,
+    "intended_callers": "employee",
+    "required_authorisation": "manager_approval_required",
+    "data_sources": [
+      "software_access_requests"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-026",
+    "name": "approval_propose_action",
+    "domain": "governance",
+    "action_class": "approval",
+    "mock_api_endpoint": "/v1/approvals",
+    "endpoint_implemented": true,
+    "intended_callers": "employee,IT",
+    "required_authorisation": "immutable_payload",
+    "data_sources": [
+      "tenant_policies",
+      "human_approvals"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-027",
+    "name": "approval_decide_action",
+    "domain": "governance",
+    "action_class": "mutate",
+    "mock_api_endpoint": "/v1/approvals/{approval_id}/decision",
+    "endpoint_implemented": true,
+    "intended_callers": "authorised_approver",
+    "required_authorisation": "no_self_approval",
+    "data_sources": [
+      "tenant_policies",
+      "human_approvals"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "504_unknown_outcome_on_write"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-028",
+    "name": "approval_execute_action",
+    "domain": "governance",
+    "action_class": "mutate",
+    "mock_api_endpoint": "/v1/approvals/{approval_id}/execute",
+    "endpoint_implemented": true,
+    "intended_callers": "approved_executor",
+    "required_authorisation": "expiry_hash_and_prerequisites",
+    "data_sources": [
+      "human_approvals"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "504_unknown_outcome_on_write"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-029",
+    "name": "admin_get_integrations",
+    "domain": "admin",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/admin/integrations",
+    "endpoint_implemented": true,
+    "intended_callers": "tenant_admin",
+    "required_authorisation": "tenant_admin_only",
+    "data_sources": [
+      "integration_registry"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-030",
+    "name": "admin_get_policy",
+    "domain": "admin",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/admin/policy",
+    "endpoint_implemented": true,
+    "intended_callers": "tenant_admin,IT_manager",
+    "required_authorisation": "tenant_scoped",
+    "data_sources": [
+      "tenant_policies"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-031",
+    "name": "analytics_get_ticket_counts",
+    "domain": "analytics",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/analytics",
+    "endpoint_implemented": true,
+    "intended_callers": "IT_manager,IT",
+    "required_authorisation": "tenant_scoped",
+    "data_sources": [
+      "itsm_tickets"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  },
+  {
+    "tool_id": "TOOL-032",
+    "name": "audit_get_execution_history",
+    "domain": "audit",
+    "action_class": "read",
+    "mock_api_endpoint": "/v1/audit",
+    "endpoint_implemented": true,
+    "intended_callers": "tenant_admin,Security",
+    "required_authorisation": "tenant_scoped_and_redacted",
+    "data_sources": [
+      "application_audit"
+    ],
+    "identity_binding": "authenticated_actor.tenant_id + verified_user_id",
+    "audit_required": true,
+    "input_schema_outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": "string"
+        }
+      }
+    },
+    "failure_behaviours": [
+      "401_unauthenticated",
+      "403_unauthorised",
+      "404_wrong_tenant",
+      "429_rate_limited",
+      "503_unavailable"
+    ],
+    "notes": "Proposed agent-tool contract; only listed mock_api_endpoint routes exist in this pack."
+  }
+]

@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: bakery_postgres
+    environment:
+      POSTGRES_USER: bakery
+      POSTGRES_PASSWORD: bakery
+      POSTGRES_DB: bakery
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bakery"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    container_name: bakery_api
+    environment:
+      DATABASE_URL: postgresql+psycopg://bakery:bakery@postgres:5432/bakery
+      ALLOW_DEMO_LOGIN: 1
+      SPECS_PATH: /specs
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ../../specs:/specs:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "python -m app.seed --reset &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+volumes:
+  postgres_data:

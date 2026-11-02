@@ -1,0 +1,2 @@
+{"effective_date": "2026-11-02T12:00:00Z", "person_key": "beacon-EMP-0005", "required_actions": ["disable_idp", "revoke_vpn", "recover_device", "transfer_tickets"], "state": "pending", "task_id": "beacon-HRWF-0005", "tenant_id": "beacon", "trigger_source": "hris", "workflow": "onboarding"}
+{"effective_date": "2026-11-02T12:00:00Z", "person_key": "beacon-EMP-0010", "required_actions": ["disable_idp", "revoke_vpn", "recover_device", "transfer_tickets"], "state": "pending", "task_id": "beacon-HRWF-0010", "tenant_id": "beacon", "trigger_source": "hris", "workflow": "onboarding"}

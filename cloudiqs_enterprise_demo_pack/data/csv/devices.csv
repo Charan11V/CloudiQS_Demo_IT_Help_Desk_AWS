@@ -1,0 +1,51 @@
+tenant_id,device_id,owner_user_id,hostname,serial_number,os,device_type,site,purchase_date,lifecycle,asset_classification
+northstar,northstar-DEV-0001,northstar-EMP-0001,NO-LT-0001,FICT-NO-0000001,Windows 10 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0002,northstar-EMP-0002,NO-LT-0002,FICT-NO-0000002,Ubuntu 24.04,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0003,northstar-EMP-0003,NO-LT-0003,FICT-NO-0000003,Windows 10 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0004,northstar-EMP-0004,NO-LT-0004,FICT-NO-0000004,Windows 11 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0005,northstar-EMP-0005,NO-LT-0005,FICT-NO-0000005,Ubuntu 24.04,laptop,Mumbai,2024-06-12,active,corporate
+northstar,northstar-DEV-0006,northstar-EMP-0006,NO-LT-0006,FICT-NO-0000006,Ubuntu 24.04,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0007,northstar-EMP-0007,NO-LT-0007,FICT-NO-0000007,Windows 10 Enterprise,laptop,Delhi,2024-06-12,active,corporate
+northstar,northstar-DEV-0008,northstar-EMP-0008,NO-LT-0008,FICT-NO-0000008,Windows 11 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0009,northstar-EMP-0009,NO-LT-0009,FICT-NO-0000009,Ubuntu 24.04,desktop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0010,northstar-EMP-0010,NO-LT-0010,FICT-NO-0000010,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0011,northstar-EMP-0011,NO-LT-0011,FICT-NO-0000011,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0012,northstar-EMP-0012,NO-LT-0012,FICT-NO-0000012,Windows 10 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0013,northstar-EMP-0013,NO-LT-0013,FICT-NO-0000013,Ubuntu 24.04,laptop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0014,northstar-EMP-0014,NO-LT-0014,FICT-NO-0000014,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0015,northstar-EMP-0015,NO-LT-0015,FICT-NO-0000015,macOS 15,laptop,Mumbai,2024-06-12,active,corporate
+northstar,northstar-DEV-0016,northstar-EMP-0016,NO-LT-0016,FICT-NO-0000016,macOS 15,laptop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0017,northstar-EMP-0017,NO-LT-0017,FICT-NO-0000017,Windows 11 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0018,northstar-EMP-0018,NO-LT-0018,FICT-NO-0000018,macOS 15,desktop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0019,northstar-EMP-0019,NO-LT-0019,FICT-NO-0000019,Windows 11 Enterprise,laptop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0020,northstar-EMP-0020,NO-LT-0020,FICT-NO-0000020,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0021,northstar-EMP-0021,NO-LT-0021,FICT-NO-0000021,Ubuntu 24.04,laptop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0022,northstar-EMP-0022,NO-LT-0022,FICT-NO-0000022,Windows 10 Enterprise,laptop,Singapore,2024-06-12,active,corporate
+northstar,northstar-DEV-0023,northstar-EMP-0023,NO-LT-0023,FICT-NO-0000023,Windows 10 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0024,northstar-EMP-0024,NO-LT-0024,FICT-NO-0000024,Windows 11 Enterprise,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0025,northstar-EMP-0025,NO-LT-0025,FICT-NO-0000025,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0026,northstar-EMP-0026,NO-LT-0026,FICT-NO-0000026,Ubuntu 24.04,laptop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0027,northstar-EMP-0027,NO-LT-0027,FICT-NO-0000027,Ubuntu 24.04,desktop,Singapore,2024-06-12,active,corporate
+northstar,northstar-DEV-0028,northstar-EMP-0028,NO-LT-0028,FICT-NO-0000028,Windows 10 Enterprise,laptop,London,2024-06-12,active,corporate
+northstar,northstar-DEV-0029,northstar-EMP-0029,NO-LT-0029,FICT-NO-0000029,Windows 11 Enterprise,laptop,Mumbai,2024-06-12,active,corporate
+northstar,northstar-DEV-0030,northstar-EMP-0030,NO-LT-0030,FICT-NO-0000030,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0031,northstar-EMP-0001,NO-LT-0031,FICT-NO-0000031,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0032,northstar-EMP-0002,NO-LT-0032,FICT-NO-0000032,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0033,northstar-EMP-0003,NO-LT-0033,FICT-NO-0000033,Ubuntu 24.04,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0034,northstar-EMP-0004,NO-LT-0034,FICT-NO-0000034,macOS 15,laptop,Bengaluru,2024-06-12,active,corporate
+northstar,northstar-DEV-0035,northstar-EMP-0005,NO-LT-0035,FICT-NO-0000035,Ubuntu 24.04,laptop,Mumbai,2024-06-12,active,corporate
+beacon,beacon-DEV-0001,beacon-EMP-0001,BE-LT-0001,FICT-BE-0000001,Ubuntu 24.04,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0002,beacon-EMP-0002,BE-LT-0002,FICT-BE-0000002,macOS 15,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0003,beacon-EMP-0003,BE-LT-0003,FICT-BE-0000003,Windows 10 Enterprise,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0004,beacon-EMP-0004,BE-LT-0004,FICT-BE-0000004,macOS 15,laptop,Manchester,2024-06-12,active,corporate
+beacon,beacon-DEV-0005,beacon-EMP-0005,BE-LT-0005,FICT-BE-0000005,Windows 10 Enterprise,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0006,beacon-EMP-0006,BE-LT-0006,FICT-BE-0000006,Windows 11 Enterprise,laptop,Manchester,2024-06-12,active,corporate
+beacon,beacon-DEV-0007,beacon-EMP-0007,BE-LT-0007,FICT-BE-0000007,Ubuntu 24.04,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0008,beacon-EMP-0008,BE-LT-0008,FICT-BE-0000008,Windows 11 Enterprise,laptop,Birmingham,2024-06-12,active,corporate
+beacon,beacon-DEV-0009,beacon-EMP-0009,BE-LT-0009,FICT-BE-0000009,Windows 10 Enterprise,desktop,Leeds,2024-06-12,active,corporate
+beacon,beacon-DEV-0010,beacon-EMP-0010,BE-LT-0010,FICT-BE-0000010,Windows 11 Enterprise,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0011,beacon-EMP-0001,BE-LT-0011,FICT-BE-0000011,macOS 15,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0012,beacon-EMP-0002,BE-LT-0012,FICT-BE-0000012,Ubuntu 24.04,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0013,beacon-EMP-0003,BE-LT-0013,FICT-BE-0000013,Windows 10 Enterprise,laptop,London,2024-06-12,active,corporate
+beacon,beacon-DEV-0014,beacon-EMP-0004,BE-LT-0014,FICT-BE-0000014,Ubuntu 24.04,laptop,Manchester,2024-06-12,active,corporate
+beacon,beacon-DEV-0015,beacon-EMP-0005,BE-LT-0015,FICT-BE-0000015,macOS 15,laptop,London,2024-06-12,active,corporate

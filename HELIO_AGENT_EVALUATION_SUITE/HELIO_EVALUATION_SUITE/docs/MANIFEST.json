@@ -1,0 +1,38 @@
+{
+  "total": 369,
+  "by_suite": {
+    "legacy_exploratory": 160,
+    "strict_gold": 50,
+    "multi_turn": 36,
+    "adversarial": 51,
+    "metamorphic": 36,
+    "ui_e2e": 36
+  },
+  "by_category": {
+    "identity": 16,
+    "vpn": 6,
+    "device": 10,
+    "security": 24,
+    "privacy": 23,
+    "reliability": 20,
+    "knowledge": 12,
+    "access": 9,
+    "lifecycle": 14,
+    "software": 10,
+    "incident": 15,
+    "email": 5,
+    "network": 5,
+    "asset": 5,
+    "approval": 14,
+    "uncertainty": 9,
+    "service_management": 6,
+    "agent_operations": 7,
+    "multi_turn": 36,
+    "adversarial": 51,
+    "metamorphic": 36,
+    "ui_workflow": 36
+  },
+  "strict_gold_count": 209,
+  "core_regression_count": 105,
+  "legacy_exploratory_excluded_from_headline": 160
+}

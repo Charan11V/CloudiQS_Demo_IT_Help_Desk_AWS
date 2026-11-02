@@ -1,0 +1,7 @@
+{"application": "Microsoft 365", "assigned": 175, "cost_per_seat_usd": 16, "provisioning_method": "SCIM", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-01", "tenant_id": "northstar"}
+{"application": "Figma", "assigned": 65, "cost_per_seat_usd": 5, "provisioning_method": "manual", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-02", "tenant_id": "northstar"}
+{"application": "VPN Client", "assigned": 150, "cost_per_seat_usd": 18, "provisioning_method": "SCIM", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-03", "tenant_id": "northstar"}
+{"application": "GitHub Enterprise", "assigned": 48, "cost_per_seat_usd": 26, "provisioning_method": "manual", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-04", "tenant_id": "northstar"}
+{"application": "PowerBI", "assigned": 135, "cost_per_seat_usd": 28, "provisioning_method": "SCIM", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-05", "tenant_id": "northstar"}
+{"application": "CRM", "assigned": 48, "cost_per_seat_usd": 29, "provisioning_method": "manual", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-06", "tenant_id": "northstar"}
+{"application": "Endpoint Protection", "assigned": 159, "cost_per_seat_usd": 28, "provisioning_method": "SCIM", "purchased": 200, "renewal_date": "2027-04-01", "sku": "SKU-07", "tenant_id": "northstar"}

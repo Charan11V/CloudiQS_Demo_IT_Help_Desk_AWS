@@ -1,0 +1,10 @@
+{"idp": "Okta", "last_reset": "2026-10-04T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0001"}
+{"idp": "Okta", "last_reset": "2026-10-03T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0002"}
+{"idp": "Okta", "last_reset": "2026-10-02T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0003"}
+{"idp": "Okta", "last_reset": "2026-10-01T12:00:00Z", "methods": ["authenticator", "fido2"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0004"}
+{"idp": "Okta", "last_reset": "2026-09-30T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0005"}
+{"idp": "Okta", "last_reset": "2026-09-29T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0006"}
+{"idp": "Okta", "last_reset": "2026-09-28T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0007"}
+{"idp": "Okta", "last_reset": "2026-09-27T12:00:00Z", "methods": ["authenticator", "fido2"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0008"}
+{"idp": "Okta", "last_reset": "2026-09-26T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0009"}
+{"idp": "Okta", "last_reset": "2026-09-25T12:00:00Z", "methods": ["authenticator"], "mfa_enrolled": true, "recovery_locked": false, "tenant_id": "beacon", "user_id": "beacon-EMP-0010"}

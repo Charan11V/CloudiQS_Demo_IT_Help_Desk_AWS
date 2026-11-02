@@ -1,0 +1,173 @@
+[
+  {
+    "tenant_id": "northstar",
+    "policy_version": "2026.10.2",
+    "effective_at": "2026-10-22T12:00:00Z",
+    "agent_id": "helpdesk_supervisor",
+    "policies": {
+      "ticket_create": {
+        "mode": "automatic",
+        "idempotency_required": true
+      },
+      "identity_account_unlock": {
+        "mode": "human_approval",
+        "eligible_requester": "self_or_it",
+        "approver_roles": [
+          "it_engineer",
+          "security_analyst"
+        ],
+        "separation_of_duties": true,
+        "expires_minutes": 30
+      },
+      "mfa_reset": {
+        "mode": "disallowed_for_agent",
+        "reason": "Identity assurance must occur in dedicated security workflow"
+      },
+      "vpn_certificate_renewal": {
+        "mode": "human_approval",
+        "approver_roles": [
+          "it_engineer"
+        ],
+        "requires_device_compliance": true
+      },
+      "device_remote_wipe": {
+        "mode": "disallowed_for_agent"
+      },
+      "admin_role_grant": {
+        "mode": "disallowed_for_agent"
+      },
+      "software_install": {
+        "mode": "human_approval",
+        "approver_roles": [
+          "it_manager"
+        ],
+        "allowed_catalog_only": true
+      },
+      "security_alert_read": {
+        "mode": "restricted",
+        "roles": [
+          "security_analyst"
+        ]
+      },
+      "finance_or_hr_data_read": {
+        "mode": "restricted",
+        "roles": [
+          "hr_partner",
+          "tenant_admin"
+        ]
+      }
+    },
+    "agent_limits": {
+      "max_tool_calls_per_turn": 12,
+      "max_tokens_per_session": 25000,
+      "max_estimated_cost_usd": 0.75,
+      "max_parallel_tools": 3
+    },
+    "knowledge_policy": {
+      "default_scope": "employee",
+      "restricted_scopes": [
+        "security",
+        "admin",
+        "hr"
+      ],
+      "source_priority": [
+        "signed_policy",
+        "current_kb",
+        "verified_source_events",
+        "historical_ticket",
+        "external_vendor_note"
+      ],
+      "current_policy_override": true
+    },
+    "audit_retention_days": 365,
+    "incident_escalation_rules": {
+      "security_high": "immediate_human",
+      "outage_P1": "notify_oncall"
+    }
+  },
+  {
+    "tenant_id": "beacon",
+    "policy_version": "2026.10.1",
+    "effective_at": "2026-10-22T12:00:00Z",
+    "agent_id": "helpdesk_supervisor",
+    "policies": {
+      "ticket_create": {
+        "mode": "automatic",
+        "idempotency_required": true
+      },
+      "identity_account_unlock": {
+        "mode": "human_approval",
+        "eligible_requester": "self_or_it",
+        "approver_roles": [
+          "security_analyst"
+        ],
+        "separation_of_duties": true,
+        "expires_minutes": 30
+      },
+      "mfa_reset": {
+        "mode": "disallowed_for_agent",
+        "reason": "Identity assurance must occur in dedicated security workflow"
+      },
+      "vpn_certificate_renewal": {
+        "mode": "human_approval",
+        "approver_roles": [
+          "it_engineer"
+        ],
+        "requires_device_compliance": true
+      },
+      "device_remote_wipe": {
+        "mode": "disallowed_for_agent"
+      },
+      "admin_role_grant": {
+        "mode": "disallowed_for_agent"
+      },
+      "software_install": {
+        "mode": "human_approval",
+        "approver_roles": [
+          "it_manager"
+        ],
+        "allowed_catalog_only": true
+      },
+      "security_alert_read": {
+        "mode": "restricted",
+        "roles": [
+          "security_analyst"
+        ]
+      },
+      "finance_or_hr_data_read": {
+        "mode": "restricted",
+        "roles": [
+          "hr_partner",
+          "tenant_admin"
+        ]
+      }
+    },
+    "agent_limits": {
+      "max_tool_calls_per_turn": 12,
+      "max_tokens_per_session": 25000,
+      "max_estimated_cost_usd": 0.75,
+      "max_parallel_tools": 3
+    },
+    "knowledge_policy": {
+      "default_scope": "employee",
+      "restricted_scopes": [
+        "security",
+        "admin",
+        "hr"
+      ],
+      "source_priority": [
+        "signed_policy",
+        "current_kb",
+        "verified_source_events",
+        "historical_ticket",
+        "external_vendor_note"
+      ],
+      "current_policy_override": true
+    },
+    "audit_retention_days": 365,
+    "incident_escalation_rules": {
+      "security_high": "immediate_human",
+      "outage_P1": "notify_oncall"
+    }
+  }
+]

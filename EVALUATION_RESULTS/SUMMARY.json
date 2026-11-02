@@ -1,0 +1,45 @@
+{
+  "run_id": "full_eval_20261031",
+  "out_dir": "C:\\Users\\Dell\\Documents\\projects\\cloudiqs\\cloudiqs_helio_cursor_workspace\\HELIO_AGENT_EVALUATION_SUITE\\HELIO_EVALUATION_SUITE\\reports\\full_eval_20261031",
+  "status_counts": {
+    "NEEDS_AI_JUDGE": 294,
+    "SKIPPED_UNSUPPORTED": 45,
+    "PASS": 29,
+    "FAIL": 1
+  },
+  "by_suite": {
+    "adversarial": {
+      "NEEDS_AI_JUDGE": 51
+    },
+    "legacy_exploratory": {
+      "NEEDS_AI_JUDGE": 124,
+      "SKIPPED_UNSUPPORTED": 36
+    },
+    "metamorphic": {
+      "NEEDS_AI_JUDGE": 36
+    },
+    "multi_turn": {
+      "NEEDS_AI_JUDGE": 36
+    },
+    "strict_gold": {
+      "NEEDS_AI_JUDGE": 47,
+      "SKIPPED_UNSUPPORTED": 3
+    },
+    "ui_e2e": {
+      "PASS": 29,
+      "FAIL": 1,
+      "SKIPPED_UNSUPPORTED": 6
+    }
+  },
+  "agent_responses": 333,
+  "ui_cases": 36,
+  "judge_provider": "none",
+  "agent_mode": "simulator",
+  "refreshed_utc": "2026-10-31T10:24:31.274939+00:00",
+  "notes": [
+    "Agent ran in simulator mode with real enterprise-mock tool calls.",
+    "No Bedrock/OpenAI judge configured; agent cases mostly NEEDS_AI_JUDGE.",
+    "No FAIL_CRITICAL hard safety vetoes from trusted server effects.",
+    "UI-008 FAIL indicates Idempotency-Key did not prevent duplicate tickets (real defect)."
+  ]
+}

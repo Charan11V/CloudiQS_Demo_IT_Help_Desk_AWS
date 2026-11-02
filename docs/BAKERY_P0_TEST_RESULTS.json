@@ -1,0 +1,73 @@
+{
+  "passed": 13,
+  "failed": 0,
+  "total": 13,
+  "timestamp": "2026-11-01T10:40:56.407368+00:00",
+  "results": [
+    {
+      "test": "seed_reset",
+      "pass": true,
+      "detail": "{\"success\": true, \"message\": \"Database reset and reseeded\"}"
+    },
+    {
+      "test": "NET-01_pending",
+      "pass": true,
+      "detail": "{\"action_id\": \"ACTION-AEFE575C\", \"state\": \"awaiting_approval\", \"approval_id\": \"APPR-15CCF6E6\", \"requires_approval\": true}"
+    },
+    {
+      "test": "NET-01_approve",
+      "pass": true,
+      "detail": "{\"approval_id\": \"APPR-15CCF6E6\", \"decision\": \"approved\", \"decided_by\": \"NS-002\", \"decided_at\": \"2026-11-01T10:40:55.453806+00:00\"}"
+    },
+    {
+      "test": "NET-01_execute",
+      "pass": true,
+      "detail": "{\"action_id\": \"ACTION-AEFE575C\", \"execution_id\": \"EXEC-FE7909DF\", \"state\": \"success\", \"result\": {\"success\": true, \"message\": \"Certificate renewed in demo system, but VPN service is currently degraded\", \"vpn_id\": \"VPN-NS-001\", \"before\": {\"cert_expires_at\": \"2026-10-20T00:00:00+00:00\", \"status\": \"active\", \"version\": 1}, "
+    },
+    {
+      "test": "DEV-01_cleanup",
+      "pass": true,
+      "detail": "{\"action_id\": \"ACTION-F3A3C567\", \"execution_id\": \"EXEC-31F3F46F\", \"state\": \"success\", \"result\": {\"success\": true, \"message\": \"Cleaned 15.00 GB of temporary files in demo system\", \"device_id\": \"DEV-NS-001\", \"files_removed\": 3, \"reclaimed_bytes\": 16106127360, \"reclaimed_gb\": 15.0, \"before\": {\"disk_free_gb\": 12, \"disk_fre"
+    },
+    {
+      "test": "ID-01_unlock",
+      "pass": true,
+      "detail": "{\"action_id\": \"ACTION-C50A9494\", \"execution_id\": \"EXEC-AB60F29E\", \"state\": \"success\", \"result\": {\"success\": true, \"message\": \"Account unlocked successfully in demo system\", \"account_id\": \"ACC-NS-001\", \"before\": {\"status\": \"locked\", \"lock_reason\": \"failed_attempts\", \"failed_logins\": 6, \"version\": 1}, \"after\": {\"status\":"
+    },
+    {
+      "test": "SEC-01_execute",
+      "pass": true,
+      "detail": "{\"action_id\": \"ACTION-B5A02500\", \"execution_id\": \"EXEC-4A026414\", \"state\": \"success\", \"result\": {\"success\": true, \"message\": \"Security incident reported and escalated to security team\", \"event_id\": \"SEC-99D85881\", \"ticket_id\": \"INC-F645C78A\", \"status\": \"escalated\", \"warning\": \"Do not open suspicious links or attachment"
+    },
+    {
+      "test": "GEN_UNKNOWN_ticket",
+      "pass": true,
+      "detail": "I couldn't identify a supported automatic fix. Ticket INC-821EAF4F is open with status open (issue GEN-UNKNOWN). This is not a resolution."
+    },
+    {
+      "test": "guided_NET-01",
+      "pass": true,
+      "detail": "None Does VPN fail with a certificate or trust error?"
+    },
+    {
+      "test": "Neha_NET-02",
+      "pass": true,
+      "detail": "NS-004 None Is the VPN client asking for an update?"
+    },
+    {
+      "test": "approvals_list",
+      "pass": true,
+      "detail": "{\"approvals\": [], \"count\": 0}"
+    },
+    {
+      "test": "tickets_mine",
+      "pass": true,
+      "detail": "{\"tickets\": [{\"ticket_id\": \"INC-821EAF4F\", \"issue_code\": \"GEN-UNKNOWN\", \"summary\": \"Issue not in catalog\", \"status\": \"open\", \"priority\": \"medium\", \"assigned_team\": \"IT Support\", \"created_at\": \"2026-11-01T10:40:55.849744+00:00\", \"updated_at\": \"2026-11-01T10:40:55.849744+00:00\"}, {\"ticket_id\": \"INC-F645C78A\", \"issue_code"
+    },
+    {
+      "test": "catalog_57",
+      "pass": true,
+      "detail": "{\"issue_count\": 57, \"keys\": [\"schema_version\", \"intro\", \"root_options\", \"global_options\", \"common_controls\", \"issues\"]}"
+    }
+  ]
+}

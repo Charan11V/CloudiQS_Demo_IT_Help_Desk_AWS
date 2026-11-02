@@ -1,0 +1,4 @@
+{"as_of": "2026-11-01T11:00:00Z", "external_incident_ref": null, "provider": "microsoft_365", "region": "ap-south-1", "status": "degraded_performance", "tenant_id": "northstar"}
+{"as_of": "2026-10-31T10:00:00Z", "external_incident_ref": "STATUS-2", "provider": "jira", "region": "ap-south-1", "status": "operational", "tenant_id": "northstar"}
+{"as_of": "2026-10-30T09:00:00Z", "external_incident_ref": null, "provider": "vpn_gateway", "region": "ap-south-1", "status": "operational", "tenant_id": "northstar"}
+{"as_of": "2026-11-01T08:00:00Z", "external_incident_ref": null, "provider": "corporate_wan", "region": "ap-south-1", "status": "operational", "tenant_id": "northstar"}

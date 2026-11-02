@@ -1,0 +1,2 @@
+{"channel": "email", "delivery_status": "delivered", "message_id": "beacon-NOTIF-0009", "recipient_id": "beacon-EMP-0009", "related_ticket": "beacon-INC-0009", "sent_at": "2026-10-29T12:00:00Z", "tenant_id": "beacon", "topic": "ticket_updated"}
+{"channel": "email", "delivery_status": "delivered", "message_id": "beacon-NOTIF-0018", "recipient_id": "beacon-EMP-0008", "related_ticket": "beacon-INC-0018", "sent_at": "2026-10-29T12:00:00Z", "tenant_id": "beacon", "topic": "ticket_updated"}

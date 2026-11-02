@@ -1,0 +1,32 @@
+[
+  {
+    "tenant_id": "northstar",
+    "company_name": "Northstar Technologies",
+    "domain": "northstar.example",
+    "industry": "Technology & SaaS",
+    "hq": "Bengaluru",
+    "timezone": "Asia/Kolkata",
+    "ticket_platform": "Jira Service Management",
+    "idp": "Microsoft Entra ID",
+    "device_platform": "Microsoft Intune",
+    "size_realistic": 2400,
+    "employee_sample": 30,
+    "region": "ap-south-1",
+    "kb_style": "markdown"
+  },
+  {
+    "tenant_id": "beacon",
+    "company_name": "Beacon Retail Group",
+    "domain": "beacon.example",
+    "industry": "Omnichannel retail",
+    "hq": "London",
+    "timezone": "Europe/London",
+    "ticket_platform": "ServiceNow",
+    "idp": "Okta",
+    "device_platform": "Jamf + Intune",
+    "size_realistic": 5100,
+    "employee_sample": 10,
+    "region": "eu-west-2",
+    "kb_style": "markdown"
+  }
+]

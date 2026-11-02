@@ -1,0 +1,48 @@
+source_key,records,source_owner,source_system,update_cadence,sensitivity,default_retention_days,partition_keys,timestamp_semantics,api_surface,mock_data
+hris_people,40,HR,workday,hourly,restricted,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+identity_directory,40,IAM,Microsoft Entra ID,event_stream,restricted,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+identity_signins,160,Enterprise IT,identity_signins,event_stream,restricted,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+identity_mfa_factors,40,Enterprise IT,identity_mfa_factors,daily,restricted,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+saas_entitlements,148,Enterprise IT,idp_group_sync,event_stream,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+asset_register,50,Enterprise IT,asset_register,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+cmdb_ci,50,Enterprise IT,servicenow_cmdb_sim,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+mdm_managed_devices,50,Endpoint Engineering,mdm_managed_devices,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+endpoint_telemetry,50,Enterprise IT,endpoint_monitor,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+device_patch_compliance,50,Enterprise IT,device_patch_compliance,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+installed_software,182,Enterprise IT,installed_software,event_stream,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+asset_procurement,50,Enterprise IT,asset_procurement,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+device_warranty,50,Enterprise IT,device_warranty,event_stream,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+vpn_sessions,130,Network Operations,vpn_concentrator,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+dns_queries,130,Enterprise IT,dns_queries,hourly,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+wifi_auth_events,130,Enterprise IT,wifi_auth_events,event_stream,internal,90,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+dhcp_leases,130,Enterprise IT,dhcp_logs,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+network_change_log,10,Enterprise IT,network_change_log,event_stream,internal,90,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+service_catalog,24,Enterprise IT,service_catalog,every_15_minutes,internal,90,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+service_request_forms,24,Enterprise IT,service_request_forms,hourly,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+sla_policies,8,Enterprise IT,sla_policies,event_stream,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+itsm_tickets,80,IT Service Desk,itsm_tickets,hourly,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+itsm_comments,240,Enterprise IT,Jira Service Management,hourly,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+itsm_history,240,Enterprise IT,itsm_history,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+itsm_problems,6,Enterprise IT,itsm_problems,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+itsm_changes,8,Enterprise IT,itsm_changes,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+change_approvals,8,Enterprise IT,change_approvals,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+service_health_outages,8,Enterprise IT,service_health_outages,event_stream,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+oncall_rotations,8,Enterprise IT,oncall_rotations,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+security_findings,23,Security Operations,guardduty_synthetic,daily,restricted,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+csat_surveys,10,Enterprise IT,csat_surveys,event_stream,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+outbound_notifications,8,Enterprise IT,outbound_notifications,hourly,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+collaboration_messages,13,Enterprise IT,collaboration_messages,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+email_transport_events,9,Enterprise IT,email_transport_events,hourly,internal,90,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+hr_joiner_leaver_tasks,8,Enterprise IT,hr_joiner_leaver_tasks,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+saas_licenses,14,Enterprise IT,saas_licenses,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+software_access_requests,6,Enterprise IT,software_access_requests,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+integration_api_errors,27,Enterprise IT,integration_api_errors,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+vendor_status,8,Enterprise IT,vendor_status,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+agent_usage_and_costs,28,Cloud FinOps,agent_usage_and_costs,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+application_audit,17,Compliance,mock_audit_service,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+tenant_policies,2,Security Architecture,tenant_policies,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+role_permissions,16,Enterprise IT,role_permissions,daily,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+integration_registry,16,Enterprise IT,integration_registry,every_15_minutes,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+human_approvals,14,IT Operations,human_approvals,hourly,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+agent_executions,14,Enterprise IT,agent_executions,manual_publish,internal,365,"[""tenant_id""]",source_event_time_with_ingestion_lag,simulated,True
+knowledge_index,27,Knowledge Management,internal_kb_and_vendor_import,manual_publish,mixed_restricted,730,"[""tenant_id""]",version_effective_at_and_indexed_at,simulated,True

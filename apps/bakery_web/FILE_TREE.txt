@@ -1,0 +1,168 @@
+```
+apps/bakery_web/
+│
+├── 📱 PAGES & ROUTES
+│   ├── app/
+│   │   ├── page.tsx                    # 🔐 Login (Demo Persona Selection)
+│   │   ├── layout.tsx                  # 🎨 Root Layout + Metadata
+│   │   ├── globals.css                 # 🎨 Tailwind + Custom Styles
+│   │   │
+│   │   ├── helpdesk/
+│   │   │   └── page.tsx               # 🏠 Main Helpdesk Interface
+│   │   │       ├── Welcome Screen
+│   │   │       ├── Dynamic Categories
+│   │   │       ├── Breadcrumb Navigation
+│   │   │       ├── Option Selection
+│   │   │       ├── Free Text Input
+│   │   │       ├── Finding Cards
+│   │   │       ├── Action Proposals
+│   │   │       ├── Ticket Display
+│   │   │       └── My Tickets View
+│   │   │
+│   │   └── it/
+│   │       └── page.tsx               # 👨‍💼 IT Approval Queue
+│   │           ├── Pending Approvals List
+│   │           ├── Action Review
+│   │           └── Approve/Reject Workflow
+│
+├── 🧩 COMPONENTS
+│   ├── components/
+│   │   ├── DemoModeBanner.tsx         # ⚠️ Persistent "DEMO MODE" Banner
+│   │   └── SidePanel.tsx              # 📊 User Info + Devices + Navigation
+│
+├── 🛠️ CORE LOGIC
+│   ├── lib/
+│   │   ├── api-client.ts              # 🌐 API Wrapper (credentials: 'include')
+│   │   │   ├── demoLogin()
+│   │   │   ├── getMe()
+│   │   │   ├── getCatalog()
+│   │   │   ├── createConversation()
+│   │   │   ├── sendTurn()
+│   │   │   ├── getMyTickets()
+│   │   │   ├── getPendingApprovals()
+│   │   │   ├── decideApproval()
+│   │   │   ├── consentAction()
+│   │   │   └── executeAction()
+│   │   │
+│   │   └── types.ts                   # 📋 TypeScript Interfaces
+│   │       ├── User, Device, Ticket
+│   │       ├── Category, Option
+│   │       ├── Finding, ActionProposal
+│   │       ├── Approval, MeResponse
+│   │       └── ConversationResponse
+│
+├── ⚙️ CONFIGURATION
+│   ├── next.config.js                 # 🔀 API Rewrites (Docker + Local)
+│   ├── tsconfig.json                  # 📘 TypeScript Config (strict mode)
+│   ├── tailwind.config.ts             # 🎨 Design System (primary colors)
+│   ├── postcss.config.js              # 🎨 PostCSS for Tailwind
+│   ├── middleware.ts                  # 🔒 Route Protection
+│   ├── .eslintrc.json                 # ✅ ESLint Rules
+│   └── .npmrc                         # 📦 NPM Configuration
+│
+├── 🐳 DEPLOYMENT
+│   ├── Dockerfile                     # 🐋 Production Build
+│   ├── .dockerignore                  # 🚫 Docker Excludes
+│   └── package.json                   # 📦 Dependencies + Scripts
+│       ├── next: 14.2.5
+│       ├── react: 18.3.1
+│       ├── typescript: 5.5.3
+│       ├── tailwindcss: 3.4.6
+│       └── lucide-react: icons
+│
+├── 📚 DOCUMENTATION
+│   ├── README.md                      # 📖 Detailed Documentation
+│   ├── QUICKSTART.md                  # 🚀 Setup & Usage Guide
+│   ├── IMPLEMENTATION_SUMMARY.md      # ✅ Completion Report
+│   └── FILE_TREE.txt                  # 📁 This File
+│
+├── 🚀 QUICK START SCRIPTS
+│   ├── start.sh                       # 🐧 Linux/Mac Quick Start
+│   └── start.bat                      # 🪟 Windows Quick Start
+│
+├── 🔧 DEVELOPMENT
+│   ├── .gitignore                     # 🚫 Git Excludes
+│   ├── .env.example                   # 📝 Environment Template
+│   └── .vscode/
+│       ├── extensions.json            # 🔌 Recommended Extensions
+│       └── settings.json              # ⚙️ Workspace Settings
+│
+└── 📊 RUNTIME (Generated)
+    ├── .next/                         # ⚡ Next.js Build Output
+    └── node_modules/                  # 📦 Dependencies
+
+═══════════════════════════════════════════════════════════════
+
+🎯 KEY FEATURES IMPLEMENTED:
+
+✅ Login Page
+   • 6 Demo Personas (NS-001 to BC-002)
+   • Cookie-based Authentication
+   • Tenant Isolation (Northstar vs Beacon)
+
+✅ Employee Helpdesk
+   • Dynamic Categories (from /api/catalog)
+   • Conversational Navigation
+   • Breadcrumb Trail
+   • Option Chips/Cards
+   • Free Text Input (always available)
+   • Controls: Back, Start Over, Something Else, Talk to IT
+   • Finding Cards (diagnosis + evidence)
+   • Action Proposals (consent/approval)
+   • Ticket Display (real IDs)
+   • Side Panel (user, devices, navigation)
+
+✅ My Tickets
+   • List user's tickets
+   • Status, priority, team
+   • Creation date
+
+✅ IT Approval Queue
+   • Pending approvals list
+   • Requester details
+   • Action impact assessment
+   • Approve/Reject with reason
+   • Real-time execution
+
+✅ API Integration
+   • credentials: 'include' on all requests
+   • Proper error handling
+   • Loading states
+   • TypeScript types
+
+✅ Docker Ready
+   • Production Dockerfile
+   • API rewrites for container deployment
+   • Environment variable support
+
+═══════════════════════════════════════════════════════════════
+
+🚀 HOW TO RUN:
+
+1. Quick Start (Automated):
+   Windows:  .\start.bat
+   Linux:    ./start.sh
+
+2. Manual:
+   npm install
+   npm run dev
+
+3. Docker:
+   docker build -t bakery-web .
+   docker run -p 3000:3000 bakery-web
+
+Opens at: http://localhost:3000
+Expects API at: http://localhost:8002
+
+═══════════════════════════════════════════════════════════════
+
+📋 SPEC COMPLIANCE:
+
+✅ Section 2: Full User Journey
+✅ Section 8: Backend API Contracts
+✅ Section 10: Demonstration UI
+
+All requirements implemented per CURSOR_MASTER_SPEC.md
+
+═══════════════════════════════════════════════════════════════
+```

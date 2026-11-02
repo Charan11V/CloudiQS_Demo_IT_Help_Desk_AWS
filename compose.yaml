@@ -1,0 +1,81 @@
+services:
+  enterprise-mock-api:
+    build:
+      context: ./cloudiqs_enterprise_demo_pack
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      ENTERPRISE_DEMO_DB: /app/data/runtime.sqlite
+    volumes:
+      # Bind host runtime DB so mutations persist without wiping packaged seed feeds
+      - ./cloudiqs_enterprise_demo_pack/data/runtime.sqlite:/app/data/runtime.sqlite
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 8s
+    networks:
+      - helio
+
+  agent-api:
+    build:
+      context: ./services/agent_api
+    ports:
+      - "127.0.0.1:8001:8001"
+    environment:
+      MODEL_PROVIDER: ${MODEL_PROVIDER:-simulator}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      BEDROCK_MODEL_ID: ${BEDROCK_MODEL_ID:-}
+      DEMO_NOW: ${DEMO_NOW:-2026-10-31T10:00:00Z}
+      APP_SESSION_SIGNING_KEY: ${APP_SESSION_SIGNING_KEY:-dev-only-insecure-key-change-me}
+      APP_DB_PATH: /data/app.sqlite
+      ENTERPRISE_API_URL: http://enterprise-mock-api:8000
+      ENABLE_FAULT_INJECTION: ${ENABLE_FAULT_INJECTION:-1}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+      AWS_BEARER_TOKEN_BEDROCK: ${AWS_BEARER_TOKEN_BEDROCK:-}
+    volumes:
+      - agent_app_db:/data
+      - ./cloudiqs_enterprise_demo_pack:/pack:ro
+    depends_on:
+      enterprise-mock-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health/ready')"]
+      interval: 5s
+      timeout: 8s
+      retries: 20
+      start_period: 20s
+    networks:
+      - helio
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        AGENT_API_URL: http://agent-api:8001
+        BAKERY_API_URL: http://host.docker.internal:8002
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      AGENT_API_URL: http://agent-api:8001
+      BAKERY_API_URL: http://host.docker.internal:8002
+      HOSTNAME: "0.0.0.0"
+      PORT: "3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      agent-api:
+        condition: service_healthy
+    networks:
+      - helio
+
+volumes:
+  agent_app_db:
+
+networks:
+  helio:
+    driver: bridge

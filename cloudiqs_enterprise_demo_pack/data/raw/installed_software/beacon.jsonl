@@ -1,0 +1,55 @@
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0001", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0001", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0001", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0002", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0002", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0002", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Visual Studio Code", "device_id": "beacon-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Docker Desktop", "device_id": "beacon-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0004", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0004", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0004", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0005", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0005", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0005", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Visual Studio Code", "device_id": "beacon-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Docker Desktop", "device_id": "beacon-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0007", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0007", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0007", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0008", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0008", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0008", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Visual Studio Code", "device_id": "beacon-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Docker Desktop", "device_id": "beacon-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0010", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0010", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0010", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0011", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0011", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0011", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "beacon-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Docker Desktop", "device_id": "beacon-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0013", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0013", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0013", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0014", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0014", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0014", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "beacon-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "beacon-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "beacon-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "beacon-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "2.11.0"}
+{"app_name": "Docker Desktop", "device_id": "beacon-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "beacon", "version": "1.8.2"}

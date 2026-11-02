@@ -1,0 +1,238 @@
+[
+  {
+    "tenant_id": "northstar",
+    "role": "employee",
+    "permissions": [
+      "tickets:create_self",
+      "tickets:read_self",
+      "identity:read_self",
+      "devices:read_assigned",
+      "kb:search_employee",
+      "vpn:read_self",
+      "actions:request_self"
+    ],
+    "default_scope": "self",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "contractor",
+    "permissions": [
+      "tickets:create_self",
+      "tickets:read_self",
+      "identity:read_self",
+      "kb:search_employee",
+      "actions:request_self"
+    ],
+    "default_scope": "self",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "it_engineer",
+    "permissions": [
+      "tickets:read_assigned",
+      "tickets:create_for_user",
+      "tickets:update_assigned",
+      "devices:read_tenant",
+      "identity:read_status",
+      "vpn:read_tenant",
+      "approvals:review_low_risk",
+      "kb:search_internal"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": true
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "it_manager",
+    "permissions": [
+      "tickets:read_tenant",
+      "metrics:read_tenant",
+      "approvals:review_it_ops",
+      "policies:read"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": true
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "tenant_admin",
+    "permissions": [
+      "integration:configure",
+      "roles:manage",
+      "policies:configure",
+      "kb:publish",
+      "audit:read_tenant",
+      "metrics:read_tenant"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": true,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "security_analyst",
+    "permissions": [
+      "security:read_tenant",
+      "approvals:review_security",
+      "identity:read_status",
+      "audit:read_tenant"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": true
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "hr_partner",
+    "permissions": [
+      "hr:read_limited",
+      "tickets:create_for_user",
+      "offboarding:request"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "northstar",
+    "role": "cloudiqs_operator",
+    "permissions": [
+      "health:read_aggregated"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "employee",
+    "permissions": [
+      "tickets:create_self",
+      "tickets:read_self",
+      "identity:read_self",
+      "devices:read_assigned",
+      "kb:search_employee",
+      "vpn:read_self",
+      "actions:request_self"
+    ],
+    "default_scope": "self",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "contractor",
+    "permissions": [
+      "tickets:create_self",
+      "tickets:read_self",
+      "identity:read_self",
+      "kb:search_employee",
+      "actions:request_self"
+    ],
+    "default_scope": "self",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "it_engineer",
+    "permissions": [
+      "tickets:read_assigned",
+      "tickets:create_for_user",
+      "tickets:update_assigned",
+      "devices:read_tenant",
+      "identity:read_status",
+      "vpn:read_tenant",
+      "approvals:review_low_risk",
+      "kb:search_internal"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": true
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "it_manager",
+    "permissions": [
+      "tickets:read_tenant",
+      "metrics:read_tenant",
+      "approvals:review_it_ops",
+      "policies:read"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": true
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "tenant_admin",
+    "permissions": [
+      "integration:configure",
+      "roles:manage",
+      "policies:configure",
+      "kb:publish",
+      "audit:read_tenant",
+      "metrics:read_tenant"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": true,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "security_analyst",
+    "permissions": [
+      "security:read_tenant",
+      "approvals:review_security",
+      "identity:read_status",
+      "audit:read_tenant"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": true
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "hr_partner",
+    "permissions": [
+      "hr:read_limited",
+      "tickets:create_for_user",
+      "offboarding:request"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  },
+  {
+    "tenant_id": "beacon",
+    "role": "cloudiqs_operator",
+    "permissions": [
+      "health:read_aggregated"
+    ],
+    "default_scope": "tenant",
+    "grants_app_admin": false,
+    "grants_cloud_admin": false,
+    "grants_agent_action_approval": false
+  }
+]

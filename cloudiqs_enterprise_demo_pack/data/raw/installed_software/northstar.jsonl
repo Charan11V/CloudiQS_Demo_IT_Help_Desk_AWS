@@ -1,0 +1,127 @@
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0001", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0001", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0001", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0002", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0002", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0002", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0003", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0004", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0004", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0004", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0005", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0005", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0005", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0006", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0007", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0007", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0007", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0008", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0008", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0008", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0009", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0010", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0010", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0010", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0011", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0011", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0011", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0012", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0013", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0013", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0013", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0014", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0014", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0014", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0015", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0016", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0016", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0016", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0017", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0017", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0017", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0018", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0018", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0018", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0018", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0018", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0019", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0019", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0019", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0020", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0020", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0020", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0021", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0021", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0021", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0021", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0021", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0022", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0022", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0022", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0023", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0023", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0023", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0024", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0024", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0024", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0024", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0024", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0025", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0025", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0025", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0026", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0026", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0026", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0027", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0027", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0027", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0027", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0027", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0028", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0028", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0028", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0029", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0029", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0029", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0030", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0030", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0030", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0030", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0030", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0031", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0031", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0031", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0032", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "1.8.2"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0032", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0032", "install_status": "installed", "last_seen": "2026-10-30T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0033", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0033", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0033", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Visual Studio Code", "device_id": "northstar-DEV-0033", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Docker Desktop", "device_id": "northstar-DEV-0033", "install_status": "installed", "last_seen": "2026-11-02T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0034", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0034", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "2.11.0"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0034", "install_status": "installed", "last_seen": "2026-11-01T12:00:00Z", "tenant_id": "northstar", "version": "5.2.1"}
+{"app_name": "Microsoft Teams", "device_id": "northstar-DEV-0035", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Corporate VPN", "device_id": "northstar-DEV-0035", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}
+{"app_name": "Microsoft 365", "device_id": "northstar-DEV-0035", "install_status": "installed", "last_seen": "2026-10-31T12:00:00Z", "tenant_id": "northstar", "version": "2026.10"}

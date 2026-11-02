@@ -1,0 +1,5 @@
+{"change_id": "beacon-NETCHG-0001", "change_owner": "beacon-EMP-0003", "start": "2026-10-29T12:00:00Z", "state": "completed", "tenant_id": "beacon", "type": "vpn_gateway_upgrade"}
+{"change_id": "beacon-NETCHG-0002", "change_owner": "beacon-EMP-0003", "start": "2026-10-28T12:00:00Z", "state": "completed", "tenant_id": "beacon", "type": "dns_failover"}
+{"change_id": "beacon-NETCHG-0003", "change_owner": "beacon-EMP-0002", "start": "2026-10-27T12:00:00Z", "state": "planned", "tenant_id": "beacon", "type": "vpn_gateway_upgrade"}
+{"change_id": "beacon-NETCHG-0004", "change_owner": "beacon-EMP-0003", "start": "2026-10-26T12:00:00Z", "state": "completed", "tenant_id": "beacon", "type": "firewall_rule"}
+{"change_id": "beacon-NETCHG-0005", "change_owner": "beacon-EMP-0002", "start": "2026-10-25T12:00:00Z", "state": "planned", "tenant_id": "beacon", "type": "dns_failover"}

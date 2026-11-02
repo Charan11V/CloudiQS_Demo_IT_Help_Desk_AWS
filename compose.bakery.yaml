@@ -1,0 +1,72 @@
+# Agentic Bakery Pro guided helpdesk stack (preserves existing HELIO compose.yaml)
+services:
+  bakery-postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: bakery
+      POSTGRES_PASSWORD: bakery
+      POSTGRES_DB: bakery
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - bakery_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bakery -d bakery"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    networks:
+      - bakery
+
+  bakery-api:
+    build:
+      context: ./services/bakery_api
+    ports:
+      - "127.0.0.1:8002:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://bakery:bakery@bakery-postgres:5432/bakery
+      ALLOW_DEMO_LOGIN: "1"
+      SPECS_PATH: /specs
+      CORS_ORIGINS: '["http://localhost:3001","http://127.0.0.1:3001","http://localhost:3000","http://127.0.0.1:3000"]'
+    volumes:
+      - ./specs:/specs:ro
+      - ./services/bakery_api/app:/app/app
+    depends_on:
+      bakery-postgres:
+        condition: service_healthy
+    command: >
+      sh -c "python -m app.seed --reset &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 40s
+    networks:
+      - bakery
+
+  bakery-web:
+    build:
+      context: ./apps/bakery_web
+      args:
+        BAKERY_API_URL: http://bakery-api:8000
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      BAKERY_API_URL: http://bakery-api:8000
+      NEXT_PUBLIC_BAKERY_API_URL: ""
+      HOSTNAME: "0.0.0.0"
+      PORT: "3000"
+    depends_on:
+      bakery-api:
+        condition: service_healthy
+    networks:
+      - bakery
+
+volumes:
+  bakery_pg_data:
+
+networks:
+  bakery:
+    driver: bridge

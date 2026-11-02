@@ -1,0 +1,17 @@
+tenant_id,integration_key,name,connection_status,mode,auth_type,secret_reference,configured_by,configured_at,last_healthcheck,api_rate_limit_per_minute,perm_scopes,credential_is_real
+northstar,idp,Microsoft Entra ID,connected_mock,read_and_request,mock_service_credentials,demo-only://northstar/idp,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+northstar,ticketing,Jira Service Management,connected_mock,read_write,mock_service_credentials,demo-only://northstar/ticketing,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped"", ""write_scoped""]",False
+northstar,device_management,Microsoft Intune,connected_mock,read_only,mock_service_credentials,demo-only://northstar/device_management,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+northstar,vpn,Corporate VPN Simulator,connected_mock,read_and_request,mock_service_credentials,demo-only://northstar/vpn,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+northstar,knowledge,S3 KB mock,connected_mock,read_only,mock_service_credentials,demo-only://northstar/knowledge,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+northstar,security,Defender/GuardDuty mock,connected_mock,read_only,mock_service_credentials,demo-only://northstar/security,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+northstar,collaboration,Teams/Slack mock,connected_mock,notifications_only,mock_service_credentials,demo-only://northstar/collaboration,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+northstar,hris,HRIS mock,connected_mock,read_limited,mock_service_credentials,demo-only://northstar/hris,northstar-EMP-0004,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,idp,Okta,connected_mock,read_and_request,mock_service_credentials,demo-only://beacon/idp,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,ticketing,ServiceNow,connected_mock,read_write,mock_service_credentials,demo-only://beacon/ticketing,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped"", ""write_scoped""]",False
+beacon,device_management,Jamf + Intune,connected_mock,read_only,mock_service_credentials,demo-only://beacon/device_management,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,vpn,Corporate VPN Simulator,connected_mock,read_and_request,mock_service_credentials,demo-only://beacon/vpn,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,knowledge,S3 KB mock,connected_mock,read_only,mock_service_credentials,demo-only://beacon/knowledge,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,security,Defender/GuardDuty mock,connected_mock,read_only,mock_service_credentials,demo-only://beacon/security,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,collaboration,Teams/Slack mock,connected_mock,notifications_only,mock_service_credentials,demo-only://beacon/collaboration,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False
+beacon,hris,HRIS mock,connected_mock,read_limited,mock_service_credentials,demo-only://beacon/hris,beacon-EMP-0003,2026-10-13T12:00:00Z,2026-10-29T12:00:00Z,120,"[""read_scoped""]",False

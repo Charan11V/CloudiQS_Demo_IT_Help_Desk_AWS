@@ -1,0 +1,16 @@
+# Standalone evaluator process. For agent execution, attach to the HELIO network
+# and implement tools/helio_adapter.py against the actual FastAPI chat endpoints.
+# Do NOT mount private oracle into the application/agent/web service.
+services:
+  helio-evaluator:
+    build:
+      context: .
+      dockerfile: evaluator.Dockerfile
+    environment:
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      JUDGE_API_URL: ${JUDGE_API_URL:-}
+      JUDGE_API_KEY: ${JUDGE_API_KEY:-}
+    volumes:
+      - ./reports:/suite/reports
+    command: ["python", "tools/validate_suite.py"]
+    profiles: ["eval"]

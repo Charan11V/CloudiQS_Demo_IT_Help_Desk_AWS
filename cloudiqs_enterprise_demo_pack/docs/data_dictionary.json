@@ -1,0 +1,2655 @@
+[
+  {
+    "source": "hris_people",
+    "description": "Hris People simulated data source",
+    "records": 40,
+    "fields": [
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "worker_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "person_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "preferred_name",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "work_email",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "employment_status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "employment_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "manager_person_key",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "department",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "office",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "cost_center",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "effective_from",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "last_modified",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source_record_version",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "identity_directory",
+    "description": "Identity Directory simulated data source",
+    "records": 40,
+    "fields": [
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "object_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "employee_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "userPrincipalName",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "mail",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "accountEnabled",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "account_state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "displayName",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "userType",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "department",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "assignedLicenses",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "signInActivity",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "last_synced_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "identity_signins",
+    "description": "Identity Signins simulated data source",
+    "records": 160,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "provider",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "error_code",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "client_app",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ip_address",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "location",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "risk_level",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "event_time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ingested_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "identity_mfa_factors",
+    "description": "Identity Mfa Factors simulated data source",
+    "records": 40,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "idp",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "methods",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "mfa_enrolled",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "recovery_locked",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "last_reset",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "saas_entitlements",
+    "description": "Saas Entitlements simulated data source",
+    "records": 148,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "app_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "entitlement",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "last_verified_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "asset_register",
+    "description": "Asset Register simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "owner_user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "hostname",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "serial_number",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "os",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "site",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "purchase_date",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "lifecycle",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "asset_classification",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "cmdb_ci",
+    "description": "Cmdb Ci simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "sys_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ci_name",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "serial",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "assigned_to",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "business_service",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "operational_status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "last_discovered",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "configuration_item",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "mdm_managed_devices",
+    "description": "Mdm Managed Devices simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "managedDeviceId",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "azureADDeviceId",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "userId",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "userPrincipalName",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "deviceName",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "operatingSystem",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "complianceState",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "lastSyncDateTime",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "managementAgent",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "isEncrypted",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "endpoint_telemetry",
+    "description": "Endpoint Telemetry simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "metrics",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "service_health",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "device_patch_compliance",
+    "description": "Device Patch Compliance simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "latest_patch_date",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "missing_critical_count",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "reboot_required",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "compliance_status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "agent",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "installed_software",
+    "description": "Installed Software simulated data source",
+    "records": 182,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "app_name",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "version",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "install_status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "last_seen",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "asset_procurement",
+    "description": "Asset Procurement simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "asset_tag",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "purchase_order",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "purchase_value_usd",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "supplier",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "cost_center",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "device_warranty",
+    "description": "Device Warranty simulated data source",
+    "records": 50,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "serial_number",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "coverage",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "expires_on",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "vendor",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "replacement_eligible",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "vpn_sessions",
+    "description": "Vpn Sessions simulated data source",
+    "records": 130,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "session_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "username",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "timestamp_utc",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "client_version",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "gateway",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "failure_reason",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "certificate_expiry",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "dns_queries",
+    "description": "Dns Queries simulated data source",
+    "records": 130,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "query",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "rcode",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "latency_ms",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "collector",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "wifi_auth_events",
+    "description": "Wifi Auth Events simulated data source",
+    "records": 130,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ap_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "associated",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "rssi",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "ssid",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "radius_error",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "dhcp_leases",
+    "description": "Dhcp Leases simulated data source",
+    "records": 130,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ip",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "lease_starts",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "lease_ends",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "network_change_log",
+    "description": "Network Change Log simulated data source",
+    "records": 10,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "change_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "start",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "change_owner",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "service_catalog",
+    "description": "Service Catalog simulated data source",
+    "records": 24,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "name",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "owner_group",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "tier",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "criticality",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "channels",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "is_enabled",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "automation_tier",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "self_service_available",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "service_request_forms",
+    "description": "Service Request Forms simulated data source",
+    "records": 24,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "form_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "required_fields",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "conditional_fields",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "routing_group",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "sla_policies",
+    "description": "Sla Policies simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "priority",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "response_minutes",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "resolution_minutes",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "calendar",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "pause_states",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "escalation_minutes",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "itsm_tickets",
+    "description": "Itsm Tickets simulated data source",
+    "records": 80,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ticket_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "external_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "system",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "request_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "category",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "summary",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "description",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "requester_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "assignee_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "assignment_group",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "priority",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "impact",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "urgency",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "created_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "updated_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "resolved_at",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "root_cause",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "confidence_from_history",
+        "coverage_percent": 100.0,
+        "example_type": "float"
+      },
+      {
+        "field": "sla_state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "customer_visible",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "tags",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "linked_problem_id",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "itsm_comments",
+    "description": "Itsm Comments simulated data source",
+    "records": 240,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ticket_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "comment_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "body",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "author_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "visibility",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "created_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "itsm_history",
+    "description": "Itsm History simulated data source",
+    "records": 240,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ticket_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "actor_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "field_changes",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "itsm_problems",
+    "description": "Itsm Problems simulated data source",
+    "records": 6,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "problem_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "linked_tickets",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "business_service",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "severity",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "root_cause_hypothesis",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "workaround",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "known_error",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "created_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "itsm_changes",
+    "description": "Itsm Changes simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "change_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "risk",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "implementation_plan",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "backout_plan",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "planned_start",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "requested_by",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "approvals_required",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "change_approvals",
+    "description": "Change Approvals simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "change_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "approver_role",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "created_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "service_health_outages",
+    "description": "Service Health Outages simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "outage_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "severity",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "started_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "detected_by",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "symptom",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "impacted_sites",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "comms_channel",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ended_at",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "oncall_rotations",
+    "description": "Oncall Rotations simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "schedule_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "team",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "primary_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "secondary_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "starts_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ends_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "timezone",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "security_findings",
+    "description": "Security Findings simulated data source",
+    "records": 23,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "alert_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "device_id",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "rule_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "severity",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "observed_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "confidence",
+        "coverage_percent": 100.0,
+        "example_type": "float"
+      },
+      {
+        "field": "is_confirmed_incident",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "csat_surveys",
+    "description": "Csat Surveys simulated data source",
+    "records": 10,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ticket_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "score",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "comment",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "collected_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "outbound_notifications",
+    "description": "Outbound Notifications simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "message_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "recipient_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "channel",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "topic",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "related_ticket",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "delivery_status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "sent_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "collaboration_messages",
+    "description": "Collaboration Messages simulated data source",
+    "records": 13,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "message_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "platform",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "channel",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "sender_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "content",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "sent_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "visibility",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "trusted_instruction",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "email_transport_events",
+    "description": "Email Transport Events simulated data source",
+    "records": 9,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "message_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "transport",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "transport_rule",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "recipient_domain",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "hr_joiner_leaver_tasks",
+    "description": "Hr Joiner Leaver Tasks simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "task_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "person_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "workflow",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "effective_date",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "trigger_source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "required_actions",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "saas_licenses",
+    "description": "Saas Licenses simulated data source",
+    "records": 14,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "sku",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "application",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "purchased",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "assigned",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "renewal_date",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "cost_per_seat_usd",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "provisioning_method",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "software_access_requests",
+    "description": "Software Access Requests simulated data source",
+    "records": 6,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "request_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "user_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "software",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "reason",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "manager_approval",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "license_available",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "submitted_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "integration_api_errors",
+    "description": "Integration Api Errors simulated data source",
+    "records": 27,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "request_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "integration",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status_code",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "latency_ms",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "retry_after_seconds",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "occurred_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "operation",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "request_was_committed",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "vendor_status",
+    "description": "Vendor Status simulated data source",
+    "records": 8,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "provider",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "region",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "as_of",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "external_incident_ref",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "agent_usage_and_costs",
+    "description": "Agent Usage And Costs simulated data source",
+    "records": 28,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "usage_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "agent_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "model",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "operation",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "input_tokens",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "output_tokens",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "duration_ms",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "trace_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "usd_estimate",
+        "coverage_percent": 100.0,
+        "example_type": "float"
+      },
+      {
+        "field": "billing_confirmed",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "application_audit",
+    "description": "Application Audit simulated data source",
+    "records": 17,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "event_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "actor_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "actor_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "action",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "resource_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "outcome",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "policy_version",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "request_time",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "trace_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "tenant_policies",
+    "description": "Tenant Policies simulated data source",
+    "records": 2,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "policy_version",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "effective_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "agent_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "policies",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "agent_limits",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "knowledge_policy",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "audit_retention_days",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "incident_escalation_rules",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "role_permissions",
+    "description": "Role Permissions simulated data source",
+    "records": 16,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "role",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "permissions",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "default_scope",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "grants_app_admin",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "grants_cloud_admin",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "grants_agent_action_approval",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "integration_registry",
+    "description": "Integration Registry simulated data source",
+    "records": 16,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "integration_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "name",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "connection_status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "mode",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "auth_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "secret_reference",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "configured_by",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "configured_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "last_healthcheck",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "api_rate_limit_per_minute",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "perm_scopes",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "credential_is_real",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "human_approvals",
+    "description": "Human Approvals simulated data source",
+    "records": 14,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "approval_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "requester_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "approver_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "action_type",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "payload",
+        "coverage_percent": 100.0,
+        "example_type": "dict"
+      },
+      {
+        "field": "action_hash",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "created_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "expires_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "decided_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "decision_reason",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "agent_executions",
+    "description": "Agent Executions simulated data source",
+    "records": 14,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "execution_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "agent_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "principal_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "trace_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "input_summary",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "state",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "model",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "steps",
+        "coverage_percent": 100.0,
+        "example_type": "list"
+      },
+      {
+        "field": "tokens_in",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "tokens_out",
+        "coverage_percent": 100.0,
+        "example_type": "int"
+      },
+      {
+        "field": "estimated_cost_usd",
+        "coverage_percent": 100.0,
+        "example_type": "float"
+      },
+      {
+        "field": "started_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "ended_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  },
+  {
+    "source": "knowledge_index",
+    "description": "Knowledge Index simulated data source",
+    "records": 27,
+    "fields": [
+      {
+        "field": "tenant_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "document_id",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "title",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "service_key",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "classification",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "version",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "status",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "effective_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "supersedes",
+        "coverage_percent": 100.0,
+        "example_type": "NoneType"
+      },
+      {
+        "field": "path",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "created_by",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "source_system",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "signed_policy",
+        "coverage_percent": 100.0,
+        "example_type": "bool"
+      },
+      {
+        "field": "last_indexed_at",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      },
+      {
+        "field": "content_sha256",
+        "coverage_percent": 100.0,
+        "example_type": "str"
+      }
+    ],
+    "tenant_scope": true,
+    "notes": "External-system shape loosely inspired by enterprise IT sources; NOT an actual vendor API contract."
+  }
+]

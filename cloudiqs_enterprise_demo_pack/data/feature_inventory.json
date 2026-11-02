@@ -1,0 +1,1847 @@
+[
+  {
+    "feature_id": "FEAT-001",
+    "module": "Identity and authentication",
+    "capability": "Employee account lookup",
+    "operation_class": "read",
+    "user_roles": "employee / IT support",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Same tenant and self or authorised support",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-002",
+    "module": "Identity and authentication",
+    "capability": "Account lockout diagnosis",
+    "operation_class": "read",
+    "user_roles": "employee / IT support",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Correlate sign-ins, lockout error, policy",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-003",
+    "module": "Identity and authentication",
+    "capability": "Self-service account unlock request",
+    "operation_class": "approval",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Human proofing and approved identity workflow",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-004",
+    "module": "Identity and authentication",
+    "capability": "MFA prompt investigation",
+    "operation_class": "read_escalate",
+    "user_roles": "employee / Security",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Escalate suspicious prompt",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-005",
+    "module": "Identity and authentication",
+    "capability": "MFA factor recovery",
+    "operation_class": "restricted",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "No autonomous reset",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-006",
+    "module": "Identity and authentication",
+    "capability": "Federated sign-in error investigation",
+    "operation_class": "read",
+    "user_roles": "IT support",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Use provider error codes without exposing secrets",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-007",
+    "module": "Identity and authentication",
+    "capability": "Privileged identity access request",
+    "operation_class": "restricted",
+    "user_roles": "Security / Cloud admin",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "No admin role grants by helpdesk",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-008",
+    "module": "Identity and authentication",
+    "capability": "Inactive account detection",
+    "operation_class": "read_escalate",
+    "user_roles": "Identity team",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Match authoritative HR status vs directory",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-009",
+    "module": "Identity and authentication",
+    "capability": "Device-bound conditional access diagnosis",
+    "operation_class": "read",
+    "user_roles": "IT support",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Check device compliance",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-010",
+    "module": "Identity and authentication",
+    "capability": "Passwordless credential support",
+    "operation_class": "restricted",
+    "user_roles": "Identity team",
+    "source_dependencies": [
+      "identity_directory",
+      "identity_signins",
+      "identity_mfa_factors",
+      "hris_people"
+    ],
+    "rule_or_failure_condition": "Never collect FIDO2 private keys",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-011",
+    "module": "Endpoint and device management",
+    "capability": "Device assignment lookup",
+    "operation_class": "read",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Ownership sources may conflict",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-012",
+    "module": "Endpoint and device management",
+    "capability": "Endpoint CPU and memory diagnosis",
+    "operation_class": "read",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Multiple observations",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-013",
+    "module": "Endpoint and device management",
+    "capability": "Low disk remediation planning",
+    "operation_class": "propose",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Safe cleanup guidance only",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-014",
+    "module": "Endpoint and device management",
+    "capability": "OS update troubleshooting",
+    "operation_class": "read",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Patch and reboot status",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-015",
+    "module": "Endpoint and device management",
+    "capability": "Device encryption failure escalation",
+    "operation_class": "escalate",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "No security bypass",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-016",
+    "module": "Endpoint and device management",
+    "capability": "Endpoint protection alert triage",
+    "operation_class": "read_escalate",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Restricted diagnostics",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-017",
+    "module": "Endpoint and device management",
+    "capability": "Managed device certificate renewal",
+    "operation_class": "approval",
+    "user_roles": "IT support",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Device compliance prerequisite",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-018",
+    "module": "Endpoint and device management",
+    "capability": "Device replacement recommendation",
+    "operation_class": "propose",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Procurement and warranty checks",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-019",
+    "module": "Endpoint and device management",
+    "capability": "Remote wipe request",
+    "operation_class": "restricted",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Disabled in helpdesk",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-020",
+    "module": "Endpoint and device management",
+    "capability": "App installation suitability",
+    "operation_class": "approval",
+    "user_roles": "IT / Manager",
+    "source_dependencies": [
+      "asset_register",
+      "mdm_managed_devices",
+      "endpoint_telemetry",
+      "device_patch_compliance"
+    ],
+    "rule_or_failure_condition": "Catalogue and approval",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-021",
+    "module": "VPN and network",
+    "capability": "VPN session diagnosis",
+    "operation_class": "read",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Correlate client, gateway and identity",
+    "status": "fixture_supported",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-022",
+    "module": "VPN and network",
+    "capability": "Expired certificate handling",
+    "operation_class": "approval",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "No unapproved renewal",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-023",
+    "module": "VPN and network",
+    "capability": "VPN MFA challenge timeout",
+    "operation_class": "read",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Disambiguate from invalid credentials",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-024",
+    "module": "VPN and network",
+    "capability": "Wi-Fi RADIUS EAP-TLS failure",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Check cert and AP logs",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-025",
+    "module": "VPN and network",
+    "capability": "DNS resolver performance",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Avoid guessing a network issue",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-026",
+    "module": "VPN and network",
+    "capability": "IP lease conflict detection",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Check DHCP events",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-027",
+    "module": "VPN and network",
+    "capability": "Regional gateway outage correlation",
+    "operation_class": "read_escalate",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Check service health",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-028",
+    "module": "VPN and network",
+    "capability": "VPN client version mismatch",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Check approved versions",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-029",
+    "module": "VPN and network",
+    "capability": "Proxy and firewall restriction investigation",
+    "operation_class": "read_escalate",
+    "user_roles": "Network team",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "No unauthorised firewall edits",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-030",
+    "module": "VPN and network",
+    "capability": "Network change impact analysis",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "vpn_sessions",
+      "wifi_auth_events",
+      "dns_queries",
+      "dhcp_leases",
+      "network_change_log"
+    ],
+    "rule_or_failure_condition": "Consult change calendar",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-031",
+    "module": "Incident, problem and change management",
+    "capability": "Ticket creation with idempotency",
+    "operation_class": "mutate",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "No duplicate tickets",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-032",
+    "module": "Incident, problem and change management",
+    "capability": "My tickets and updates",
+    "operation_class": "read",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Self visibility only",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-033",
+    "module": "Incident, problem and change management",
+    "capability": "IT ticket assignment",
+    "operation_class": "mutate",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Scoped to tenant and team",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-034",
+    "module": "Incident, problem and change management",
+    "capability": "Priority and impact classification",
+    "operation_class": "propose",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "P1 human confirmation",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-035",
+    "module": "Incident, problem and change management",
+    "capability": "SLA breach identification",
+    "operation_class": "read",
+    "user_roles": "IT / Manager",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Respect support calendars",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-036",
+    "module": "Incident, problem and change management",
+    "capability": "Problem management clustering",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Group recurring root cause",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-037",
+    "module": "Incident, problem and change management",
+    "capability": "Root cause evidence graph",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Trace each source",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-038",
+    "module": "Incident, problem and change management",
+    "capability": "Change approval workflow",
+    "operation_class": "approval",
+    "user_roles": "Manager",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Plan / backout / test",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-039",
+    "module": "Incident, problem and change management",
+    "capability": "Major incident bridge escalation",
+    "operation_class": "notify",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Notify duty owner",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-040",
+    "module": "Incident, problem and change management",
+    "capability": "Post-incident review preparation",
+    "operation_class": "propose",
+    "user_roles": "Manager",
+    "source_dependencies": [
+      "itsm_tickets",
+      "itsm_comments",
+      "itsm_history",
+      "itsm_problems",
+      "itsm_changes",
+      "sla_policies"
+    ],
+    "rule_or_failure_condition": "Evidence-based timeline",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-041",
+    "module": "Access requests and software licensing",
+    "capability": "Standard SaaS access requests",
+    "operation_class": "approval",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "Business owner permission",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-042",
+    "module": "Access requests and software licensing",
+    "capability": "License inventory lookup",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "Seat availability not permission",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-043",
+    "module": "Access requests and software licensing",
+    "capability": "Entitlement discrepancy review",
+    "operation_class": "read_escalate",
+    "user_roles": "IT / Security",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "Cross-check HR and directory",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-044",
+    "module": "Access requests and software licensing",
+    "capability": "Cloud-console role request",
+    "operation_class": "restricted",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "No direct privileged grants",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-045",
+    "module": "Access requests and software licensing",
+    "capability": "Developer tool access approval",
+    "operation_class": "approval",
+    "user_roles": "Manager",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "Licence and policy",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-046",
+    "module": "Access requests and software licensing",
+    "capability": "Application role troubleshooting",
+    "operation_class": "read",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "Use exact scope",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-047",
+    "module": "Access requests and software licensing",
+    "capability": "Temporary access expiry",
+    "operation_class": "proposal",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "Time-bound grant",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-048",
+    "module": "Access requests and software licensing",
+    "capability": "Software renewal cost visibility",
+    "operation_class": "read",
+    "user_roles": "Manager",
+    "source_dependencies": [
+      "saas_entitlements",
+      "software_access_requests",
+      "saas_licenses",
+      "service_request_forms"
+    ],
+    "rule_or_failure_condition": "No purchase from chat",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-049",
+    "module": "People lifecycle",
+    "capability": "New employee onboarding plan",
+    "operation_class": "propose",
+    "user_roles": "HR / IT",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "Effective date and baseline entitlements",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-050",
+    "module": "People lifecycle",
+    "capability": "Contractor start and expiry",
+    "operation_class": "read_escalate",
+    "user_roles": "HR",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "Limited duration",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-051",
+    "module": "People lifecycle",
+    "capability": "Offboarding stale account alert",
+    "operation_class": "escalate",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "HR status precedence",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-052",
+    "module": "People lifecycle",
+    "capability": "Device handover workflow",
+    "operation_class": "propose",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "Inventory ownership updates",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-053",
+    "module": "People lifecycle",
+    "capability": "Shared service ownership transfer",
+    "operation_class": "propose",
+    "user_roles": "Manager",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "Ticket and data handoff",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-054",
+    "module": "People lifecycle",
+    "capability": "Manager change update",
+    "operation_class": "read",
+    "user_roles": "HR / IT",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "Avoid stale group memberships",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-055",
+    "module": "People lifecycle",
+    "capability": "Employment leave access policy",
+    "operation_class": "restricted",
+    "user_roles": "HR",
+    "source_dependencies": [
+      "hris_people",
+      "hr_joiner_leaver_tasks",
+      "identity_directory",
+      "asset_register"
+    ],
+    "rule_or_failure_condition": "Policy governs suspension",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-056",
+    "module": "Security and privacy",
+    "capability": "Suspicious sign-in correlation",
+    "operation_class": "read_escalate",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Evidence not sole geography",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-057",
+    "module": "Security and privacy",
+    "capability": "MFA fatigue detection",
+    "operation_class": "escalate",
+    "user_roles": "Security",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Immediate risk path",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-058",
+    "module": "Security and privacy",
+    "capability": "High-impact action control",
+    "operation_class": "deny_or_approve",
+    "user_roles": "Approver",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Human-verified policy",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-059",
+    "module": "Security and privacy",
+    "capability": "Cross-tenant API denial",
+    "operation_class": "deny",
+    "user_roles": "all",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Server-enforced tenant scope",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-060",
+    "module": "Security and privacy",
+    "capability": "Cross-tenant knowledge ACL",
+    "operation_class": "deny",
+    "user_roles": "all",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Filter before RAG context",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-061",
+    "module": "Security and privacy",
+    "capability": "Sensitive document classification",
+    "operation_class": "read",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Access control by classification",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-062",
+    "module": "Security and privacy",
+    "capability": "Prompt injection containment",
+    "operation_class": "deny",
+    "user_roles": "all",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Tool policy independent of text",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-063",
+    "module": "Security and privacy",
+    "capability": "Audit export and investigation",
+    "operation_class": "read",
+    "user_roles": "Admin / Security",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Access logged",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-064",
+    "module": "Security and privacy",
+    "capability": "Separation of duties",
+    "operation_class": "deny",
+    "user_roles": "all",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Self approval forbidden",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-065",
+    "module": "Security and privacy",
+    "capability": "Action payload hash integrity",
+    "operation_class": "deny",
+    "user_roles": "all",
+    "source_dependencies": [
+      "security_findings",
+      "identity_signins",
+      "application_audit",
+      "tenant_policies"
+    ],
+    "rule_or_failure_condition": "Changed request needs fresh approval",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-066",
+    "module": "Knowledge and retrieval",
+    "capability": "Relevant document retrieval",
+    "operation_class": "read",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Permission filtered",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-067",
+    "module": "Knowledge and retrieval",
+    "capability": "Source citation in answers",
+    "operation_class": "read",
+    "user_roles": "all",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Cite record and KB ID",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-068",
+    "module": "Knowledge and retrieval",
+    "capability": "Latest approved policy precedence",
+    "operation_class": "read",
+    "user_roles": "all",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Superseded documents excluded",
+    "status": "fixture_supported",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-069",
+    "module": "Knowledge and retrieval",
+    "capability": "Vendor document provenance",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Untrusted evidence",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-070",
+    "module": "Knowledge and retrieval",
+    "capability": "Cross-system contradictory evidence",
+    "operation_class": "reconcile",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Report disagreement",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-071",
+    "module": "Knowledge and retrieval",
+    "capability": "Historical resolution retrieval",
+    "operation_class": "read",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Not automatically authoritative",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-072",
+    "module": "Knowledge and retrieval",
+    "capability": "Restricted admin runbooks",
+    "operation_class": "read",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Not employee visible",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-073",
+    "module": "Knowledge and retrieval",
+    "capability": "Document version rollback",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Requires change review",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-074",
+    "module": "Knowledge and retrieval",
+    "capability": "Low-confidence answer escalation",
+    "operation_class": "escalate",
+    "user_roles": "all",
+    "source_dependencies": [
+      "knowledge_index",
+      "knowledge files",
+      "itsm_tickets"
+    ],
+    "rule_or_failure_condition": "Do not fabricate",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-075",
+    "module": "Automation, workflow and approvals",
+    "capability": "Agent tool allowlist",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Enforce outside LLM",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-076",
+    "module": "Automation, workflow and approvals",
+    "capability": "Action plan preview",
+    "operation_class": "read",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Safe explanations",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-077",
+    "module": "Automation, workflow and approvals",
+    "capability": "Human approval request",
+    "operation_class": "approval",
+    "user_roles": "employee / IT",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Immutable payload",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-078",
+    "module": "Automation, workflow and approvals",
+    "capability": "Approval expiry and revocation",
+    "operation_class": "deny",
+    "user_roles": "Approver",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Time bounded",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-079",
+    "module": "Automation, workflow and approvals",
+    "capability": "Approved-action execution",
+    "operation_class": "mutate",
+    "user_roles": "IT / Worker",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Revalidate at execution",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-080",
+    "module": "Automation, workflow and approvals",
+    "capability": "Idempotent write replay",
+    "operation_class": "mutate",
+    "user_roles": "agent tool",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Exactly one effect in mock",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-081",
+    "module": "Automation, workflow and approvals",
+    "capability": "Timeout-after-commit reconciliation",
+    "operation_class": "reconcile",
+    "user_roles": "agent tool",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Unknown outcome safety",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-082",
+    "module": "Automation, workflow and approvals",
+    "capability": "Circuit-breaker handling",
+    "operation_class": "recover",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Bounded retries",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-083",
+    "module": "Automation, workflow and approvals",
+    "capability": "Multi-step partial failure",
+    "operation_class": "recover",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Durable state / compensation",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-084",
+    "module": "Automation, workflow and approvals",
+    "capability": "Duplicate event delivery",
+    "operation_class": "recover",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Deduplicate",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-085",
+    "module": "Automation, workflow and approvals",
+    "capability": "Cancellation safety",
+    "operation_class": "recover",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "No blind rollback",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-086",
+    "module": "Automation, workflow and approvals",
+    "capability": "Model version release gate",
+    "operation_class": "evaluate",
+    "user_roles": "Engineering",
+    "source_dependencies": [
+      "tenant_policies",
+      "human_approvals",
+      "agent_executions",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Hard invariants",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-087",
+    "module": "Operations analytics and platform",
+    "capability": "Incident volumes and SLA analytics",
+    "operation_class": "read",
+    "user_roles": "IT Manager",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Computed from records",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-088",
+    "module": "Operations analytics and platform",
+    "capability": "Agent case resolution metrics",
+    "operation_class": "read",
+    "user_roles": "IT Manager",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Verified tickets only",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-089",
+    "module": "Operations analytics and platform",
+    "capability": "Integration health overview",
+    "operation_class": "read",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Healthcheck and freshness",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-090",
+    "module": "Operations analytics and platform",
+    "capability": "Model token and cost attribution",
+    "operation_class": "read",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Estimates vs billing",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-091",
+    "module": "Operations analytics and platform",
+    "capability": "Request budget enforcement",
+    "operation_class": "deny",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Max calls and tokens",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-092",
+    "module": "Operations analytics and platform",
+    "capability": "Distributed execution tracing",
+    "operation_class": "read",
+    "user_roles": "IT Engineer",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Trace IDs",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-093",
+    "module": "Operations analytics and platform",
+    "capability": "API 429 backoff",
+    "operation_class": "recover",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Retry-After",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-094",
+    "module": "Operations analytics and platform",
+    "capability": "Unexpected API 504 handling",
+    "operation_class": "recover",
+    "user_roles": "agent runtime",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Reconcile write status",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-095",
+    "module": "Operations analytics and platform",
+    "capability": "Knowledge indexing freshness",
+    "operation_class": "read",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Last sync",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-096",
+    "module": "Operations analytics and platform",
+    "capability": "Managed service monitoring",
+    "operation_class": "read",
+    "user_roles": "CloudiQS operator",
+    "source_dependencies": [
+      "agent_usage_and_costs",
+      "service_health_outages",
+      "vendor_status",
+      "integration_api_errors"
+    ],
+    "rule_or_failure_condition": "Aggregate health only",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-097",
+    "module": "Customer communication and channels",
+    "capability": "Web chat support",
+    "operation_class": "interact",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Authenticated session",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-098",
+    "module": "Customer communication and channels",
+    "capability": "Teams and Slack requests",
+    "operation_class": "interact",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Verify identity mapping",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-099",
+    "module": "Customer communication and channels",
+    "capability": "Email-to-ticket intake",
+    "operation_class": "create",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Avoid spoofed sender",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-100",
+    "module": "Customer communication and channels",
+    "capability": "Incident notifications",
+    "operation_class": "notify",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "No secret content",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-101",
+    "module": "Customer communication and channels",
+    "capability": "Customer updates and handoff",
+    "operation_class": "notify",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Ticket scope",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-102",
+    "module": "Customer communication and channels",
+    "capability": "Survey capture",
+    "operation_class": "read",
+    "user_roles": "Manager",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Consent/privacy",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-103",
+    "module": "Customer communication and channels",
+    "capability": "Multi-turn conversational continuity",
+    "operation_class": "interact",
+    "user_roles": "employee",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Session isolation",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-104",
+    "module": "Customer communication and channels",
+    "capability": "Agent-to-human handoff",
+    "operation_class": "escalate",
+    "user_roles": "IT",
+    "source_dependencies": [
+      "collaboration_messages",
+      "email_transport_events",
+      "outbound_notifications",
+      "csat_surveys"
+    ],
+    "rule_or_failure_condition": "Preserve approved transcript",
+    "status": "requires_application_implementation",
+    "demo_priority": "P0"
+  },
+  {
+    "feature_id": "FEAT-105",
+    "module": "Admin and customer deployment",
+    "capability": "Mock IdP integration configuration",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Secrets never in chat",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-106",
+    "module": "Admin and customer deployment",
+    "capability": "Mock ITSM connector configuration",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Least privilege scope",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-107",
+    "module": "Admin and customer deployment",
+    "capability": "Source-to-field mapping",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Provenance mapping",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-108",
+    "module": "Admin and customer deployment",
+    "capability": "Role assignment",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "No role self-elevation",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-109",
+    "module": "Admin and customer deployment",
+    "capability": "Per-tenant agent tool policy",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Independent rules",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-110",
+    "module": "Admin and customer deployment",
+    "capability": "Knowledge publish and classification",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Review and version",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-111",
+    "module": "Admin and customer deployment",
+    "capability": "Audit of policy edits",
+    "operation_class": "read",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Immutable event",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-112",
+    "module": "Admin and customer deployment",
+    "capability": "Customer account deployment plan",
+    "operation_class": "propose",
+    "user_roles": "Cloud engineer",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Not simulated as working",
+    "status": "fixture_supported",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-113",
+    "module": "Admin and customer deployment",
+    "capability": "Tenant specific branding",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Isolation unaffected",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  },
+  {
+    "feature_id": "FEAT-114",
+    "module": "Admin and customer deployment",
+    "capability": "Managed-service access controls",
+    "operation_class": "admin",
+    "user_roles": "Admin",
+    "source_dependencies": [
+      "tenant_policies",
+      "role_permissions",
+      "integration_registry",
+      "application_audit"
+    ],
+    "rule_or_failure_condition": "Time-scoped customer authorisation",
+    "status": "requires_application_implementation",
+    "demo_priority": "P1"
+  }
+]

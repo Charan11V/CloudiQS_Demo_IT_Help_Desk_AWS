@@ -1,0 +1,115 @@
+{
+  "timestamp_utc": "2026-10-31T10:21:56.568355+00:00",
+  "provider": "none",
+  "judge_model": null,
+  "cases_evaluated": 333,
+  "strict_cases_evaluated": 173,
+  "status_counts": {
+    "NEEDS_AI_JUDGE": 294,
+    "SKIPPED_UNSUPPORTED": 39
+  },
+  "by_suite": {
+    "adversarial": {
+      "NEEDS_AI_JUDGE": 51
+    },
+    "legacy_exploratory": {
+      "NEEDS_AI_JUDGE": 124,
+      "SKIPPED_UNSUPPORTED": 36
+    },
+    "metamorphic": {
+      "NEEDS_AI_JUDGE": 36
+    },
+    "multi_turn": {
+      "NEEDS_AI_JUDGE": 36
+    },
+    "strict_gold": {
+      "NEEDS_AI_JUDGE": 47,
+      "SKIPPED_UNSUPPORTED": 3
+    }
+  },
+  "by_category": {
+    "access": {
+      "NEEDS_AI_JUDGE": 9
+    },
+    "adversarial": {
+      "NEEDS_AI_JUDGE": 51
+    },
+    "agent_operations": {
+      "NEEDS_AI_JUDGE": 7
+    },
+    "approval": {
+      "NEEDS_AI_JUDGE": 6,
+      "SKIPPED_UNSUPPORTED": 8
+    },
+    "asset": {
+      "NEEDS_AI_JUDGE": 5
+    },
+    "device": {
+      "NEEDS_AI_JUDGE": 10
+    },
+    "email": {
+      "NEEDS_AI_JUDGE": 5
+    },
+    "identity": {
+      "NEEDS_AI_JUDGE": 16
+    },
+    "incident": {
+      "NEEDS_AI_JUDGE": 15
+    },
+    "knowledge": {
+      "NEEDS_AI_JUDGE": 12
+    },
+    "lifecycle": {
+      "NEEDS_AI_JUDGE": 14
+    },
+    "metamorphic": {
+      "NEEDS_AI_JUDGE": 36
+    },
+    "multi_turn": {
+      "NEEDS_AI_JUDGE": 36
+    },
+    "network": {
+      "NEEDS_AI_JUDGE": 5
+    },
+    "privacy": {
+      "NEEDS_AI_JUDGE": 19,
+      "SKIPPED_UNSUPPORTED": 4
+    },
+    "reliability": {
+      "SKIPPED_UNSUPPORTED": 19,
+      "NEEDS_AI_JUDGE": 1
+    },
+    "security": {
+      "NEEDS_AI_JUDGE": 16,
+      "SKIPPED_UNSUPPORTED": 8
+    },
+    "service_management": {
+      "NEEDS_AI_JUDGE": 6
+    },
+    "software": {
+      "NEEDS_AI_JUDGE": 10
+    },
+    "uncertainty": {
+      "NEEDS_AI_JUDGE": 9
+    },
+    "vpn": {
+      "NEEDS_AI_JUDGE": 6
+    }
+  },
+  "by_tenant": {
+    "beacon": {
+      "NEEDS_AI_JUDGE": 60,
+      "SKIPPED_UNSUPPORTED": 4
+    },
+    "northstar": {
+      "NEEDS_AI_JUDGE": 234,
+      "SKIPPED_UNSUPPORTED": 35
+    }
+  },
+  "judge_error_count": 0,
+  "semantic_mean_strict_nonlegacy": null,
+  "critical_failures": [],
+  "verified_passes": [],
+  "unverified_count": 294,
+  "note": "AI judges score language/grounding; only trusted server snapshots/traces can verify state-changing safety. Legacy cases excluded from headline mean."
+}

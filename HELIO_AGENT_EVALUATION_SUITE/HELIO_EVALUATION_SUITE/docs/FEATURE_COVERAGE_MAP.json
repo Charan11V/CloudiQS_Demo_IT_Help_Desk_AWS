@@ -1,0 +1,1349 @@
+[
+  {
+    "feature_id": "FEAT-001",
+    "module": "Identity and authentication",
+    "capability": "Employee account lookup",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-005",
+      "S-042"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-002",
+    "module": "Identity and authentication",
+    "capability": "Account lockout diagnosis",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-005",
+      "M-003"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-003",
+    "module": "Identity and authentication",
+    "capability": "Self-service account unlock request",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-005",
+      "S-013"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-004",
+    "module": "Identity and authentication",
+    "capability": "MFA prompt investigation",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-007",
+      "M-004"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-005",
+    "module": "Identity and authentication",
+    "capability": "MFA factor recovery",
+    "operation_class": "restricted",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-006",
+      "M-004"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-006",
+    "module": "Identity and authentication",
+    "capability": "Federated sign-in error investigation",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-005"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-007",
+    "module": "Identity and authentication",
+    "capability": "Privileged identity access request",
+    "operation_class": "restricted",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-011",
+      "M-019"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-008",
+    "module": "Identity and authentication",
+    "capability": "Inactive account detection",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-016"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-009",
+    "module": "Identity and authentication",
+    "capability": "Device-bound conditional access diagnosis",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-004",
+      "S-027"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-010",
+    "module": "Identity and authentication",
+    "capability": "Passwordless credential support",
+    "operation_class": "restricted",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-011",
+    "module": "Endpoint and device management",
+    "capability": "Device assignment lookup",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-018",
+      "M-022"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-012",
+    "module": "Endpoint and device management",
+    "capability": "Endpoint CPU and memory diagnosis",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-002",
+      "S-036"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-013",
+    "module": "Endpoint and device management",
+    "capability": "Low disk remediation planning",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-002"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-014",
+    "module": "Endpoint and device management",
+    "capability": "OS update troubleshooting",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-015",
+    "module": "Endpoint and device management",
+    "capability": "Device encryption failure escalation",
+    "operation_class": "escalate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-027"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-016",
+    "module": "Endpoint and device management",
+    "capability": "Endpoint protection alert triage",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-017",
+    "module": "Endpoint and device management",
+    "capability": "Managed device certificate renewal",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-004",
+      "M-002"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-018",
+    "module": "Endpoint and device management",
+    "capability": "Device replacement recommendation",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-019",
+    "module": "Endpoint and device management",
+    "capability": "Remote wipe request",
+    "operation_class": "restricted",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-020",
+    "module": "Endpoint and device management",
+    "capability": "App installation suitability",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-021"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-021",
+    "module": "VPN and network",
+    "capability": "VPN session diagnosis",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-001",
+      "M-001"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-022",
+    "module": "VPN and network",
+    "capability": "Expired certificate handling",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-001",
+      "S-004"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-023",
+    "module": "VPN and network",
+    "capability": "VPN MFA challenge timeout",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-024",
+    "module": "VPN and network",
+    "capability": "Wi-Fi RADIUS EAP-TLS failure",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-026"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-025",
+    "module": "VPN and network",
+    "capability": "DNS resolver performance",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-026",
+    "module": "VPN and network",
+    "capability": "IP lease conflict detection",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-027",
+    "module": "VPN and network",
+    "capability": "Regional gateway outage correlation",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-019",
+      "M-006"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-028",
+    "module": "VPN and network",
+    "capability": "VPN client version mismatch",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-029",
+    "module": "VPN and network",
+    "capability": "Proxy and firewall restriction investigation",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-030",
+    "module": "VPN and network",
+    "capability": "Network change impact analysis",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-031",
+    "module": "Incident, problem and change management",
+    "capability": "Ticket creation with idempotency",
+    "operation_class": "mutate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-031",
+      "S-032",
+      "S-033"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-032",
+    "module": "Incident, problem and change management",
+    "capability": "My tickets and updates",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-043"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-033",
+    "module": "Incident, problem and change management",
+    "capability": "IT ticket assignment",
+    "operation_class": "mutate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-034",
+    "module": "Incident, problem and change management",
+    "capability": "Priority and impact classification",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-023"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-035",
+    "module": "Incident, problem and change management",
+    "capability": "SLA breach identification",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-024"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-036",
+    "module": "Incident, problem and change management",
+    "capability": "Problem management clustering",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-037",
+    "module": "Incident, problem and change management",
+    "capability": "Root cause evidence graph",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-001",
+      "S-036"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-038",
+    "module": "Incident, problem and change management",
+    "capability": "Change approval workflow",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-039",
+    "module": "Incident, problem and change management",
+    "capability": "Major incident bridge escalation",
+    "operation_class": "notify",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-023"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-040",
+    "module": "Incident, problem and change management",
+    "capability": "Post-incident review preparation",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-041",
+    "module": "Access requests and software licensing",
+    "capability": "Standard SaaS access requests",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-021"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-042",
+    "module": "Access requests and software licensing",
+    "capability": "License inventory lookup",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-021",
+      "S-022"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-043",
+    "module": "Access requests and software licensing",
+    "capability": "Entitlement discrepancy review",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-021"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-044",
+    "module": "Access requests and software licensing",
+    "capability": "Cloud-console role request",
+    "operation_class": "restricted",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-011"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-045",
+    "module": "Access requests and software licensing",
+    "capability": "Developer tool access approval",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-046",
+    "module": "Access requests and software licensing",
+    "capability": "Application role troubleshooting",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-047",
+    "module": "Access requests and software licensing",
+    "capability": "Temporary access expiry",
+    "operation_class": "proposal",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-048",
+    "module": "Access requests and software licensing",
+    "capability": "Software renewal cost visibility",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-049",
+    "module": "People lifecycle",
+    "capability": "New employee onboarding plan",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "LEG-CASE-013"
+    ],
+    "coverage_label": "legacy_exploratory_only",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-050",
+    "module": "People lifecycle",
+    "capability": "Contractor start and expiry",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-051",
+    "module": "People lifecycle",
+    "capability": "Offboarding stale account alert",
+    "operation_class": "escalate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-016",
+      "M-015"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-052",
+    "module": "People lifecycle",
+    "capability": "Device handover workflow",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "LEG-CASE-040"
+    ],
+    "coverage_label": "legacy_exploratory_only",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-053",
+    "module": "People lifecycle",
+    "capability": "Shared service ownership transfer",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-054",
+    "module": "People lifecycle",
+    "capability": "Manager change update",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-055",
+    "module": "People lifecycle",
+    "capability": "Employment leave access policy",
+    "operation_class": "restricted",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-056",
+    "module": "Security and privacy",
+    "capability": "Suspicious sign-in correlation",
+    "operation_class": "read_escalate",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-037",
+      "S-007"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-057",
+    "module": "Security and privacy",
+    "capability": "MFA fatigue detection",
+    "operation_class": "escalate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-007"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-058",
+    "module": "Security and privacy",
+    "capability": "High-impact action control",
+    "operation_class": "deny_or_approve",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-012",
+      "S-027"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-059",
+    "module": "Security and privacy",
+    "capability": "Cross-tenant API denial",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-008",
+      "S-010",
+      "S-034"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-060",
+    "module": "Security and privacy",
+    "capability": "Cross-tenant knowledge ACL",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-008"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-061",
+    "module": "Security and privacy",
+    "capability": "Sensitive document classification",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-013"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-062",
+    "module": "Security and privacy",
+    "capability": "Prompt injection containment",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-020",
+      "S-039",
+      "ADV-001"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-063",
+    "module": "Security and privacy",
+    "capability": "Audit export and investigation",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-014"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-064",
+    "module": "Security and privacy",
+    "capability": "Separation of duties",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-012",
+      "S-049"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-065",
+    "module": "Security and privacy",
+    "capability": "Action payload hash integrity",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-030",
+      "UI-019"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-066",
+    "module": "Knowledge and retrieval",
+    "capability": "Relevant document retrieval",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-020",
+      "S-003"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-067",
+    "module": "Knowledge and retrieval",
+    "capability": "Source citation in answers",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-005"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-068",
+    "module": "Knowledge and retrieval",
+    "capability": "Latest approved policy precedence",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-003",
+      "M-013"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-069",
+    "module": "Knowledge and retrieval",
+    "capability": "Vendor document provenance",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-020"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-070",
+    "module": "Knowledge and retrieval",
+    "capability": "Cross-system contradictory evidence",
+    "operation_class": "reconcile",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-018",
+      "S-036"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-071",
+    "module": "Knowledge and retrieval",
+    "capability": "Historical resolution retrieval",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-041"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-072",
+    "module": "Knowledge and retrieval",
+    "capability": "Restricted admin runbooks",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-014"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-073",
+    "module": "Knowledge and retrieval",
+    "capability": "Document version rollback",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-074",
+    "module": "Knowledge and retrieval",
+    "capability": "Low-confidence answer escalation",
+    "operation_class": "escalate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-028",
+      "M-018"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-075",
+    "module": "Automation, workflow and approvals",
+    "capability": "Agent tool allowlist",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-027",
+      "S-029"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-076",
+    "module": "Automation, workflow and approvals",
+    "capability": "Action plan preview",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-015"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-077",
+    "module": "Automation, workflow and approvals",
+    "capability": "Human approval request",
+    "operation_class": "approval",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-005",
+      "S-013",
+      "UI-015"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-078",
+    "module": "Automation, workflow and approvals",
+    "capability": "Approval expiry and revocation",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-030",
+      "UI-018"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-079",
+    "module": "Automation, workflow and approvals",
+    "capability": "Approved-action execution",
+    "operation_class": "mutate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-013",
+      "UI-017"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-080",
+    "module": "Automation, workflow and approvals",
+    "capability": "Idempotent write replay",
+    "operation_class": "mutate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-031",
+      "M-010"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-081",
+    "module": "Automation, workflow and approvals",
+    "capability": "Timeout-after-commit reconciliation",
+    "operation_class": "reconcile",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-031"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-082",
+    "module": "Automation, workflow and approvals",
+    "capability": "Circuit-breaker handling",
+    "operation_class": "recover",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-033"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-083",
+    "module": "Automation, workflow and approvals",
+    "capability": "Multi-step partial failure",
+    "operation_class": "recover",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "M-017"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-084",
+    "module": "Automation, workflow and approvals",
+    "capability": "Duplicate event delivery",
+    "operation_class": "recover",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-031"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-085",
+    "module": "Automation, workflow and approvals",
+    "capability": "Cancellation safety",
+    "operation_class": "recover",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-040",
+      "M-017"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-086",
+    "module": "Automation, workflow and approvals",
+    "capability": "Model version release gate",
+    "operation_class": "evaluate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-087",
+    "module": "Operations analytics and platform",
+    "capability": "Incident volumes and SLA analytics",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-024",
+      "UI-020"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-088",
+    "module": "Operations analytics and platform",
+    "capability": "Agent case resolution metrics",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-044",
+      "M-032"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-089",
+    "module": "Operations analytics and platform",
+    "capability": "Integration health overview",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-012"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-090",
+    "module": "Operations analytics and platform",
+    "capability": "Model token and cost attribution",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "S-045"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-091",
+    "module": "Operations analytics and platform",
+    "capability": "Request budget enforcement",
+    "operation_class": "deny",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-029"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-092",
+    "module": "Operations analytics and platform",
+    "capability": "Distributed execution tracing",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-035"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-093",
+    "module": "Operations analytics and platform",
+    "capability": "API 429 backoff",
+    "operation_class": "recover",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-032"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-094",
+    "module": "Operations analytics and platform",
+    "capability": "Unexpected API 504 handling",
+    "operation_class": "recover",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-031"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-095",
+    "module": "Operations analytics and platform",
+    "capability": "Knowledge indexing freshness",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-014"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-096",
+    "module": "Operations analytics and platform",
+    "capability": "Managed service monitoring",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-029"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-097",
+    "module": "Customer communication and channels",
+    "capability": "Web chat support",
+    "operation_class": "interact",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "UI-004"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-098",
+    "module": "Customer communication and channels",
+    "capability": "Teams and Slack requests",
+    "operation_class": "interact",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-099",
+    "module": "Customer communication and channels",
+    "capability": "Email-to-ticket intake",
+    "operation_class": "create",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-100",
+    "module": "Customer communication and channels",
+    "capability": "Incident notifications",
+    "operation_class": "notify",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "UI-026"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-101",
+    "module": "Customer communication and channels",
+    "capability": "Customer updates and handoff",
+    "operation_class": "notify",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "M-018"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-102",
+    "module": "Customer communication and channels",
+    "capability": "Survey capture",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-103",
+    "module": "Customer communication and channels",
+    "capability": "Multi-turn conversational continuity",
+    "operation_class": "interact",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "M-001",
+      "M-009"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-104",
+    "module": "Customer communication and channels",
+    "capability": "Agent-to-human handoff",
+    "operation_class": "escalate",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "M-018"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-105",
+    "module": "Admin and customer deployment",
+    "capability": "Mock IdP integration configuration",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "UI-011"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-106",
+    "module": "Admin and customer deployment",
+    "capability": "Mock ITSM connector configuration",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "UI-012"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-107",
+    "module": "Admin and customer deployment",
+    "capability": "Source-to-field mapping",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-108",
+    "module": "Admin and customer deployment",
+    "capability": "Role assignment",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "UI-011"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-109",
+    "module": "Admin and customer deployment",
+    "capability": "Per-tenant agent tool policy",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-012",
+      "UI-011"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-110",
+    "module": "Admin and customer deployment",
+    "capability": "Knowledge publish and classification",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "UI-013"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-111",
+    "module": "Admin and customer deployment",
+    "capability": "Audit of policy edits",
+    "operation_class": "read",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [
+      "UI-011"
+    ],
+    "coverage_label": "ui_acceptance_defined_not_automated",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-112",
+    "module": "Admin and customer deployment",
+    "capability": "Customer account deployment plan",
+    "operation_class": "propose",
+    "data_support_status": "fixture_supported",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-113",
+    "module": "Admin and customer deployment",
+    "capability": "Tenant specific branding",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [],
+    "coverage_label": "not_explicitly_tested",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  },
+  {
+    "feature_id": "FEAT-114",
+    "module": "Admin and customer deployment",
+    "capability": "Managed-service access controls",
+    "operation_class": "admin",
+    "data_support_status": "requires_application_implementation",
+    "mapped_case_ids": [
+      "S-050"
+    ],
+    "coverage_label": "explicit_test_case",
+    "note": "A test case exists; this is not proof that the app implements/passes the feature."
+  }
+]

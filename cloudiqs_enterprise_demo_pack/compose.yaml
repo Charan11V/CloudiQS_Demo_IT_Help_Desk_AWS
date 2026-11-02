@@ -1,0 +1,9 @@
+services:
+  enterprise-mock-api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - ENTERPRISE_DEMO_DB=/app/data/runtime.sqlite
+    volumes:
+      - ./data/runtime.sqlite:/app/data/runtime.sqlite

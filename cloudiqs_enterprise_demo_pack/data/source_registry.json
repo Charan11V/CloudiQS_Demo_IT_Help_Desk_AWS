@@ -1,0 +1,707 @@
+[
+  {
+    "source_key": "hris_people",
+    "records": 40,
+    "source_owner": "HR",
+    "source_system": "workday",
+    "update_cadence": "hourly",
+    "sensitivity": "restricted",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "identity_directory",
+    "records": 40,
+    "source_owner": "IAM",
+    "source_system": "Microsoft Entra ID",
+    "update_cadence": "event_stream",
+    "sensitivity": "restricted",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "identity_signins",
+    "records": 160,
+    "source_owner": "Enterprise IT",
+    "source_system": "identity_signins",
+    "update_cadence": "event_stream",
+    "sensitivity": "restricted",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "identity_mfa_factors",
+    "records": 40,
+    "source_owner": "Enterprise IT",
+    "source_system": "identity_mfa_factors",
+    "update_cadence": "daily",
+    "sensitivity": "restricted",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "saas_entitlements",
+    "records": 148,
+    "source_owner": "Enterprise IT",
+    "source_system": "idp_group_sync",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "asset_register",
+    "records": 50,
+    "source_owner": "Enterprise IT",
+    "source_system": "asset_register",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "cmdb_ci",
+    "records": 50,
+    "source_owner": "Enterprise IT",
+    "source_system": "servicenow_cmdb_sim",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "mdm_managed_devices",
+    "records": 50,
+    "source_owner": "Endpoint Engineering",
+    "source_system": "mdm_managed_devices",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "endpoint_telemetry",
+    "records": 50,
+    "source_owner": "Enterprise IT",
+    "source_system": "endpoint_monitor",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "device_patch_compliance",
+    "records": 50,
+    "source_owner": "Enterprise IT",
+    "source_system": "device_patch_compliance",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "installed_software",
+    "records": 182,
+    "source_owner": "Enterprise IT",
+    "source_system": "installed_software",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "asset_procurement",
+    "records": 50,
+    "source_owner": "Enterprise IT",
+    "source_system": "asset_procurement",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "device_warranty",
+    "records": 50,
+    "source_owner": "Enterprise IT",
+    "source_system": "device_warranty",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "vpn_sessions",
+    "records": 130,
+    "source_owner": "Network Operations",
+    "source_system": "vpn_concentrator",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "dns_queries",
+    "records": 130,
+    "source_owner": "Enterprise IT",
+    "source_system": "dns_queries",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "wifi_auth_events",
+    "records": 130,
+    "source_owner": "Enterprise IT",
+    "source_system": "wifi_auth_events",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 90,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "dhcp_leases",
+    "records": 130,
+    "source_owner": "Enterprise IT",
+    "source_system": "dhcp_logs",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "network_change_log",
+    "records": 10,
+    "source_owner": "Enterprise IT",
+    "source_system": "network_change_log",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 90,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "service_catalog",
+    "records": 24,
+    "source_owner": "Enterprise IT",
+    "source_system": "service_catalog",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 90,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "service_request_forms",
+    "records": 24,
+    "source_owner": "Enterprise IT",
+    "source_system": "service_request_forms",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "sla_policies",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "sla_policies",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "itsm_tickets",
+    "records": 80,
+    "source_owner": "IT Service Desk",
+    "source_system": "itsm_tickets",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "itsm_comments",
+    "records": 240,
+    "source_owner": "Enterprise IT",
+    "source_system": "Jira Service Management",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "itsm_history",
+    "records": 240,
+    "source_owner": "Enterprise IT",
+    "source_system": "itsm_history",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "itsm_problems",
+    "records": 6,
+    "source_owner": "Enterprise IT",
+    "source_system": "itsm_problems",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "itsm_changes",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "itsm_changes",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "change_approvals",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "change_approvals",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "service_health_outages",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "service_health_outages",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "oncall_rotations",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "oncall_rotations",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "security_findings",
+    "records": 23,
+    "source_owner": "Security Operations",
+    "source_system": "guardduty_synthetic",
+    "update_cadence": "daily",
+    "sensitivity": "restricted",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "csat_surveys",
+    "records": 10,
+    "source_owner": "Enterprise IT",
+    "source_system": "csat_surveys",
+    "update_cadence": "event_stream",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "outbound_notifications",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "outbound_notifications",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "collaboration_messages",
+    "records": 13,
+    "source_owner": "Enterprise IT",
+    "source_system": "collaboration_messages",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "email_transport_events",
+    "records": 9,
+    "source_owner": "Enterprise IT",
+    "source_system": "email_transport_events",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 90,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "hr_joiner_leaver_tasks",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "hr_joiner_leaver_tasks",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "saas_licenses",
+    "records": 14,
+    "source_owner": "Enterprise IT",
+    "source_system": "saas_licenses",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "software_access_requests",
+    "records": 6,
+    "source_owner": "Enterprise IT",
+    "source_system": "software_access_requests",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "integration_api_errors",
+    "records": 27,
+    "source_owner": "Enterprise IT",
+    "source_system": "integration_api_errors",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "vendor_status",
+    "records": 8,
+    "source_owner": "Enterprise IT",
+    "source_system": "vendor_status",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "agent_usage_and_costs",
+    "records": 28,
+    "source_owner": "Cloud FinOps",
+    "source_system": "agent_usage_and_costs",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "application_audit",
+    "records": 17,
+    "source_owner": "Compliance",
+    "source_system": "mock_audit_service",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "tenant_policies",
+    "records": 2,
+    "source_owner": "Security Architecture",
+    "source_system": "tenant_policies",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "role_permissions",
+    "records": 16,
+    "source_owner": "Enterprise IT",
+    "source_system": "role_permissions",
+    "update_cadence": "daily",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "integration_registry",
+    "records": 16,
+    "source_owner": "Enterprise IT",
+    "source_system": "integration_registry",
+    "update_cadence": "every_15_minutes",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "human_approvals",
+    "records": 14,
+    "source_owner": "IT Operations",
+    "source_system": "human_approvals",
+    "update_cadence": "hourly",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "agent_executions",
+    "records": 14,
+    "source_owner": "Enterprise IT",
+    "source_system": "agent_executions",
+    "update_cadence": "manual_publish",
+    "sensitivity": "internal",
+    "default_retention_days": 365,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "source_event_time_with_ingestion_lag",
+    "api_surface": "simulated",
+    "mock_data": true
+  },
+  {
+    "source_key": "knowledge_index",
+    "records": 27,
+    "source_owner": "Knowledge Management",
+    "source_system": "internal_kb_and_vendor_import",
+    "update_cadence": "manual_publish",
+    "sensitivity": "mixed_restricted",
+    "default_retention_days": 730,
+    "partition_keys": [
+      "tenant_id"
+    ],
+    "timestamp_semantics": "version_effective_at_and_indexed_at",
+    "api_surface": "simulated",
+    "mock_data": true
+  }
+]

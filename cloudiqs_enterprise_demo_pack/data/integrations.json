@@ -1,0 +1,276 @@
+[
+  {
+    "tenant_id": "northstar",
+    "integration_key": "idp",
+    "name": "Microsoft Entra ID",
+    "connection_status": "connected_mock",
+    "mode": "read_and_request",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/idp",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "ticketing",
+    "name": "Jira Service Management",
+    "connection_status": "connected_mock",
+    "mode": "read_write",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/ticketing",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped",
+      "write_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "device_management",
+    "name": "Microsoft Intune",
+    "connection_status": "connected_mock",
+    "mode": "read_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/device_management",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "vpn",
+    "name": "Corporate VPN Simulator",
+    "connection_status": "connected_mock",
+    "mode": "read_and_request",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/vpn",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "knowledge",
+    "name": "S3 KB mock",
+    "connection_status": "connected_mock",
+    "mode": "read_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/knowledge",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "security",
+    "name": "Defender/GuardDuty mock",
+    "connection_status": "connected_mock",
+    "mode": "read_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/security",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "collaboration",
+    "name": "Teams/Slack mock",
+    "connection_status": "connected_mock",
+    "mode": "notifications_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/collaboration",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "northstar",
+    "integration_key": "hris",
+    "name": "HRIS mock",
+    "connection_status": "connected_mock",
+    "mode": "read_limited",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://northstar/hris",
+    "configured_by": "northstar-EMP-0004",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "idp",
+    "name": "Okta",
+    "connection_status": "connected_mock",
+    "mode": "read_and_request",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/idp",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "ticketing",
+    "name": "ServiceNow",
+    "connection_status": "connected_mock",
+    "mode": "read_write",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/ticketing",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped",
+      "write_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "device_management",
+    "name": "Jamf + Intune",
+    "connection_status": "connected_mock",
+    "mode": "read_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/device_management",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "vpn",
+    "name": "Corporate VPN Simulator",
+    "connection_status": "connected_mock",
+    "mode": "read_and_request",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/vpn",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "knowledge",
+    "name": "S3 KB mock",
+    "connection_status": "connected_mock",
+    "mode": "read_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/knowledge",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "security",
+    "name": "Defender/GuardDuty mock",
+    "connection_status": "connected_mock",
+    "mode": "read_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/security",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "collaboration",
+    "name": "Teams/Slack mock",
+    "connection_status": "connected_mock",
+    "mode": "notifications_only",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/collaboration",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  },
+  {
+    "tenant_id": "beacon",
+    "integration_key": "hris",
+    "name": "HRIS mock",
+    "connection_status": "connected_mock",
+    "mode": "read_limited",
+    "auth_type": "mock_service_credentials",
+    "secret_reference": "demo-only://beacon/hris",
+    "configured_by": "beacon-EMP-0003",
+    "configured_at": "2026-10-13T12:00:00Z",
+    "last_healthcheck": "2026-10-29T12:00:00Z",
+    "api_rate_limit_per_minute": 120,
+    "perm_scopes": [
+      "read_scoped"
+    ],
+    "credential_is_real": false
+  }
+]

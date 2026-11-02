@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "two_tenants": true,
+  "source_feeds": 47,
+  "source_records": 2404,
+  "people": 40,
+  "devices": 50,
+  "tickets": 80,
+  "kb_documents": 27,
+  "documented_conflicts": 20,
+  "fault_catalogue": 12,
+  "feature_specifications": 114,
+  "candidate_tool_contracts": 32,
+  "eval_cases_not_yet_run": 160,
+  "warning": "Dataset integrity checks only. This is NOT an AI agent model evaluation and does not certify security."
+}

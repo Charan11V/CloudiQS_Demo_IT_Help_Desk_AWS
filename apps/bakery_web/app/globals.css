@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: #f7f5fc;
+  --surface: #ffffff;
+  --surface-soft: #f3ebff;
+  --surface-hover: #ebe0fa;
+  --ink: #191329;
+  --ink-secondary: #625b70;
+  --ink-tertiary: #8a8299;
+  --stroke: #e8e2f1;
+  --stroke-strong: #d4cce3;
+  --sidebar: #fbf9ff;
+  --sidebar-hover: #f3ebff;
+  --sidebar-ink: #191329;
+  --signal: #8728f5;
+  --signal-hover: #5513bc;
+  --signal-soft: #f3ebff;
+  --royal: #b02aef;
+  --magenta: #e82d96;
+  --deep-violet: #5513bc;
+  --cyan: #2b6cff;
+  --success: #16886e;
+  --success-soft: #e8f7f1;
+  --warning: #a76c19;
+  --warning-soft: #fff4e2;
+  --danger: #bf4059;
+  --danger-soft: #feedf0;
+  --gradient-brand: linear-gradient(110deg, #8728f5 0%, #b02aef 48%, #e82d96 100%);
+  --shadow-raised: 0 12px 40px rgba(25, 19, 41, 0.08);
+  --shadow-soft: 0 2px 10px rgba(135, 40, 245, 0.08);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--ink);
+  background: var(--canvas);
+  font-feature-settings: "ss01" on;
+  -webkit-tap-highlight-color: transparent;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed;
+    background-image: var(--gradient-brand);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-primary:hover:not(:disabled) {
+    filter: brightness(1.05);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors disabled:opacity-50;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--stroke-strong);
+    border-radius: 12px;
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background: var(--signal-soft);
+    border-color: var(--signal);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .input {
+    @apply w-full px-3.5 py-2.5 text-sm transition-shadow;
+    background: var(--surface);
+    border: 1px solid var(--stroke-strong);
+    border-radius: 12px;
+    color: var(--ink);
+  }
+  .input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--signal-soft), 0 0 0 4px rgba(135, 40, 245, 0.28);
+  }
+
+  .helio-surface {
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+  }
+
+  .bg-brand-gradient {
+    background-image: var(--gradient-brand);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
