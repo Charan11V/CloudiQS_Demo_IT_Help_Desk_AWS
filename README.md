@@ -6,18 +6,20 @@ Local Docker demo of an enterprise IT helpdesk with guided support, tickets, dev
 
 ## Initial synthetic data
 
-`cloudiqs_enterprise_demo_pack/data/csv/initial/` is the original CSV export, from before the helpdesk agent created or changed live tickets. The demo generator still reads the copies in `cloudiqs_enterprise_demo_pack/data/csv/`. Nine of those working files match the initial export. `tickets.csv` does not: the working file has different timestamps and assignments. Tickets created later in the running SQLite database are not in either CSV.
+Initial versions, from before the agent changed live tickets:
+
+`cloudiqs_enterprise_demo_pack/data/csv/initial/`
 
 | File | What it holds |
 |---|---|
 | `tenants.csv` | Northstar Technologies and Beacon Retail Group |
 | `users.csv` | Employees and IT roles for both companies |
 | `devices.csv` | Laptops and other assigned devices |
-| `tickets.csv` | Seeded ITSM tickets, before later agent changes |
-| `approvals.csv` | Seeded approval requests |
+| `tickets.csv` | Seeded ITSM tickets |
+| `approvals.csv` | Approval requests |
 | `knowledge_index.csv` | Knowledge article index |
 | `service_catalog.csv` | Support services and owners |
-| `integrations.csv` | Synthetic connector status |
+| `integrations.csv` | Connector status |
 | `policies.csv` | Tenant policy and agent limits |
 | `source_registry.csv` | Which source system each feed comes from |
 
