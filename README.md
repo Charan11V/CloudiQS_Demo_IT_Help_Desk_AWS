@@ -4,24 +4,7 @@
 
 Local Docker demo of an enterprise IT helpdesk with guided support, tickets, devices, approvals, and policy-aware remediations. Enterprise connectors are synthetic; application APIs, policies, approvals, persistence, and UI are real demo code.
 
-## Initial synthetic data
-
-Initial versions, from before the agent changed live tickets:
-
-`cloudiqs_enterprise_demo_pack/data/csv/initial/`
-
-| File | What it holds |
-|---|---|
-| `tenants.csv` | Northstar Technologies and Beacon Retail Group |
-| `users.csv` | Employees and IT roles for both companies |
-| `devices.csv` | Laptops and other assigned devices |
-| `tickets.csv` | Seeded ITSM tickets |
-| `approvals.csv` | Approval requests |
-| `knowledge_index.csv` | Knowledge article index |
-| `service_catalog.csv` | Support services and owners |
-| `integrations.csv` | Connector status |
-| `policies.csv` | Tenant policy and agent limits |
-| `source_registry.csv` | Which source system each feed comes from |
+Initial demo data is in `data/initial/`.
 
 ## Quick start
 
