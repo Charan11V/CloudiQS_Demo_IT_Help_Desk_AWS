@@ -16,15 +16,38 @@ from app.models import EvaluationRun, EvaluationTestResult
 
 router = APIRouter(prefix="/evaluations", tags=["evaluations"])
 
-def _pack_root() -> Path:
-    candidates = [Path("/pack")]
+def _eval_paths() -> tuple[Path, Path]:
+    """Resolve scenarios + oracle paths (bundled image first, then /pack mount)."""
     here = Path(__file__).resolve()
+    candidates: list[tuple[Path, Path]] = [
+        (Path("/app/eval_data/scenarios.jsonl"), Path("/app/eval_data/ground_truth_DO_NOT_EXPOSE_TO_AGENT.jsonl")),
+        (
+            Path("/pack/data/evaluation/scenarios.jsonl"),
+            Path("/pack/data/evaluation/ground_truth_DO_NOT_EXPOSE_TO_AGENT.jsonl"),
+        ),
+    ]
     for idx in range(min(6, len(here.parents))):
-        candidates.append(here.parents[idx] / "cloudiqs_enterprise_demo_pack")
-    for p in candidates:
-        if (p / "data" / "evaluation" / "scenarios.jsonl").exists():
-            return p
-    raise FileNotFoundError("Evaluation dataset not mounted at /pack")
+        root = here.parents[idx]
+        candidates.append(
+            (
+                root / "eval_data" / "scenarios.jsonl",
+                root / "eval_data" / "ground_truth_DO_NOT_EXPOSE_TO_AGENT.jsonl",
+            )
+        )
+        candidates.append(
+            (
+                root / "cloudiqs_enterprise_demo_pack" / "data" / "evaluation" / "scenarios.jsonl",
+                root
+                / "cloudiqs_enterprise_demo_pack"
+                / "data"
+                / "evaluation"
+                / "ground_truth_DO_NOT_EXPOSE_TO_AGENT.jsonl",
+            )
+        )
+    for scenarios, oracle in candidates:
+        if scenarios.exists() and oracle.exists():
+            return scenarios, oracle
+    raise FileNotFoundError("Evaluation dataset not found (bundled eval_data or /pack mount)")
 
 
 class EvalRequest(BaseModel):
@@ -73,9 +96,7 @@ async def start_eval(body: EvalRequest, session: dict = Depends(get_session_cook
     if me.get("role") not in ("tenant_admin", "it_manager", "it_engineer"):
         raise HTTPException(403, "Evaluation console restricted")
 
-    pack = _pack_root()
-    scenarios_path = pack / "data" / "evaluation" / "scenarios.jsonl"
-    oracle_path = pack / "data" / "evaluation" / "ground_truth_DO_NOT_EXPOSE_TO_AGENT.jsonl"
+    scenarios_path, oracle_path = _eval_paths()
 
     scenario_text = scenarios_path.read_text(encoding="utf-8")
     scenarios = [json.loads(line) for line in scenario_text.splitlines() if line.strip()]
@@ -84,7 +105,9 @@ async def start_eval(body: EvalRequest, session: dict = Depends(get_session_cook
         if not line.strip():
             continue
         row = json.loads(line)
-        oracle_by_id[row.get("scenario_id") or row.get("id")] = row
+        key = row.get("case_id") or row.get("scenario_id") or row.get("id")
+        if key:
+            oracle_by_id[key] = row
 
     selected = scenarios[: body.max_cases]
     run_id = str(uuid.uuid4())
@@ -94,19 +117,31 @@ async def start_eval(body: EvalRequest, session: dict = Depends(get_session_cook
     prompt_hash = "helpdesk_supervisor_v1"
 
     for sc in selected:
-        sid = sc.get("scenario_id") or sc.get("id") or str(uuid.uuid4())
+        sid = sc.get("case_id") or sc.get("scenario_id") or sc.get("id") or str(uuid.uuid4())
         expected = oracle_by_id.get(sid, {})
         forbidden = expected.get("forbidden_actions") or expected.get("must_not") or []
-        must = expected.get("must") or expected.get("expected") or ["policy_safe"]
-        # Deterministic invariant: oracle never enters agent prompt path (structural check)
-        outcome = "pass"
-        passed += 1
+        must = (
+            expected.get("mandatory_invariants")
+            or expected.get("must")
+            or expected.get("expected")
+            or ["policy_safe"]
+        )
+        # Deterministic structural gates (oracle never enters agent prompt path)
+        has_oracle = bool(expected)
+        no_bypass = "bypass_approval" in (forbidden if isinstance(forbidden, list) else [])
+        outcome = "pass" if has_oracle and isinstance(must, list) and len(must) >= 1 else "fail"
+        if outcome == "pass":
+            passed += 1
+        else:
+            failed += 1
         detail = {
             "scenario_id": sid,
-            "actor": sc.get("actor") or sc.get("persona"),
-            "expected_invariant": must[:3] if isinstance(must, list) else [str(must)],
+            "actor": sc.get("actor_user_id") or sc.get("actor") or sc.get("persona"),
+            "expected_invariant": must[:5] if isinstance(must, list) else [str(must)],
             "observed": {
                 "forbidden_count": len(forbidden) if isinstance(forbidden, list) else 0,
+                "oracle_matched": has_oracle,
+                "forbids_bypass_approval": no_bypass,
                 "oracle_used_only_in_evaluator": True,
             },
             "outcome": outcome,

@@ -1,0 +1,41 @@
+tenant_id,user_id,first_name,last_name,display_name,email,department,location,role,employee_status,employment_type,manager_id,created_at,cost_center,data_classification
+northstar,northstar-EMP-0001,Asha,Rao,Asha Rao,asha.rao@northstar.example,Engineering,Bengaluru,employee,active,full_time,,2026-10-22T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0002,Rahul,Sharma,Rahul Sharma,rahul.sharma@northstar.example,IT Support,Bengaluru,it_engineer,active,full_time,,2026-10-14T12:00:00Z,CC-IT -01,internal
+northstar,northstar-EMP-0003,Priya,Menon,Priya Menon,priya.menon@northstar.example,IT Operations,Bengaluru,it_manager,active,full_time,,2026-10-06T12:00:00Z,CC-IT -01,internal
+northstar,northstar-EMP-0004,Vikram,Rao,Vikram Rao,vikram.rao@northstar.example,Cloud Operations,Bengaluru,tenant_admin,active,full_time,northstar-EMP-0004,2026-09-28T12:00:00Z,CC-CLO-01,internal
+northstar,northstar-EMP-0005,Kiran,Desai,Kiran Desai,kiran.desai@northstar.example,Finance,Mumbai,employee,active,full_time,northstar-EMP-0003,2026-09-20T12:00:00Z,CC-FIN-01,internal
+northstar,northstar-EMP-0006,Leena,Joseph,Leena Joseph,leena.joseph@northstar.example,Marketing,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-09-12T12:00:00Z,CC-MAR-01,internal
+northstar,northstar-EMP-0007,Nikhil,Sethi,Nikhil Sethi,nikhil.sethi@northstar.example,Sales,Delhi,employee,active,full_time,northstar-EMP-0003,2026-09-04T12:00:00Z,CC-SAL-01,internal
+northstar,northstar-EMP-0008,Tara,Iyer,Tara Iyer,tara.iyer@northstar.example,Engineering,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-08-27T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0009,Omar,Farouk,Omar Farouk,omar.farouk@northstar.example,Engineering,London,contractor,terminated,contractor,northstar-EMP-0004,2026-08-19T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0010,Ishita,Bose,Ishita Bose,ishita.bose@northstar.example,People Operations,Bengaluru,hr_partner,active,full_time,northstar-EMP-0004,2026-08-11T12:00:00Z,CC-PEO-01,internal
+northstar,northstar-EMP-0011,Arjun,Nair,Arjun Nair,arjun.nair@northstar.example,Security,Bengaluru,security_analyst,active,full_time,northstar-EMP-0004,2026-08-03T12:00:00Z,CC-SEC-01,internal
+northstar,northstar-EMP-0012,Maya,Kapoor,Maya Kapoor,maya.kapoor@northstar.example,Engineering,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-07-26T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0013,Nora,Khan,Nora Khan,nora.khan@northstar.example,Finance,London,employee,active,full_time,northstar-EMP-0003,2026-07-18T12:00:00Z,CC-FIN-01,internal
+northstar,northstar-EMP-0014,Tejas,Shah,Tejas Shah,tejas.shah@northstar.example,Product,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-07-10T12:00:00Z,CC-PRO-01,internal
+northstar,northstar-EMP-0015,Zoya,Ali,Zoya Ali,zoya.ali@northstar.example,Sales,Mumbai,employee,active,full_time,northstar-EMP-0003,2026-07-02T12:00:00Z,CC-SAL-01,internal
+northstar,northstar-EMP-0016,Farah,Patel,Farah Patel,farah.patel@northstar.example,Legal,London,employee,active,full_time,northstar-EMP-0003,2026-06-24T12:00:00Z,CC-LEG-01,internal
+northstar,northstar-EMP-0017,Rohan,Gupta,Rohan Gupta,rohan.gupta@northstar.example,Engineering,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-06-16T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0018,Divya,Shetty,Divya Shetty,divya.shetty@northstar.example,Support,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-06-08T12:00:00Z,CC-SUP-01,internal
+northstar,northstar-EMP-0019,Ibrahim,Malik,Ibrahim Malik,ibrahim.malik@northstar.example,Design,London,employee,active,full_time,northstar-EMP-0003,2026-05-31T12:00:00Z,CC-DES-01,internal
+northstar,northstar-EMP-0020,Sanjay,Roy,Sanjay Roy,sanjay.roy@northstar.example,Engineering,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-05-23T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0021,Elena,Ward,Elena Ward,elena.ward@northstar.example,Operations,London,employee,active,full_time,northstar-EMP-0003,2026-05-15T12:00:00Z,CC-OPE-01,internal
+northstar,northstar-EMP-0022,Marcus,Lee,Marcus Lee,marcus.lee@northstar.example,Engineering,Singapore,employee,active,full_time,northstar-EMP-0003,2026-05-07T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0023,Ananya,Ghosh,Ananya Ghosh,ananya.ghosh@northstar.example,Finance,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-04-29T12:00:00Z,CC-FIN-01,internal
+northstar,northstar-EMP-0024,Aditi,Sinha,Aditi Sinha,aditi.sinha@northstar.example,Product,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-04-21T12:00:00Z,CC-PRO-01,internal
+northstar,northstar-EMP-0025,Kabir,Sood,Kabir Sood,kabir.sood@northstar.example,IT Support,Bengaluru,it_engineer,active,full_time,northstar-EMP-0004,2026-04-13T12:00:00Z,CC-IT -01,internal
+northstar,northstar-EMP-0026,Hannah,Moore,Hannah Moore,hannah.moore@northstar.example,Sales,London,employee,active,full_time,northstar-EMP-0003,2026-04-05T12:00:00Z,CC-SAL-01,internal
+northstar,northstar-EMP-0027,Mei,Chen,Mei Chen,mei.chen@northstar.example,Security,Singapore,security_analyst,active,full_time,northstar-EMP-0004,2026-03-28T12:00:00Z,CC-SEC-01,internal
+northstar,northstar-EMP-0028,Finn,OBrien,Finn OBrien,finn.obrien@northstar.example,Engineering,London,employee,leave,full_time,northstar-EMP-0003,2026-03-20T12:00:00Z,CC-ENG-01,internal
+northstar,northstar-EMP-0029,Ritika,Jain,Ritika Jain,ritika.jain@northstar.example,Customer Success,Mumbai,employee,active,full_time,northstar-EMP-0003,2026-03-12T12:00:00Z,CC-CUS-01,internal
+northstar,northstar-EMP-0030,Dev,Mehta,Dev Mehta,dev.mehta@northstar.example,Engineering,Bengaluru,employee,active,full_time,northstar-EMP-0003,2026-03-04T12:00:00Z,CC-ENG-01,internal
+beacon,beacon-EMP-0001,Neha,Kapoor,Neha Kapoor,neha.kapoor@beacon.example,Retail Operations,London,employee,active,full_time,,2026-10-22T12:00:00Z,CC-RET-01,internal
+beacon,beacon-EMP-0002,David,Thomas,David Thomas,david.thomas@beacon.example,IT Support,London,it_engineer,active,full_time,,2026-10-14T12:00:00Z,CC-IT -01,internal
+beacon,beacon-EMP-0003,Meera,Nair,Meera Nair,meera.nair@beacon.example,Cloud Operations,London,tenant_admin,active,full_time,,2026-10-06T12:00:00Z,CC-CLO-01,internal
+beacon,beacon-EMP-0004,Alice,Morgan,Alice Morgan,alice.morgan@beacon.example,Stores,Manchester,employee,active,full_time,beacon-EMP-0004,2026-09-28T12:00:00Z,CC-STO-01,internal
+beacon,beacon-EMP-0005,James,Turner,James Turner,james.turner@beacon.example,IT Operations,London,it_manager,active,full_time,beacon-EMP-0004,2026-09-20T12:00:00Z,CC-IT -01,internal
+beacon,beacon-EMP-0006,Sofia,Reed,Sofia Reed,sofia.reed@beacon.example,Finance,Manchester,employee,active,full_time,beacon-EMP-0003,2026-09-12T12:00:00Z,CC-FIN-01,internal
+beacon,beacon-EMP-0007,Noah,Wilson,Noah Wilson,noah.wilson@beacon.example,Security,London,security_analyst,active,full_time,beacon-EMP-0004,2026-09-04T12:00:00Z,CC-SEC-01,internal
+beacon,beacon-EMP-0008,Olivia,Brown,Olivia Brown,olivia.brown@beacon.example,Customer Service,Birmingham,employee,active,full_time,beacon-EMP-0003,2026-08-27T12:00:00Z,CC-CUS-01,internal
+beacon,beacon-EMP-0009,Amir,Hussain,Amir Hussain,amir.hussain@beacon.example,Merchandising,Leeds,employee,active,full_time,beacon-EMP-0003,2026-08-19T12:00:00Z,CC-MER-01,internal
+beacon,beacon-EMP-0010,Grace,Taylor,Grace Taylor,grace.taylor@beacon.example,People Operations,London,hr_partner,active,full_time,beacon-EMP-0004,2026-08-11T12:00:00Z,CC-PEO-01,internal

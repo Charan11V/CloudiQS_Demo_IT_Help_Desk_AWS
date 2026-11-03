@@ -147,10 +147,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
 
-  const { data: session, isLoading } = useQuery({
+  const { data: session, isLoading, isError } = useQuery({
     queryKey: ["session"],
     queryFn: auth.getSession,
     retry: false,
+    staleTime: 30_000,
+    refetchOnWindowFocus: false,
   });
 
   const { data: notifList } = useQuery({
@@ -173,8 +175,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const unreadCount = (notifList || []).filter((n: { read?: boolean }) => !n.read).length;
 
   useEffect(() => {
-    if (!isLoading && !session) router.push("/login");
-  }, [session, isLoading, router]);
+    // Full navigation avoids soft-nav races with demo-gate middleware on hard refresh
+    if (!isLoading && (isError || !session)) {
+      window.location.replace("/login");
+    }
+  }, [session, isLoading, isError]);
 
   useEffect(() => {
     setMobileOpen(false);

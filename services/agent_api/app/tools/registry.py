@@ -86,7 +86,7 @@ TOOLS = {
     "create_support_ticket": {
         "fn": create_support_ticket,
         "input_class": CreateSupportTicketInput,
-        "description": "Create a support ticket with idempotency"
+        "description": "Create a support ticket with idempotency. The service assigns it to the specialist (security analyst for security or cloud access) or the tenant IT engineer by default."
     },
     "propose_account_unlock": {
         "fn": propose_account_unlock,

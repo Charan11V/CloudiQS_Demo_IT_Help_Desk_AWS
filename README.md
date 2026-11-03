@@ -1,6 +1,25 @@
 # CloudiQS Demo — Enterprise IT Helpdesk
 
+**Version 1**
+
 Local Docker demo of an enterprise IT helpdesk with guided support, tickets, devices, approvals, and policy-aware remediations. Enterprise connectors are synthetic; application APIs, policies, approvals, persistence, and UI are real demo code.
+
+## Initial synthetic data
+
+`cloudiqs_enterprise_demo_pack/data/csv/initial/` is the original CSV export, from before the helpdesk agent created or changed live tickets. The demo generator still reads the copies in `cloudiqs_enterprise_demo_pack/data/csv/`. Nine of those working files match the initial export. `tickets.csv` does not: the working file has different timestamps and assignments. Tickets created later in the running SQLite database are not in either CSV.
+
+| File | What it holds |
+|---|---|
+| `tenants.csv` | Northstar Technologies and Beacon Retail Group |
+| `users.csv` | Employees and IT roles for both companies |
+| `devices.csv` | Laptops and other assigned devices |
+| `tickets.csv` | Seeded ITSM tickets, before later agent changes |
+| `approvals.csv` | Seeded approval requests |
+| `knowledge_index.csv` | Knowledge article index |
+| `service_catalog.csv` | Support services and owners |
+| `integrations.csv` | Synthetic connector status |
+| `policies.csv` | Tenant policy and agent limits |
+| `source_registry.csv` | Which source system each feed comes from |
 
 ## Quick start
 
@@ -36,9 +55,17 @@ make reset-demo CONFIRM=YES
 
 ## Architecture
 
-Browser → Next.js → FastAPI control plane → simulator or Bedrock orchestration → typed tools → enterprise mock API → SQLite fixtures.
+The handbook is `docs/APPLICATION.md`. Diagrams are image files in `docs/diagrams/` (open the Markdown preview to see them in the doc).
 
-See `docs/ARCHITECTURE.md`, `docs/SECURITY_MODEL.md`, `docs/DEMO_WALKTHROUGH.md`, and `docs/TEST_RESULTS.md`.
+![AWS request path](docs/diagrams/01-aws-request-path.svg)
+
+![Ticket owner flowchart](docs/diagrams/09-ticket-owner.svg)
+
+![Freeform agent run](docs/diagrams/06-freeform-run.svg)
+
+Browser → Next.js → FastAPI control plane → simulator, Groq, or AgentCore → typed tools → enterprise mock API → SQLite. Guided help uses the bakery API and Postgres.
+
+See also `docs/ARCHITECTURE.md`, `docs/SECURITY_MODEL.md`, `docs/DEMO_WALKTHROUGH.md`, and `docs/TEST_RESULTS.md`.
 
 ## Known limitations
 

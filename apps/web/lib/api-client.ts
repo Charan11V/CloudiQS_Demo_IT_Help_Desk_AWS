@@ -31,10 +31,8 @@ async function fetchAPI<T>(
 
   if (!response.ok) {
     if (response.status === 401) {
-      // Redirect to login
-      if (typeof window !== "undefined") {
-        window.location.href = "/login";
-      }
+      // Do not hard-navigate here: /auth/session 401 is normal when logged out,
+      // and a forced redirect races with AppShell/login and breaks refresh.
       throw new APIError(401, "unauthorized", "Session expired");
     }
 

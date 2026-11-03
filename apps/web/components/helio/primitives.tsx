@@ -1,6 +1,13 @@
 "use client";
 
-import { forwardRef, type ButtonHTMLAttributes, type HTMLAttributes, type ReactNode } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useState,
+  type ButtonHTMLAttributes,
+  type HTMLAttributes,
+  type ReactNode,
+} from "react";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
@@ -267,6 +274,58 @@ export function Skeleton({ className }: { className?: string }) {
 }
 
 export function DemoIndicator({ className }: { className?: string }) {
+  // NEXT_PUBLIC_* is baked at image build time; prefer live /api/health so AWS
+  // compose runtime env is reflected without a rebuild.
+  const [label, setLabel] = useState("Demo environment · Simulated enterprise data");
+
+  useEffect(() => {
+    const bakedBadge = process.env.NEXT_PUBLIC_RUNTIME_BADGE;
+    const bakedModel =
+      process.env.NEXT_PUBLIC_OPENAI_MODEL_ID ||
+      process.env.NEXT_PUBLIC_BEDROCK_MODEL_ID;
+    const bakedRegion = process.env.NEXT_PUBLIC_AWS_REGION || "us-east-1";
+    const bakedProvider = process.env.NEXT_PUBLIC_MODEL_PROVIDER;
+
+    let cancelled = false;
+    (async () => {
+      let runtime = bakedBadge || "";
+      try {
+        const res = await fetch("/api/health", { cache: "no-store" });
+        if (res.ok) {
+          const body = (await res.json()) as { runtime?: string };
+          if (body.runtime) runtime = body.runtime;
+        }
+      } catch {
+        // keep baked defaults
+      }
+      if (cancelled) return;
+
+      const isAws = runtime === "AWS" || runtime.startsWith("AWS");
+      const isGptOss =
+        bakedProvider === "openai_compatible" ||
+        (bakedModel || "").includes("gpt-oss");
+      if (isAws && isGptOss && bakedModel) {
+        setLabel(`AWS · GPT-OSS · ${bakedModel}`);
+      } else if (isAws && bakedModel) {
+        setLabel(`AWS · Bedrock · ${bakedModel} · ${bakedRegion}`);
+      } else if (isAws) {
+        setLabel(`AWS · ${bakedRegion}`);
+      } else if (isGptOss && bakedModel) {
+        setLabel(`GPT-OSS · ${bakedModel}`);
+      } else if (bakedProvider === "bedrock") {
+        setLabel(`Bedrock · ${bakedRegion}`);
+      } else if (bakedProvider === "simulator" || !bakedProvider) {
+        setLabel("SIMULATOR · NO LIVE LLM");
+      } else {
+        setLabel("Demo environment · Simulated enterprise data");
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div
       className={cn(
@@ -275,7 +334,7 @@ export function DemoIndicator({ className }: { className?: string }) {
       )}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-[var(--magenta)]" aria-hidden />
-      Demo environment · Simulated enterprise data
+      {label}
     </div>
   );
 }

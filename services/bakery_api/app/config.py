@@ -19,6 +19,11 @@ class Settings(BaseSettings):
         "http://localhost:3000",
     ]
     SPECS_PATH: str = "/specs"
+    # Others-path LLM (OpenAI-compatible; Groq GPT-OSS-20B by default)
+    OPENAI_API_KEY: str = ""
+    GROQ_API_KEY: str = ""
+    OPENAI_BASE_URL: str = "https://api.groq.com/openai/v1"
+    OPENAI_MODEL_ID: str = "openai/gpt-oss-20b"
 
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod

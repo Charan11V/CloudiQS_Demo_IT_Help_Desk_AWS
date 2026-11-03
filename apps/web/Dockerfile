@@ -10,7 +10,8 @@ RUN pnpm install --no-frozen-lockfile
 FROM base AS builder
 WORKDIR /app
 ARG AGENT_API_URL=http://agent-api:8001
-ARG BAKERY_API_URL=http://host.docker.internal:8002
+# AWS compose uses the docker network service name; local compose may override.
+ARG BAKERY_API_URL=http://bakery-api:8000
 ENV AGENT_API_URL=$AGENT_API_URL
 ENV BAKERY_API_URL=$BAKERY_API_URL
 ENV NEXT_TELEMETRY_DISABLED=1

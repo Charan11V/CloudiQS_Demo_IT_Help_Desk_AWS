@@ -95,6 +95,15 @@ def test_ticket_update_by_it_staff(client):
  # Create a fresh ticket for testing
  ticket=client.post('/v1/tickets',headers=hdr('northstar-rahul')|{'Idempotency-Key':'update-test-001'},json=new_ticket())
  assert ticket.status_code==201
+ assert ticket.json()['assignee_id']=='northstar-EMP-0002'
+ assert ticket.json()['status']=='assigned'
+ sec=client.post('/v1/tickets',headers=hdr('northstar-rahul')|{'Idempotency-Key':'update-test-sec'},json=new_ticket()|{'category':'security','summary':'Unexpected MFA prompt today'})
+ assert sec.status_code==201
+ assert sec.json()['assignee_id']=='northstar-EMP-0011'
+ ident=client.post('/v1/tickets',headers=hdr('northstar-rahul')|{'Idempotency-Key':'update-test-id'},json=new_ticket()|{'category':'identity','summary':'Account locked after sign-in attempts'})
+ assert ident.status_code==201 and ident.json()['assignee_id']=='northstar-EMP-0002'
+ beacon=client.post('/v1/tickets',headers=hdr('beacon-neha')|{'Idempotency-Key':'update-test-beacon'},json=new_ticket())
+ assert beacon.status_code==201 and beacon.json()['assignee_id']=='beacon-EMP-0002'
  ticket_id=ticket.json()['ticket_id']
  # IT engineer can PATCH ticket status from new to triaged
  update=client.patch(f'/v1/tickets/{ticket_id}',headers=hdr('northstar-rahul'),json={'status':'triaged'})

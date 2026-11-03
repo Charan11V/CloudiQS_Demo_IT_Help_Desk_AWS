@@ -154,6 +154,43 @@ def ticket(ticket_id:str,a=Depends(actor)):
  if r['requester_id']!=a['user_id'] and not can_manage_tickets(a):raise HTTPException(403,'Not authorised')
  return json.loads(r['attributes'])|{'status':r['status']}
 
+# Specialist owner by category. Anything not listed defaults to the IT engineer.
+CATEGORY_OWNER_ROLE={
+ 'security':'security_analyst',
+ 'cloud_access':'security_analyst',
+ 'identity':'it_engineer',
+ 'vpn':'it_engineer',
+ 'network':'it_engineer',
+ 'device':'it_engineer',
+ 'email':'it_engineer',
+ 'software':'it_engineer',
+ 'business_app':'it_engineer',
+ 'onboarding':'it_engineer',
+ 'offboarding':'it_engineer',
+ 'procurement':'it_engineer',
+}
+
+def pick_ticket_owner(c, tenant_id:str, category:str)->str:
+ """Assign every new ticket to one person in the same tenant.
+
+ The category's specialist role is preferred. If that role has no active user,
+ the ticket goes to the first active IT engineer, then IT manager, tenant admin,
+ or security analyst. Creation fails if nobody in those roles exists.
+ """
+ preferred=CATEGORY_OWNER_ROLE.get(category,'it_engineer')
+ order=[preferred]
+ for role in ('it_engineer','it_manager','tenant_admin','security_analyst'):
+  if role not in order: order.append(role)
+ rows=c.execute(
+  'SELECT user_id, role FROM users WHERE tenant_id=? AND status=? ORDER BY user_id',
+  (tenant_id,'active')).fetchall()
+ by_role={}
+ for row in rows:
+  by_role.setdefault(row['role'], row['user_id'])
+ for role in order:
+  if role in by_role: return by_role[role]
+ raise HTTPException(500,'No IT owner available for this tenant')
+
 class NewTicket(BaseModel):
  model_config=ConfigDict(extra='forbid')
  summary:str=Field(min_length=5,max_length=250)
@@ -182,9 +219,10 @@ def create_ticket(body:NewTicket,response:Response,idempotency_key:str|None=Head
   if x_demo_fault=='rate_limit':c.rollback();raise HTTPException(429,'Simulated 429: retry with bounded backoff',headers={'Retry-After':'2'})
   ticket_id=a['tenant_id']+'-INC-NEW-'+uuid.uuid4().hex[:10]
   now=utcnow()
-  row={'tenant_id':a['tenant_id'],'ticket_id':ticket_id,'requester_id':target,'summary':body.summary,'description':body.description,'category':body.category,'priority':body.priority,'status':'new','created_at':now,'updated_at':now,'source':'mock_itsm_api'}
-  c.execute('INSERT INTO tickets VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',(a['tenant_id'],ticket_id,target,None,body.summary,body.description,body.category,body.priority,'new',now,now,dumps(row)))
-  result={'ticket_id':ticket_id,'tenant_id':a['tenant_id'],'requester_id':target,'status':'new','committed':True}
+  assignee_id=pick_ticket_owner(c,a['tenant_id'],body.category)
+  row={'tenant_id':a['tenant_id'],'ticket_id':ticket_id,'requester_id':target,'assignee_id':assignee_id,'summary':body.summary,'description':body.description,'category':body.category,'priority':body.priority,'status':'assigned','created_at':now,'updated_at':now,'source':'mock_itsm_api'}
+  c.execute('INSERT INTO tickets VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',(a['tenant_id'],ticket_id,target,assignee_id,body.summary,body.description,body.category,body.priority,'assigned',now,now,dumps(row)))
+  result={'ticket_id':ticket_id,'tenant_id':a['tenant_id'],'requester_id':target,'assignee_id':assignee_id,'status':'assigned','committed':True}
   c.execute('INSERT INTO idempotency VALUES(?,?,?,?,?,?,?)',(a['tenant_id'],a['user_id'],'tickets.create',idempotency_key,digest,dumps(result),now))
   audit(c,a,'ticket.create',ticket_id,'allow',{'idempotency_key_present':True})
   c.commit()

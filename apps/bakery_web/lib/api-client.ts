@@ -57,8 +57,11 @@ class ApiClient {
   async createConversation() {
     return this.request<ConversationResponse>('/conversations', {
       method: 'POST',
-      body: JSON.stringify({}),
     });
+  }
+
+  async getActiveConversation() {
+    return this.request<ConversationResponse>('/conversations/active');
   }
 
   async getConversation(conversationId: string) {

@@ -173,8 +173,15 @@ async def execute_agent_run(run_id: str, message: str, session: dict):
             ]
     
     try:
-        # Run agent with history
-        outcome, tool_results = await run_agent(message, actor, client, run_id, conversation_history)
+        # Run agent with history (AgentCore when configured; else local Strands/simulator)
+        outcome, tool_results = await run_agent(
+            message,
+            actor,
+            client,
+            run_id,
+            conversation_history,
+            bearer_token=session.get("bearer_token"),
+        )
         
         # Store results
         with get_db() as db:
@@ -230,11 +237,17 @@ async def execute_agent_run(run_id: str, message: str, session: dict):
                 )
                 db.add(assistant_message)
                 
-                # Final event
+                # Final event — include headline/summary so pollers see Bedrock failures honestly
                 final_event = RunEvent(
                     run_id=run_id,
                     event_type="run.completed",
-                    data_json=json.dumps({"status": "completed"})
+                    data_json=json.dumps(
+                        {
+                            "status": "completed",
+                            "headline": outcome.headline,
+                            "summary": (outcome.plain_language_summary or "")[:500],
+                        }
+                    ),
                 )
                 db.add(final_event)
     
@@ -293,15 +306,19 @@ async def get_run(run_id: str, session: dict = Depends(get_session_cookie)):
         
         if not run:
             raise HTTPException(404, "Run not found")
-        
+
+        output = json.loads(run.output_json) if run.output_json else None
         return {
             "run_id": run.run_id,
             "status": run.status,
             "mode": run.mode,
             "started_at": run.started_at.isoformat(),
             "completed_at": run.completed_at.isoformat() if run.completed_at else None,
-            "output": json.loads(run.output_json) if run.output_json else None,
-            "error": run.error_message
+            "output": output,
+            # Top-level aliases for ops/smoke probes (UI reads output.*)
+            "headline": (output or {}).get("headline") if isinstance(output, dict) else None,
+            "summary": (output or {}).get("summary") if isinstance(output, dict) else None,
+            "error": run.error_message,
         }
 
 

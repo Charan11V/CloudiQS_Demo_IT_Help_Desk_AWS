@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="340" viewBox="0 0 920 340" role="img">
+<title>Trust boundary</title>
+<rect width="920" height="340" fill="#f8fafc"/>
+<defs>
+  <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 10 4, 0 8" fill="#0f172a"/>
+  </marker>
+</defs>
+
+<rect x="24" y="24" width="200" height="290" rx="12" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="44" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">Browser</text>
+<rect x="44" y="80" width="160" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="124.0" y="113.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Pages</text>
+<rect x="44" y="170" width="160" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="124.0" y="203.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Cookies</text>
+<rect x="250" y="24" width="220" height="290" rx="12" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+<text x="270" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">Next.js</text>
+<rect x="270" y="80" width="180" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="360.0" y="113.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Demo gate</text>
+<rect x="270" y="170" width="180" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="360.0" y="203.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Rewrites</text>
+<rect x="496" y="24" width="400" height="290" rx="12" fill="#f0fdf4" stroke="#047857" stroke-width="1.5"/>
+<text x="516" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">APIs enforce policy</text>
+<rect x="516" y="80" width="170" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="601.0" y="113.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Sessions</text>
+<rect x="706" y="80" width="170" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="791.0" y="113.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Tool registry</text>
+<rect x="516" y="180" width="170" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="601.0" y="213.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Guided engine</text>
+<rect x="706" y="180" width="170" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="791.0" y="213.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Mock API ACL</text>
+<line x1="204" y1="108" x2="270" y2="108" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="450" y1="198" x2="516" y2="198" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+</svg>

@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import Optional
 from ...models import SecurityEvent, Entitlement, Application, AppInstallation, Device, Ticket, AuditEvent
 from ...services.guided_engine import generate_id
+from ...routing import route_owner, route_team
 
 
 def create_security_incident(
@@ -68,6 +69,8 @@ def create_security_incident(
     
     # Create escalation ticket
     ticket_id = generate_id("INC")
+    sec_team = route_team(issue_code="SEC-01", category="security")
+    owner_id, _owner_name = route_owner(db, tenant_id, sec_team)
     ticket = Ticket(
         ticket_id=ticket_id,
         tenant_id=tenant_id,
@@ -75,9 +78,10 @@ def create_security_incident(
         issue_code="SEC-01",
         summary=f"Security incident: {incident_type}",
         description=description,
-        status="open",
+        status="in_progress",
         priority="high" if severity in ["high", "critical"] else "medium",
-        assigned_team="Security Team",
+        assigned_team=sec_team,
+        assigned_to=owner_id,
         version=1
     )
     db.add(ticket)

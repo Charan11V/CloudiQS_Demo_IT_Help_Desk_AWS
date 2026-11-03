@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "verified_live": true,
+  "provider": {
+    "name": "openai_compatible",
+    "model_id": "openai/gpt-oss-20b",
+    "base_url": "https://api.groq.com/openai/v1",
+    "via": "agentcore_runtime",
+    "is_simulation": false
+  },
+  "tool_calls": 2,
+  "tool_events": [
+    {
+      "tool": "get_my_identity",
+      "ok": true,
+      "http_status": 200
+    },
+    {
+      "tool": "get_vpn_sessions",
+      "ok": true,
+      "http_status": 200
+    }
+  ],
+  "headline": "You are Asha Rao (northstar-EMP-0001), an active employee in Engineering.  \nYour VPN sessions are all currently faile...",
+  "summary": "You are Asha Rao (northstar-EMP-0001), an active employee in Engineering.  \nYour VPN sessions are all currently failed due to an expired device certificate (expiry 2026\u201110\u201127). There are four recent failed sessions from devices northstar\u2011DEV\u20110001, northstar\u2011DEV\u20110031, northstar\u2011DEV\u20110026, and northstar\u2011DEV\u20110021, all connecting to vpn.india.example.\n",
+  "pass_chat": true,
+  "pass_tools": true
+}

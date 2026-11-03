@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bakery routing unit check
+        run: |
+          cd services/bakery_api
+          python -c "from app.routing import route_team; assert route_team(issue_code='NET-01')=='Network / VPN Desk'; assert route_team(issue_code='SEC-01')=='Security Operations'; print('routing_ok')"
+
+      - name: Agent API syntax compile
+        run: |
+          python -m compileall -q services/agent_api/app services/bakery_api/app scripts/aws scripts/qa
+
+      - name: Compose AWS config present
+        run: |
+          test -f compose.aws.yaml
+          grep -q "python -m app.seed &&" compose.aws.yaml
+          ! grep -q "app.seed --reset" compose.aws.yaml
+
+      - name: Scorecard doc present
+        run: test -f docs/FEATURE_SCORECARD.md
+
+      - name: MCP/AgentCore honesty doc
+        run: test -f docs/MCP_AND_AGENTCORE.md
+
+      - name: Scale approval + restore/persistence scripts
+        run: |
+          test -f docs/SCALE_APPROVAL.md
+          test -f scripts/aws/restore_drill.py
+          test -f scripts/aws/persistence_recreate_proof.py
+          test -f scripts/aws/approve_scale.py
+          test -f scripts/qa/scorecard_evidence.py
+          python -m py_compile scripts/qa/scorecard_evidence.py scripts/aws/persistence_recreate_proof.py scripts/aws/restore_drill.py scripts/aws/approve_scale.py

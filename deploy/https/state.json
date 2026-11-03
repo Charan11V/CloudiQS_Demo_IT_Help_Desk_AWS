@@ -1,0 +1,10 @@
+{
+  "mode": "caddy-sslip",
+  "https_url": "https://3.80.12.216.sslip.io",
+  "host": "3.80.12.216.sslip.io",
+  "bridge_url": "https://3.80.12.216.sslip.io/api-backend/internal/agentcore/tools",
+  "public_ip": "3.80.12.216",
+  "instance_id": "i-0c506bd86c3d0ccd9",
+  "note": "CloudFront still blocked; switch to enable_https_cloudfront.py after AWS verifies account",
+  "at": "2026-11-03T07:41:52Z"
+}

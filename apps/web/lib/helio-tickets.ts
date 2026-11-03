@@ -213,4 +213,42 @@ export async function getHelioTicket(ticketId: string): Promise<HelioTicket> {
   throw new Error("Ticket not found");
 }
 
+/** Close/resolve a ticket — bakery PATCH for INC-*, enterprise mock PATCH otherwise. */
+export async function resolveOrCloseHelioTicket(
+  ticketId: string,
+  currentStatus?: string
+): Promise<HelioTicket> {
+  const status = (currentStatus || "").toLowerCase();
+  if (isBakeryTicketId(ticketId)) {
+    let helioUserId: string | undefined;
+    try {
+      const session = await auth.getSession();
+      helioUserId = session.user_id || session.persona_key;
+    } catch {
+      /* default */
+    }
+    await ensureBakerySession(helioUserId);
+    const next = status === "resolved" ? "closed" : "closed";
+    const t = await bakery.updateTicketStatus(ticketId, next);
+    return normalizeBakeryTicket(t as unknown as Record<string, unknown>);
+  }
+
+  // Enterprise mock transitions: in_progress → resolved; most others → closed
+  let next = "closed";
+  if (status === "in_progress") next = "resolved";
+  else if (status === "resolved") next = "closed";
+  const t = await enterpriseTickets.patch(ticketId, { status: next });
+  return normalizeEnterpriseTicket(t as Record<string, unknown>);
+}
+
+export function isClosedStatus(status?: string): boolean {
+  const s = (status || "").toLowerCase();
+  return s === "closed" || s === "resolved";
+}
+
+/** Employee-facing: treat non-closed tickets as in progress. */
+export function isActiveStatus(status?: string): boolean {
+  return !isClosedStatus(status);
+}
+
 export { isBakeryTicketId, ensureBakerySession };

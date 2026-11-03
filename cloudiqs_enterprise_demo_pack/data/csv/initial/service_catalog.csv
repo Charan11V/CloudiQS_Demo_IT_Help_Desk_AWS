@@ -1,0 +1,25 @@
+tenant_id,service_id,service_key,name,owner_group,tier,criticality,channels,is_enabled,automation_tier,self_service_available
+northstar,northstar-SVC-01,identity_and_access,Identity & password,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+northstar,northstar-SVC-02,remote_access_vpn,Corporate VPN,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+northstar,northstar-SVC-03,device_health,Endpoint performance,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+northstar,northstar-SVC-04,email_and_collaboration,Email support,IT Service Desk,tier_1,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+northstar,northstar-SVC-05,software_installation,Software licensing,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+northstar,northstar-SVC-06,network_connectivity,Wi-Fi and network,IT Service Desk,tier_1,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+northstar,northstar-SVC-07,business_apps,Business applications,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+northstar,northstar-SVC-08,security_alerts,Security incident,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+northstar,northstar-SVC-09,employee_onboarding,Joiner,Enterprise Operations,tier_2,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+northstar,northstar-SVC-10,employee_offboarding,Leaver,Enterprise Operations,tier_2,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+northstar,northstar-SVC-11,hardware_procurement,Hardware support,Enterprise Operations,tier_2,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+northstar,northstar-SVC-12,cloud_access,Cloud access,Enterprise Operations,tier_2,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+beacon,beacon-SVC-01,identity_and_access,Identity & password,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+beacon,beacon-SVC-02,remote_access_vpn,Corporate VPN,IT Service Desk,tier_1,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+beacon,beacon-SVC-03,device_health,Endpoint performance,IT Service Desk,tier_1,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+beacon,beacon-SVC-04,email_and_collaboration,Email support,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+beacon,beacon-SVC-05,software_installation,Software licensing,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+beacon,beacon-SVC-06,network_connectivity,Wi-Fi and network,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,automatic_diagnosis,True
+beacon,beacon-SVC-07,business_apps,Business applications,IT Service Desk,tier_1,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+beacon,beacon-SVC-08,security_alerts,Security incident,IT Service Desk,tier_1,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,True
+beacon,beacon-SVC-09,employee_onboarding,Joiner,Enterprise Operations,tier_2,high,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+beacon,beacon-SVC-10,employee_offboarding,Leaver,Enterprise Operations,tier_2,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+beacon,beacon-SVC-11,hardware_procurement,Hardware support,Enterprise Operations,tier_2,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False
+beacon,beacon-SVC-12,cloud_access,Cloud access,Enterprise Operations,tier_2,medium,"[""web_portal"", ""teams_or_slack"", ""email""]",True,assisted,False

@@ -283,3 +283,18 @@ class RunEvent(Base):
     __table_args__ = (
         Index("ix_run_events_run_seq", "run_id", "event_id"),
     )
+
+
+class AgentCoreBridgeSession(Base):
+    """Ephemeral HMAC tool-bridge sessions (shared across uvicorn workers / docker exec)."""
+
+    __tablename__ = "agentcore_bridge_sessions"
+    token = Column(String(128), primary_key=True)
+    bearer_token = Column(String(100), nullable=False)
+    tenant_id = Column(String(50), nullable=False)
+    user_id = Column(String(50), nullable=False)
+    role = Column(String(50), nullable=False)
+    session_id = Column(String(64), nullable=False)
+    run_id = Column(String(64), nullable=False, index=True)
+    expires_at = Column(DateTime, nullable=False, index=True)
+    created_at = Column(DateTime, nullable=False, default=utcnow)

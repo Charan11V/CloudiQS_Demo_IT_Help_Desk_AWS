@@ -1,0 +1,89 @@
+{
+  "at": "2026-11-03T07:14:43Z",
+  "base": "http://ec2-3-80-12-216.compute-1.amazonaws.com",
+  "results": [
+    {
+      "test": "0_demo_gate",
+      "pass": true,
+      "status": 200
+    },
+    {
+      "test": "1_demo_login_asha",
+      "pass": true,
+      "status": 200,
+      "tenant": "northstar",
+      "user": "northstar-EMP-0001"
+    },
+    {
+      "test": "2_create_conversation",
+      "pass": true,
+      "conversation_id": "fb05dba5-402c-431e-92cb-be71fc52c4e0"
+    },
+    {
+      "test": "3_start_run",
+      "pass": true,
+      "run_id": "9992c1a8-430c-4367-b500-cd15c1549db1",
+      "status": 200,
+      "body": {
+        "run_id": "9992c1a8-430c-4367-b500-cd15c1549db1",
+        "status": "running"
+      }
+    },
+    {
+      "test": "4_run_completed",
+      "pass": true,
+      "final": {
+        "status": "completed",
+        "mode": "agentcore",
+        "headline": "**VPN Connection Issue \u2013 Summary**\n\n- **Identity verified**: Your user ID is *northstar-EMP-0001* and you are logged ...",
+        "summary": "**VPN Connection Issue \u2013 Summary**\n\n- **Identity verified**: Your user ID is *northstar-EMP-0001* and you are logged in as a regular employee in the Northstar tenant.  \n- **VPN session status**: No active VPN session is currently established from your home location. The system shows that the last co",
+        "error": null,
+        "soft_fail": false
+      }
+    },
+    {
+      "test": "5_tool_events",
+      "pass": true,
+      "count": 12,
+      "tools": [
+        "get_my_identity",
+        "get_vpn_sessions",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal",
+        "propose_vpn_certificate_renewal"
+      ],
+      "note": "AgentCore bridge executes tools out-of-process; tool-events list may be empty even when tools ran"
+    },
+    {
+      "test": "6_runtime_state",
+      "pass": true,
+      "arn": "arn:aws:bedrock-agentcore:ap-south-2:672281861394:runtime/helio_gptoss_agent-EAdCtN2scG",
+      "region": "ap-south-2"
+    },
+    {
+      "test": "7_tenant_isolation",
+      "pass": true,
+      "status": 401,
+      "body": {
+        "detail": "Not authenticated"
+      }
+    },
+    {
+      "test": "8_agentcore_flag_on_api",
+      "pass": true,
+      "root": {
+        "service": "HELIO Agent API",
+        "version": "1.0.0",
+        "status": "operational",
+        "synthetic_data": true,
+        "agentcore_runtime": true,
+        "agentcore_runtime_configured": true
+      }
+    }
+  ]
+}

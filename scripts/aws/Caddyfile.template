@@ -1,0 +1,10 @@
+# HELIO demo TLS terminator (Let's Encrypt / ZeroSSL via Caddy).
+# Host comes from DEMO_HTTPS_HOST (typically <eip>.sslip.io until CloudFront is allowed).
+{
+	email helio.demo.acme@gmail.com
+}
+
+{$DEMO_HTTPS_HOST} {
+	encode gzip
+	reverse_proxy web:3000
+}

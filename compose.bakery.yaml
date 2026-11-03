@@ -23,11 +23,18 @@ services:
       context: ./services/bakery_api
     ports:
       - "127.0.0.1:8002:8000"
+    env_file:
+      - .env
     environment:
       DATABASE_URL: postgresql+psycopg://bakery:bakery@bakery-postgres:5432/bakery
       ALLOW_DEMO_LOGIN: "1"
       SPECS_PATH: /specs
       CORS_ORIGINS: '["http://localhost:3001","http://127.0.0.1:3001","http://localhost:3000","http://127.0.0.1:3000"]'
+      # Others section LLM (GPT-OSS-20B via Groq). Without a key, rule triage is used.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.groq.com/openai/v1}
+      OPENAI_MODEL_ID: ${OPENAI_MODEL_ID:-openai/gpt-oss-20b}
     volumes:
       - ./specs:/specs:ro
       - ./services/bakery_api/app:/app/app

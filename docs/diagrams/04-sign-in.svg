@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420" role="img">
+<title>Sign-in flow</title>
+<rect width="980" height="420" fill="#f8fafc"/>
+<defs>
+  <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 10 4, 0 8" fill="#0f172a"/>
+  </marker>
+</defs>
+
+<rect x="40" y="24" width="180" height="48" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="130.0" y="53.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Browser</text>
+<line x1="130" y1="72" x2="130" y2="400" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="250" y="24" width="180" height="48" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="340.0" y="53.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Next.js</text>
+<line x1="340" y1="72" x2="340" y2="400" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="460" y="24" width="180" height="48" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="550.0" y="53.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">agent-api</text>
+<line x1="550" y1="72" x2="550" y2="400" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="700" y="24" width="180" height="48" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="790.0" y="53.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">bakery-api</text>
+<line x1="790" y1="72" x2="790" y2="400" stroke="#cbd5e1" stroke-width="1.5"/>
+<line x1="130" y1="100" x2="340" y2="100" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="142" y="92" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">1  persona key</text>
+<line x1="340" y1="150" x2="550" y2="150" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="352" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">2  POST /auth/demo-login</text>
+<line x1="550" y1="210" x2="130" y2="210" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="142" y="202" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">3  Set helio_session</text>
+<line x1="130" y1="280" x2="790" y2="280" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="142" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">4  Map to NS-00x</text>
+<line x1="790" y1="340" x2="130" y2="340" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="142" y="332" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">5  Set bakery_session</text>
+</svg>

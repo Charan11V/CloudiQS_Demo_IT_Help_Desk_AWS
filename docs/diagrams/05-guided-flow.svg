@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="640" viewBox="0 0 980 640" role="img">
+<title>Guided helpdesk</title>
+<rect width="980" height="640" fill="#f8fafc"/>
+<defs>
+  <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 10 4, 0 8" fill="#0f172a"/>
+  </marker>
+</defs>
+
+<rect x="360" y="24" width="260" height="56" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="490.0" y="45.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">WELCOME</text>
+<text x="490.0" y="66.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">top menu</text>
+<rect x="80" y="150" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="200.0" y="171.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">CHOOSING_SUBCATEGORY</text>
+<text x="200.0" y="192.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">issue family</text>
+<rect x="660" y="150" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="780.0" y="171.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">DESCRIBING_OTHER</text>
+<text x="780.0" y="192.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">off-menu text</text>
+<line x1="430" y1="80" x2="200" y2="150" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="550" y1="80" x2="780" y2="150" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="80" y="270" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="200.0" y="291.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">CHOOSING_SYMPTOM</text>
+<text x="200.0" y="312.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">symptom list</text>
+<line x1="200" y1="206" x2="200" y2="270" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="80" y="390" width="240" height="56" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/>
+<text x="200.0" y="411.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">INVESTIGATING</text>
+<text x="200.0" y="432.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">read Postgres</text>
+<line x1="200" y1="326" x2="200" y2="390" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="400" y="390" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="520.0" y="411.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">WAITING_APPROVAL</text>
+<text x="520.0" y="432.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">person must decide</text>
+<rect x="660" y="270" width="240" height="56" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="780.0" y="291.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Confirm ticket</text>
+<text x="780.0" y="312.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">one owner</text>
+<line x1="780" y1="206" x2="780" y2="270" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="80" y="520" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="200.0" y="541.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">CASE_SUMMARY</text>
+<text x="200.0" y="562.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">fix or ticket</text>
+<rect x="400" y="520" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="520.0" y="541.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">ASKING_ANYTHING_ELSE</text>
+<text x="520.0" y="562.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">next or close</text>
+<rect x="660" y="520" width="240" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="780.0" y="541.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">CLOSED</text>
+<text x="780.0" y="562.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">start over only</text>
+<line x1="200" y1="446" x2="200" y2="520" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="320" y1="546" x2="400" y2="546" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="640" y1="546" x2="660" y2="546" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="520" y1="418" x2="320" y2="418" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="330" y="408" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">needs a person</text>
+</svg>

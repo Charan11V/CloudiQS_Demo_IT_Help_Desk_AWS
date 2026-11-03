@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="200" viewBox="0 0 980 200" role="img">
+<title>Tool bridge</title>
+<rect width="980" height="200" fill="#f8fafc"/>
+<defs>
+  <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 10 4, 0 8" fill="#0f172a"/>
+  </marker>
+</defs>
+
+<rect x="20" y="60" width="170" height="70" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="105.0" y="88.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">agent-api</text>
+<text x="105.0" y="109.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">stores token</text>
+<rect x="210" y="60" width="170" height="70" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/>
+<text x="295.0" y="88.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">AgentCore</text>
+<text x="295.0" y="109.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">calls back</text>
+<line x1="190" y1="95" x2="210" y2="95" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="400" y="60" width="170" height="70" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="485.0" y="88.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">HMAC check</text>
+<text x="485.0" y="109.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">timestamp + body</text>
+<line x1="380" y1="95" x2="400" y2="95" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="600" y="60" width="170" height="70" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="685.0" y="88.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">SQLite session</text>
+<text x="685.0" y="109.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">bearer stays here</text>
+<line x1="580" y1="95" x2="600" y2="95" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="790" y="60" width="170" height="70" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="875.0" y="88.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">mock API</text>
+<text x="875.0" y="109.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">same tenant</text>
+<line x1="770" y1="95" x2="790" y2="95" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+</svg>

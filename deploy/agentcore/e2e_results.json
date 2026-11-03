@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-03T05:05:00Z",
+  "region": "us-east-1",
+  "results": [
+    {
+      "test": "1_gptoss_live_chat",
+      "pass": true,
+      "detail": "Groq openai/gpt-oss-20b returned content GPT_OSS_LIVE_OK (max_tokens=512). Same provider/model/base_url preserved for AgentCore package."
+    },
+    {
+      "test": "2_codezip_package",
+      "pass": true,
+      "detail": "ARM64 CodeZip built with uv (no QEMU/Docker), 29.6 MiB, uploaded to s3://bedrock-agentcore-code-672281861394-us-east-1/helio_gptoss_agent/"
+    },
+    {
+      "test": "3_iam_ssm",
+      "pass": true,
+      "detail": "HelioAgentCoreRuntimeRole created; OPENAI_API_KEY + TOOL_BRIDGE_SECRET in SSM SecureString; HelioAgentCoreInvoke on EC2 role; log retention 7d"
+    },
+    {
+      "test": "4_create_agent_runtime",
+      "pass": false,
+      "detail": "ServiceQuotaExceededException maxAgents — applied Total Agents per Account quota Value=0. Case 179368190700066 / request b694b29b7f9846559b0e9fb5ed590484LmNHtIAm CASE_OPENED. Account ContactInformation VerificationStatus=UNVERIFIED."
+    },
+    {
+      "test": "5_agent_api_bridge_deployed",
+      "pass": true,
+      "detail": "fast_deploy agent + web succeeded; tool-bridge router and middleware allowlist on EC2"
+    },
+    {
+      "test": "6_local_mode_independent",
+      "pass": true,
+      "detail": "compose.yaml keeps AGENTCORE_ENABLED=0 by default; local Strands+Groq path unchanged"
+    },
+    {
+      "test": "7_13_runtime_invoke_rollback",
+      "pass": false,
+      "detail": "Blocked until Runtime exists; rollback/status/destroy scripts implemented and ready"
+    }
+  ],
+  "unresolved": [
+    "AgentCore Runtime create awaits quota > 0 (or account verification). Then: make deploy-agent && python scripts/agentcore/patch_ec2_agentcore_env.py && python scripts/agentcore/e2e_verify.py"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-11-02T17:33:21Z",
+  "demo_url": "http://ec2-3-80-12-216.compute-1.amazonaws.com",
+  "marker_ticket_id": "PERSIST-PROOF-20261102T173321Z",
+  "steps": [],
+  "ssm": {
+    "command_id": "cf735f2a-c7a0-4dbe-832a-86c4502f47bc",
+    "status": "Success",
+    "stdout_tail": "INSERT 0 1\nINSERT_OK\nBEFORE_COUNT=1\nHEALTHY\nAFTER_COUNT=1\n54:      - python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1\nNO_RESET_OK\n",
+    "stderr_tail": "SECRET\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-02T17:33:28Z\" level=warning msg=\"The \\\"APP_SESSION_SIGNING_KEY\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-02T17:33:28Z\" level=warning msg=\"The \\\"DEMO_ACCESS_SECRET\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-02T17:33:28Z\" level=warning msg=\"The \\\"DEMO_ACCESS_SECRET\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-02T17:33:28Z\" level=warning msg=\"The \\\"APP_SESSION_SIGNING_KEY\\\" variable is not set. Defaulting to a blank string.\"\n Container compose-bakery-api-1  Recreate\n Container compose-bakery-api-1  Recreated\n Container compose-bakery-api-1  Starting\n Container compose-bakery-api-1  Started\ntime=\"2026-11-02T17:33:44Z\" level=warning msg=\"The \\\"APP_SESSION_SIGNING_KEY\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-11-02T17:33:44Z\" level=warning msg=\"The \\\"DEMO_ACCESS_SECRET\\\" variable is not set. Defaulting to a blank string.\"\n"
+  },
+  "api_list_status": 200,
+  "found_via_api": true,
+  "found_via_sql": true,
+  "no_reset_compose": true,
+  "recreate_healthy": true,
+  "passed": true,
+  "note": "bakery-api force-recreated; postgres volume retained; compose uses seed-if-empty (no --reset)"
+}

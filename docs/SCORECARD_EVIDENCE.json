@@ -1,0 +1,167 @@
+{
+  "generated_at": "2026-11-02T17:31:59Z",
+  "demo_url": "http://ec2-3-80-12-216.compute-1.amazonaws.com",
+  "checks": [
+    {
+      "name": "demo_gate",
+      "passed": true,
+      "status": 200,
+      "note": "outer access gate"
+    },
+    {
+      "name": "employee_login",
+      "passed": true,
+      "status": 200,
+      "persona": "northstar-asha"
+    },
+    {
+      "name": "rbac_employee_blocked_admin",
+      "passed": true,
+      "status": 403,
+      "note": "employee cannot use admin APIs"
+    },
+    {
+      "name": "knowledge_search_vpn",
+      "passed": true,
+      "status": 200,
+      "hit_count": 2,
+      "note": "ACL-filtered keyword corpus retrieval"
+    },
+    {
+      "name": "freeform_conversation_run",
+      "passed": true,
+      "status": 200,
+      "conversation_id": "a0b21b10-5120-4aa7-9c31-e4b79f3e261f",
+      "run_id": "66682b77-ce3a-4a5f-9a96-12eda965e183",
+      "run_status": "running",
+      "note": "Freeform UI path; may use simulator when Bedrock model access denied"
+    },
+    {
+      "name": "guided_root_options",
+      "passed": true,
+      "status": 200,
+      "count": 10,
+      "ids": [
+        "identity",
+        "network",
+        "device",
+        "apps",
+        "printing",
+        "security",
+        "hardware",
+        "requests",
+        "cant_find",
+        "my_tickets"
+      ]
+    },
+    {
+      "name": "bakery_tickets_list",
+      "passed": true,
+      "status": 200,
+      "count": 2
+    },
+    {
+      "name": "bakery_ticket_audit_events",
+      "passed": true,
+      "status": 200,
+      "ticket_id": "INC-1000",
+      "assigned_team": null,
+      "event_count": 0,
+      "note": "Audit lineage API for bakery tickets"
+    },
+    {
+      "name": "tenant_session_beacon",
+      "passed": true,
+      "status": 200,
+      "tenant_id": "beacon"
+    },
+    {
+      "name": "tenant_isolation_tickets",
+      "passed": true,
+      "status": 200,
+      "foreign_count": 0
+    },
+    {
+      "name": "tenant_isolation_knowledge",
+      "passed": true,
+      "status": 200,
+      "note": "Beacon knowledge search scoped by mock tenant ACL"
+    },
+    {
+      "name": "approval_propose_employee",
+      "passed": true,
+      "status": 200,
+      "approval_id": "northstar-APR-NEW-59c9d33210"
+    },
+    {
+      "name": "it_login",
+      "passed": true,
+      "status": 200,
+      "persona": "northstar-rahul"
+    },
+    {
+      "name": "approvals_list_it",
+      "passed": true,
+      "status": 200,
+      "count": 29
+    },
+    {
+      "name": "approval_self_decide_blocked",
+      "passed": true,
+      "status": 403,
+      "note": "employee cannot approve own request"
+    },
+    {
+      "name": "approval_it_decide",
+      "passed": true,
+      "status": 200,
+      "approval_id": "northstar-APR-NEW-59c9d33210"
+    },
+    {
+      "name": "approval_it_execute",
+      "passed": true,
+      "status": 200,
+      "keys": [
+        "action_id",
+        "status",
+        "action_type",
+        "target_user_id",
+        "executed_at",
+        "real_enterprise_mutation",
+        "idempotent_replay"
+      ],
+      "note": "approval-to-execution path verified"
+    },
+    {
+      "name": "evaluations_curated_run",
+      "passed": 20,
+      "status": 200,
+      "executed": 20,
+      "failed": 0,
+      "provider_mode": "simulator",
+      "run_id": "81267e26-9e08-47f8-988a-7b6afe74b428",
+      "note": "Deterministic evaluator harness; not an LLM accuracy score"
+    },
+    {
+      "name": "health_model_endpoint",
+      "passed": true,
+      "status": 200,
+      "ok": false,
+      "verified_live": false,
+      "note": "Live Bedrock may remain blocked until account model access"
+    },
+    {
+      "name": "specialist_routing_map",
+      "passed": true,
+      "note": "issue_code\u2192team map verified in-process",
+      "net": "Network / VPN Desk",
+      "sec": "Security Operations",
+      "id": "Identity Desk"
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0
+  }
+}

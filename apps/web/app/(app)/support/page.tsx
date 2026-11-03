@@ -59,20 +59,21 @@ export default function SupportPage() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
-    // Explicit freeform only when requested — home describe stays in guided bakery flow
-    if (params.get("mode") === "describe" && !params.get("prefill") && !params.get("topic")) {
+    // Default = bakery guided (choice menu). Freeform HELIO only when mode=describe/freeform.
+    const explicitMode = params.get("mode");
+    if (explicitMode === "describe" || explicitMode === "freeform") {
       setMode("freeform");
+    } else {
+      setMode("guided");
     }
     const prefill = params.get("prefill");
     if (prefill) {
       setGuidedPrefill(prefill);
-      setMode("guided");
       setMessage(prefill);
     }
     const topic = params.get("topic");
     if (topic) {
       setGuidedTopic(topic);
-      setMode("guided");
     }
   }, []);
 

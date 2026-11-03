@@ -110,6 +110,107 @@ function assistantEntry(conv: BakeryConversation): TranscriptEntry {
   };
 }
 
+type ChatDraft = {
+  conversationId: string;
+  conversation: BakeryConversation | null;
+  transcript: TranscriptEntry[];
+  journey: string[];
+  selectedIds: string[];
+  freeText: string;
+  seedApplied?: boolean;
+  savedAt?: number;
+};
+
+const LAST_DRAFT_KEY = "helio.bakery.chatDraft.v2.last";
+
+function storageKey(bakeryUserId: string) {
+  return `helio.bakery.chatDraft.v2.${bakeryUserId}`;
+}
+
+function legacyConversationKey(bakeryUserId: string) {
+  return `helio.bakery.activeConversation.${bakeryUserId}`;
+}
+
+function readChatDraft(bakeryUserId: string): ChatDraft | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const keys = [storageKey(bakeryUserId), LAST_DRAFT_KEY];
+    for (const key of keys) {
+      const raw = window.localStorage.getItem(key);
+      if (!raw) continue;
+      const parsed = JSON.parse(raw) as ChatDraft;
+      if (parsed?.conversationId) return parsed;
+    }
+    // Migrate older id-only key
+    const legacyId =
+      window.localStorage.getItem(legacyConversationKey(bakeryUserId)) ||
+      window.localStorage.getItem("helio.bakery.activeConversation");
+    if (legacyId) {
+      return {
+        conversationId: legacyId,
+        conversation: null,
+        transcript: [],
+        journey: [],
+        selectedIds: [],
+        freeText: "",
+      };
+    }
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
+
+function writeChatDraft(bakeryUserId: string, draft: ChatDraft) {
+  if (typeof window === "undefined") return;
+  try {
+    const payload = JSON.stringify({ ...draft, savedAt: Date.now() });
+    window.localStorage.setItem(storageKey(bakeryUserId), payload);
+    window.localStorage.setItem(LAST_DRAFT_KEY, payload);
+    window.localStorage.setItem(legacyConversationKey(bakeryUserId), draft.conversationId);
+    window.localStorage.setItem("helio.bakery.activeConversation", draft.conversationId);
+  } catch {
+    /* ignore quota */
+  }
+}
+
+function clearChatDraft(bakeryUserId: string) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(storageKey(bakeryUserId));
+    window.localStorage.removeItem(LAST_DRAFT_KEY);
+    window.localStorage.removeItem(legacyConversationKey(bakeryUserId));
+    window.localStorage.removeItem("helio.bakery.activeConversation");
+  } catch {
+    /* ignore */
+  }
+}
+
+function transcriptFromMessages(
+  messages: BakeryConversation["messages"] | undefined,
+  fallback: BakeryConversation
+): TranscriptEntry[] {
+  const rows = messages || [];
+  if (!rows.length) {
+    return fallback.assistant_message ? [assistantEntry(fallback)] : [];
+  }
+  return rows
+    .filter((m) => m.role === "user" || m.role === "assistant")
+    .filter((m) => !(m.role === "user" && (m.content || "").startsWith("Control:")))
+    .map((m) => ({
+      id: m.message_id || uid(),
+      role: m.role as "user" | "assistant",
+      content: m.content || "",
+      ...(m.role === "assistant" && m === rows[rows.length - 1]
+        ? {
+            finding: fallback.finding,
+            action_proposal: fallback.action_proposal,
+            ticket: fallback.ticket,
+          }
+        : {}),
+    }));
+}
+
 export function GuidedHelpdeskPanel({
   preferredUserId,
   initialPrefill,
@@ -151,18 +252,96 @@ export function GuidedHelpdeskPanel({
     seedApplied.current = false;
     try {
       await bakery.demoLogin(bakeryUserId);
-      const conv = await bakery.createConversation();
+
+      // Refresh restores full draft (chat + typed text + selections); Start over clears it.
+      // Never create a new welcome chat while an in-progress draft/active chat exists.
+      const draft = readChatDraft(bakeryUserId);
+      let conv: BakeryConversation | null = null;
+      let resumeError = "";
+      if (draft?.conversationId) {
+        try {
+          conv = await bakery.resumeConversation(draft.conversationId);
+        } catch (e) {
+          resumeError = e instanceof Error ? e.message : "resume failed";
+          conv = null;
+        }
+      }
+      if (!conv) {
+        try {
+          conv = await bakery.getActiveConversation();
+        } catch {
+          conv = null;
+        }
+      }
+      // Only start fresh when there is truly nothing to resume
+      if (!conv) {
+        if (draft?.conversation && draft.conversationId) {
+          // Offline/API glitch: keep local draft UI rather than wiping to main menu
+          conv = {
+            ...draft.conversation,
+            conversation_id: draft.conversationId,
+            resumed: true,
+          };
+        } else {
+          conv = await bakery.createConversation();
+        }
+      }
+      if (resumeError && conv?.resumed) {
+        // keep going with active/local draft
+      }
+
+      const serverTranscript = transcriptFromMessages(conv.messages, conv);
+      const sameChat = Boolean(draft && draft.conversationId === conv.conversation_id);
+      // Prefer richer local transcript if present; otherwise rebuild from server messages
+      const restoredTranscript =
+        sameChat && (draft!.transcript?.length || 0) >= serverTranscript.length
+          ? draft!.transcript
+          : serverTranscript.length
+            ? serverTranscript
+            : sameChat && draft?.transcript?.length
+              ? draft.transcript
+              : serverTranscript;
+      const optionIds = new Set((conv.options || []).map((o) => o.id));
+      const restoredSelected = sameChat
+        ? (draft!.selectedIds || []).filter((id) => optionIds.has(id))
+        : [];
+      const restoredText = sameChat ? draft!.freeText || "" : "";
+      const restoredJourney =
+        sameChat && draft!.journey?.length
+          ? draft!.journey
+          : ((conv.breadcrumb || []).filter(Boolean) as string[]);
+
+      // Server snapshot owns options/state; local draft owns in-progress text/selections/transcript
       setConversation(conv);
-      setSelectedIds([]);
-      setJourney([]);
-      setTranscript(conv.assistant_message ? [assistantEntry(conv)] : []);
+      setTranscript(restoredTranscript);
+      setJourney(restoredJourney);
+      setSelectedIds(restoredSelected);
+      setFreeText(restoredText);
+      if (
+        sameChat ||
+        conv.resumed ||
+        (conv.messages && conv.messages.length > 1) ||
+        draft?.seedApplied
+      ) {
+        seedApplied.current = true;
+      }
+      writeChatDraft(bakeryUserId, {
+        conversationId: conv.conversation_id,
+        conversation: conv,
+        transcript: restoredTranscript,
+        journey: restoredJourney,
+        selectedIds: restoredSelected,
+        freeText: restoredText,
+        seedApplied: seedApplied.current,
+      });
       setReady(true);
     } catch (e) {
-      const msg = e instanceof Error ? e.message : "Failed to start guided helpdesk";
+      const raw = e instanceof Error ? e.message : "Failed to start guided helpdesk";
+      const msg = typeof raw === "string" ? raw : "Bakery guided API unavailable";
       setError(msg);
       setReady(false);
       toast.error("Guided helpdesk unavailable", {
-        description: `${msg}. Is bakery-api running on :8002?`,
+        description: "Choice menu could not start. Retry, or use freeform Get help as a backup.",
       });
     } finally {
       setLoading(false);
@@ -212,14 +391,32 @@ export function GuidedHelpdeskPanel({
   }, [ready, conversation?.conversation_id, initialPrefill, initialTopic]);
 
   useEffect(() => {
-    setSelectedIds([]);
-    setFreeText("");
-  }, [conversation?.state, conversation?.assistant_message, conversation?.conversation_id]);
-
-  useEffect(() => {
     const crumbs = (conversation?.breadcrumb || []).filter(Boolean) as string[];
     if (crumbs.length) setJourney(crumbs);
   }, [conversation?.breadcrumb]);
+
+  // Persist full UI draft so refresh keeps text, selections, and history
+  useEffect(() => {
+    if (!ready || !conversation?.conversation_id) return;
+    writeChatDraft(persona || mappedBakeryUserId, {
+      conversationId: conversation.conversation_id,
+      conversation,
+      transcript,
+      journey,
+      selectedIds,
+      freeText,
+      seedApplied: seedApplied.current,
+    });
+  }, [
+    ready,
+    persona,
+    mappedBakeryUserId,
+    conversation,
+    transcript,
+    journey,
+    selectedIds,
+    freeText,
+  ]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -262,7 +459,9 @@ export function GuidedHelpdeskPanel({
       return nextEntries;
     });
     setConversation(next);
+    // Clear draft inputs after a committed turn (not on refresh)
     setSelectedIds([]);
+    setFreeText("");
     if (next.ticket?.ticket_id) {
       invalidateTicketViews();
       toast.success(`Ticket ${next.ticket.ticket_id} raised`, {
@@ -344,10 +543,24 @@ export function GuidedHelpdeskPanel({
     try {
       const next = await bakery.sendTurn(conversation.conversation_id, { control });
       if (control === "start_over") {
+        // Start over is the only path that resets to a clean chat
+        const uidKey = persona || mappedBakeryUserId;
+        clearChatDraft(uidKey);
         setJourney([]);
         setTranscript(next.assistant_message ? [assistantEntry(next)] : []);
         setConversation(next);
         setSelectedIds([]);
+        setFreeText("");
+        seedApplied.current = true;
+        writeChatDraft(uidKey, {
+          conversationId: next.conversation_id,
+          conversation: next,
+          transcript: next.assistant_message ? [assistantEntry(next)] : [],
+          journey: [],
+          selectedIds: [],
+          freeText: "",
+          seedApplied: true,
+        });
       } else if (control === "back") {
         setJourney([]);
         applyNext(
@@ -381,22 +594,28 @@ export function GuidedHelpdeskPanel({
       <Surface className="p-6 space-y-4">
         <EmptyState
           title="Guided session not ready"
-          description={error || "Bakery API may be offline."}
+          description={
+            error
+              ? `${error} The choice-based helpdesk needs bakery-api. Retry in a moment.`
+              : "Starting the choice-based helpdesk failed. Retry, or open freeform as a backup."
+          }
         />
         <div className="flex flex-wrap gap-2 justify-center">
-          {["NS-001", "NS-002", "NS-005", "BC-001"].map((id) => (
-            <HelioButton
-              key={id}
-              variant={persona === id ? "primary" : "secondary"}
-              size="sm"
-              onClick={() => {
-                setPersona(id);
-                void boot(id);
-              }}
-            >
-              Login {id}
-            </HelioButton>
-          ))}
+          <HelioButton
+            variant="primary"
+            onClick={() => void boot(persona || mappedBakeryUserId)}
+          >
+            Retry guided
+          </HelioButton>
+          <HelioButton
+            variant="secondary"
+            size="sm"
+            onClick={() => {
+              window.location.assign("/support?mode=describe");
+            }}
+          >
+            Freeform backup
+          </HelioButton>
         </div>
       </Surface>
     );
@@ -422,7 +641,9 @@ export function GuidedHelpdeskPanel({
     conversation.free_text_hint || "Enter your complaint…";
   const freeTextSubmitLabel =
     conversation.free_text_submit_label ||
-    (conversation.state === "DESCRIBING_OTHER" ? "Send" : "Raise ticket");
+    (conversation.state === "DESCRIBING_OTHER"
+      ? "Send"
+      : conversation.free_text_submit_label || "Raise ticket");
   /** Compact complaint box under ticket options, or under the ask when options are empty. */
   const showComplaintUnderOptions =
     allowFreeText && options.length > 0 && !othersSelected;
@@ -493,9 +714,9 @@ export function GuidedHelpdeskPanel({
             variant="secondary"
             size="sm"
             className="bg-white/15 border-white/30 text-white hover:bg-white/25 hover:border-white/40 shrink-0"
-            onClick={() => void boot(persona)}
+            onClick={() => void sendControl("start_over")}
             disabled={sending}
-            aria-label="Restart"
+            aria-label="Start over"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">Start over</span>

@@ -23,6 +23,17 @@ from ..routers.catalog import load_catalog
 from .diagnosis import diagnose_issue
 
 
+from ..routing import route_owner, route_team
+from .others_llm import LAST_ERROR as OTHERS_LLM_LAST_ERROR
+from .others_llm import (
+    llm_configured,
+    triage_others_with_llm,
+    user_requests_ticket,
+    user_says_resolved,
+    user_says_unresolved,
+)
+
+
 def generate_id(prefix: str) -> str:
     return f"{prefix}-{uuid.uuid4().hex[:8].upper()}"
 
@@ -55,6 +66,127 @@ class GuidedEngine:
                 Conversation.user_id == self.user_id,
             )
         ).scalar_one_or_none()
+
+    def get_active_conversation(self) -> Optional[Conversation]:
+        """Prefer in-progress chat over a fresh WELCOME created by a bad refresh."""
+        rows = self.db.execute(
+            select(Conversation)
+            .where(
+                Conversation.tenant_id == self.tenant_id,
+                Conversation.user_id == self.user_id,
+            )
+            .order_by(Conversation.updated_at.desc())
+            .limit(25)
+        ).scalars().all()
+        if not rows:
+            return None
+
+        def _is_in_progress(c: Conversation) -> bool:
+            if (c.state or "") not in ("", "WELCOME"):
+                return True
+            snap = c.ui_snapshot or {}
+            snap_state = (snap.get("state") or "") if isinstance(snap, dict) else ""
+            if snap_state and snap_state not in ("WELCOME",):
+                return True
+            # Any user message means the chat progressed
+            msg_count = self.db.execute(
+                select(Message)
+                .where(
+                    Message.conversation_id == c.conversation_id,
+                    Message.role == "user",
+                )
+                .limit(1)
+            ).scalars().first()
+            return msg_count is not None
+
+        for c in rows:
+            if _is_in_progress(c):
+                return c
+        return rows[0]
+
+    def save_ui_snapshot(self, conversation_id: str, payload: dict) -> None:
+        conversation = self.get_conversation(conversation_id)
+        if not conversation:
+            return
+        # Persist a JSON-safe copy of the last turn for refresh resume
+        snapshot = {k: v for k, v in (payload or {}).items() if k != "ui_snapshot"}
+        conversation.ui_snapshot = snapshot
+        # Touch updated_at so in-progress chats stay "active"
+        conversation.updated_at = datetime.now(timezone.utc)
+        self.db.commit()
+
+    def list_messages(self, conversation_id: str, limit: int = 80) -> list[dict]:
+        rows = self.db.execute(
+            select(Message)
+            .where(Message.conversation_id == conversation_id)
+            .order_by(Message.timestamp.asc(), Message.id.asc())
+            .limit(limit)
+        ).scalars().all()
+        return [
+            {
+                "message_id": m.message_id,
+                "role": m.role,
+                "content": m.content,
+                "timestamp": m.timestamp.isoformat() if m.timestamp else None,
+            }
+            for m in rows
+        ]
+
+    def resume_conversation(self, conversation_id: str) -> Optional[dict]:
+        """Return last UI snapshot + message history for the same chat."""
+        conversation = self.get_conversation(conversation_id)
+        if not conversation:
+            return None
+        snapshot = dict(conversation.ui_snapshot or {})
+        # Never invent a fresh welcome over an in-progress state
+        if not snapshot or not snapshot.get("assistant_message"):
+            snapshot = {
+                "conversation_id": conversation.conversation_id,
+                "state": conversation.state or "WELCOME",
+                "case_id": conversation.current_case,
+                "assistant_message": "",
+                "options": [],
+                "controls": ["start_over"],
+                "allow_free_text": (conversation.state or "")
+                in (
+                    "DESCRIBING_OTHER",
+                    "AWAITING_TICKET_DETAILS",
+                    "AWAITING_UNKNOWN_TICKET_CONFIRM",
+                ),
+                "demo_mode": True,
+            }
+            if (conversation.state or "") == "WELCOME":
+                snapshot = self._welcome(conversation_id)
+            elif (conversation.state or "") == "DESCRIBING_OTHER":
+                snapshot.update(
+                    {
+                        "assistant_message": (
+                            "Welcome back — continue describing your issue, "
+                            "or use the options below."
+                        ),
+                        "allow_free_text": True,
+                        "free_text_hint": "Continue the conversation…",
+                        "free_text_submit_label": "Send",
+                        "options": [
+                            {
+                                "id": "others_raise_ticket",
+                                "label": "Raise a ticket",
+                                "type": "action",
+                            },
+                            {
+                                "id": "others_main_menu",
+                                "label": "Back to main menu",
+                                "type": "action",
+                            },
+                        ],
+                    }
+                )
+        snapshot["conversation_id"] = conversation.conversation_id
+        snapshot["state"] = conversation.state or snapshot.get("state")
+        snapshot["case_id"] = conversation.current_case or snapshot.get("case_id")
+        snapshot["messages"] = self.list_messages(conversation_id)
+        snapshot["resumed"] = True
+        return snapshot
 
     def add_message(self, conversation_id: str, role: str, content: str):
         self.db.add(
@@ -536,8 +668,8 @@ class GuidedEngine:
             return self._decorate(result, ask_anything_else=True)
 
         if primary in ("something_else", "cant_find", "describe_in_words", "others"):
-            # Others path: free text → triage (answer / offer ticket / out of scope).
-            # Without free_text (legacy / Something else control), prompt for text.
+            # Others path: free text → LLM (or rules) triage:
+            # guide / offer ticket / out of scope → main menu.
             detail = (free_text or "").strip()
             if detail:
                 return self._decorate(self._triage_others_text(conversation, detail))
@@ -545,13 +677,20 @@ class GuidedEngine:
             conversation.current_menu_node = "GEN-UNKNOWN"
             conversation.current_case = None
             self.db.commit()
+            llm_note = (
+                "I'll use the IT assistant to guide you when I can. "
+                if llm_configured()
+                else "I'll try to answer from our IT help topics. "
+            )
             return self._decorate(
                 {
                     "conversation_id": conversation_id,
                     "state": "DESCRIBING_OTHER",
                     "assistant_message": (
                         "No problem. Describe your issue in a sentence or two, then send. "
-                        "I'll try to answer from our IT help topics, or ask before raising a ticket."
+                        + llm_note
+                        + "If it's relevant but I can't fix it here, I'll ask before raising a ticket. "
+                        "Off-topic requests go back to the main menu."
                     ),
                     "options": [],
                     "controls": ["back", "start_over"],
@@ -560,6 +699,27 @@ class GuidedEngine:
                     "free_text_submit_label": "Send",
                     "demo_mode": True,
                 }
+            )
+
+        if primary == "others_raise_ticket":
+            case = self._get_case(conversation)
+            facts = dict((case.collected_facts if case else None) or {})
+            detail = (
+                (free_text or "").strip()
+                or facts.get("pending_ticket_detail")
+                or facts.get("others_last_user_text")
+                or "User requested a ticket from Others guidance"
+            )
+            return self._decorate(self._offer_unknown_ticket(conversation, detail))
+
+        if primary == "others_main_menu":
+            conversation.state = "WELCOME"
+            conversation.current_menu_node = None
+            conversation.current_case = None
+            self.db.commit()
+            return self._welcome(
+                conversation_id,
+                assistant_message="Back to the main menu. What can I help you with?",
             )
 
         # Retired opening option — keep a soft redirect if an old client still sends it.
@@ -655,9 +815,14 @@ class GuidedEngine:
     def _handle_control(self, conversation: Conversation, control: str) -> dict:
         cid = conversation.conversation_id
         if control == "start_over":
+            from sqlalchemy import delete as sa_delete
+
             conversation.state = "WELCOME"
             conversation.current_menu_node = None
             conversation.current_case = None
+            conversation.ui_snapshot = {}
+            # Clear message history so Start over is a clean chat
+            self.db.execute(sa_delete(Message).where(Message.conversation_id == cid))
             self.db.commit()
             return self._welcome(cid)
         if control == "back":
@@ -1198,12 +1363,92 @@ class GuidedEngine:
         # Free text from other states (e.g. welcome describe): same triage as Others
         return self._triage_others_text(conversation, detail)
 
+    def _others_history(self, conversation: Conversation) -> list[dict[str, str]]:
+        """Prior Others turns for multi-turn LLM guidance."""
+        case = self._get_case(conversation)
+        facts = dict((case.collected_facts if case else None) or {})
+        history = facts.get("others_llm_history") or []
+        if isinstance(history, list):
+            return [h for h in history if isinstance(h, dict)][-8:]
+        return []
+
+    def _append_others_history(
+        self, conversation: Conversation, user_text: str, assistant_text: str
+    ) -> None:
+        case = self._get_case(conversation)
+        if case is None:
+            case_id = generate_id("CASE")
+            case = Case(
+                case_id=case_id,
+                conversation_id=conversation.conversation_id,
+                tenant_id=self.tenant_id,
+                issue_code="GEN-UNKNOWN",
+                state="others_guiding",
+                collected_facts={},
+            )
+            self.db.add(case)
+            conversation.current_case = case_id
+        facts = dict(case.collected_facts or {})
+        history = list(facts.get("others_llm_history") or [])
+        if user_text:
+            history.append({"role": "user", "content": user_text})
+        if assistant_text:
+            history.append({"role": "assistant", "content": assistant_text})
+        facts["others_llm_history"] = history[-12:]
+        facts["others_last_user_text"] = user_text
+        case.collected_facts = facts
+        case.state = "others_guiding"
+        self.db.commit()
+
+    def _others_issue_detail(self, conversation: Conversation, fallback: str = "") -> str:
+        facts_hist = self._others_history(conversation)
+        for turn in facts_hist:
+            if turn.get("role") == "user":
+                content = (turn.get("content") or "").strip()
+                if (
+                    content
+                    and not user_requests_ticket(content)
+                    and not user_says_resolved(content)
+                    and not user_says_unresolved(content)
+                ):
+                    # Prefer the original problem statement (first real issue text)
+                    return content
+        case = self._get_case(conversation)
+        facts = dict((case.collected_facts if case else None) or {})
+        return (
+            facts.get("others_original_issue")
+            or facts.get("others_last_user_text")
+            or facts.get("pending_ticket_detail")
+            or fallback
+        )
+
+    def _respond_others_resolved(
+        self, conversation: Conversation, detail: str, message: str | None = None
+    ) -> dict:
+        self._append_others_history(
+            conversation,
+            detail,
+            message or "Glad that resolved it.",
+        )
+        conversation.state = "WELCOME"
+        conversation.current_menu_node = None
+        conversation.current_case = None
+        self.db.commit()
+        return self._welcome(
+            conversation.conversation_id,
+            assistant_message=(
+                (message or "Great — glad that resolved it.")
+                + "\n\nBack to the main catalog. What else can I help with?"
+            ),
+        )
+
     def _triage_others_text(self, conversation: Conversation, detail: str) -> dict:
         """
-        Others free-text triage:
-        1) Answerable IT query → answer (no ticket)
-        2) IT-ish but unknown → offer to raise a ticket (ask first)
-        3) Out of scope → say so and re-show opening catalog
+        Others free-text:
+        - First/guide: one solid solution + Raise ticket / Main menu / chat
+        - Resolved → main menu
+        - Unresolved / can't solve / user asks ticket → ticket confirm (+ main menu via decline)
+        - Out of scope → main catalog
         """
         if not detail:
             conversation.state = "DESCRIBING_OTHER"
@@ -1222,6 +1467,123 @@ class GuidedEngine:
                 "demo_mode": True,
             }
 
+        # Remember the original issue on first Others free-text
+        if (
+            not user_says_resolved(detail)
+            and not user_requests_ticket(detail)
+            and not user_says_unresolved(detail)
+        ):
+            case = self._get_case(conversation)
+            if case is None:
+                case_id = generate_id("CASE")
+                case = Case(
+                    case_id=case_id,
+                    conversation_id=conversation.conversation_id,
+                    tenant_id=self.tenant_id,
+                    issue_code="GEN-UNKNOWN",
+                    state="others_guiding",
+                    collected_facts={"others_original_issue": detail},
+                )
+                self.db.add(case)
+                conversation.current_case = case_id
+                self.db.commit()
+            else:
+                facts = dict(case.collected_facts or {})
+                if not facts.get("others_original_issue"):
+                    facts["others_original_issue"] = detail
+                    case.collected_facts = facts
+                    self.db.commit()
+
+        if user_says_resolved(detail):
+            return self._respond_others_resolved(conversation, detail)
+
+        if user_requests_ticket(detail) or user_says_unresolved(detail):
+            ticket_detail = self._others_issue_detail(conversation, detail)
+            return self._offer_unknown_ticket(
+                conversation,
+                ticket_detail,
+                assistant_message=(
+                    (
+                        "Sorry that didn't fully resolve it. "
+                        if user_says_unresolved(detail)
+                        else "Understood — I can raise a support ticket for this.\n\n"
+                    )
+                    + f"Issue: {ticket_detail}\n\n"
+                    "Would you like me to raise a ticket, or go back to the main menu?"
+                ),
+            )
+
+        llm = triage_others_with_llm(
+            detail,
+            catalog=self.catalog,
+            history=self._others_history(conversation),
+        )
+        if llm:
+            branch = llm["branch"]
+            message = llm["message"]
+            issue_summary = llm.get("issue_summary") or self._others_issue_detail(
+                conversation, detail
+            )
+            if branch == "resolved":
+                return self._respond_others_resolved(conversation, detail, message)
+            if branch == "guide":
+                return self._respond_others_guide(conversation, detail, message)
+            if branch == "out_of_scope":
+                conversation.state = "WELCOME"
+                conversation.current_menu_node = None
+                conversation.current_case = None
+                self.db.commit()
+                return self._welcome(
+                    conversation.conversation_id,
+                    assistant_message=(
+                        message
+                        + "\n\nThat is out of scope for IT support, so I'm taking you back to the main catalog. "
+                        "Pick an IT topic below, or open Others again for a workplace issue."
+                    ),
+                )
+            ticket_detail = issue_summary if issue_summary else detail
+            return self._offer_unknown_ticket(
+                conversation,
+                ticket_detail,
+                assistant_message=(
+                    message
+                    + "\n\nI can raise a support ticket that mentions this issue, "
+                    "or you can return to the main menu."
+                ),
+            )
+
+        # LLM configured but failed → avoid brittle keyword→catalog mis-routes
+        # (e.g. "restarting hasn't fixed it" ≠ DEV-04 Restart pending).
+        if llm_configured():
+            lowered = detail.lower()
+            if self._looks_out_of_scope(lowered) and not self._looks_it_support(lowered):
+                conversation.state = "WELCOME"
+                conversation.current_menu_node = None
+                conversation.current_case = None
+                self.db.commit()
+                return self._welcome(
+                    conversation.conversation_id,
+                    assistant_message=(
+                        "That looks outside IT support (out of scope). "
+                        "Would you like to choose from the issues listed here instead?"
+                    ),
+                )
+            faq = self._match_demo_faq_answer(lowered)
+            if faq:
+                return self._respond_others_guide(conversation, detail, faq)
+            err = (OTHERS_LLM_LAST_ERROR or "provider unavailable").strip()
+            return self._offer_unknown_ticket(
+                conversation,
+                detail,
+                assistant_message=(
+                    "I couldn't reach the IT assistant just now "
+                    f"({err[:160]}). "
+                    "This still looks like a workplace IT issue I can't fully resolve here.\n\n"
+                    f"Issue: {detail}\n\n"
+                    "Are you OK if I raise a support ticket that mentions this issue?"
+                ),
+            )
+
         branch, payload = self._classify_others_query(detail)
         if branch == "answer":
             return self._respond_others_answer(conversation, detail, payload or {})
@@ -1233,7 +1595,7 @@ class GuidedEngine:
             return self._welcome(
                 conversation.conversation_id,
                 assistant_message=(
-                    "That looks outside IT support. "
+                    "That looks outside IT support (out of scope). "
                     "Would you like to choose from the issues listed here instead?"
                 ),
             )
@@ -1241,7 +1603,7 @@ class GuidedEngine:
         return self._offer_unknown_ticket(conversation, detail)
 
     def _classify_others_query(self, free_text: str) -> tuple[str, dict | None]:
-        """Return (branch, payload) where branch is answer | offer_ticket | out_of_scope."""
+        """Rule fallback: (branch, payload) where branch is answer | offer_ticket | out_of_scope."""
         text = (free_text or "").strip()
         lowered = text.lower()
         if not lowered:
@@ -1445,10 +1807,48 @@ class GuidedEngine:
                 return answer
         return None
 
+    def _respond_others_guide(
+        self, conversation: Conversation, detail: str, message: str
+    ) -> dict:
+        """Solid solution + Raise ticket / Main menu / free-text chat."""
+        self._append_others_history(conversation, detail, message)
+        conversation.state = "DESCRIBING_OTHER"
+        conversation.current_menu_node = "GEN-UNKNOWN"
+        self.db.commit()
+        return {
+            "conversation_id": conversation.conversation_id,
+            "case_id": conversation.current_case,
+            "state": "DESCRIBING_OTHER",
+            "assistant_message": (
+                message
+                + "\n\nTry the steps above. You can reply here if you need a follow-up, "
+                "raise a ticket if it isn’t resolved, or return to the main menu."
+            ),
+            "options": [
+                {
+                    "id": "others_raise_ticket",
+                    "label": "Raise a ticket",
+                    "type": "action",
+                },
+                {
+                    "id": "others_main_menu",
+                    "label": "Back to main menu",
+                    "type": "action",
+                },
+            ],
+            "controls": ["start_over"],
+            "allow_free_text": True,
+            "free_text_hint": "Reply if it helped, still broken, or ask a follow-up…",
+            "free_text_submit_label": "Send",
+            "demo_mode": True,
+            "selection_mode": "single",
+            "breadcrumb": ["Others", "IT assistant"],
+        }
+
     def _respond_others_answer(
         self, conversation: Conversation, detail: str, payload: dict
     ) -> dict:
-        """Deliver an answer for Others triage without raising a ticket."""
+        """Rule-based answer when LLM is unavailable — no auto ticket."""
         kind = payload.get("kind")
         if kind == "faq":
             message = payload.get("message") or "Here is what I can share from our demo help topics."
@@ -1469,18 +1869,8 @@ class GuidedEngine:
                 "category below. If that does not help, use Others again or Talk to IT."
             )
 
-        conversation.state = "WELCOME"
-        conversation.current_menu_node = None
-        conversation.current_case = None
-        self.db.commit()
-        _ = detail  # retained for future logging / analytics hooks
-        return self._welcome(
-            conversation.conversation_id,
-            assistant_message=(
-                message
-                + "\n\nWould you like to choose a topic from the catalog, or is there anything else?"
-            ),
-        )
+        # Prefer staying in Others chat so the user can follow up (same UX as LLM guide).
+        return self._respond_others_guide(conversation, detail, message)
 
     def _close_with_other_ticket(self, conversation: Conversation, detail: str) -> dict:
         """Legacy helper: raise a ticket from free text and lock the session."""
@@ -1547,9 +1937,12 @@ class GuidedEngine:
             ("laptop slow", "DEV-01"),
             ("computer slow", "DEV-01"),
             ("slow", "DEV-01"),
+            # Avoid bare "restart" — matches "restarting hasn't fixed it" falsely as DEV-04
             ("restart loop", "DEV-04"),
             ("keeps restarting", "DEV-04"),
-            ("restart", "DEV-04"),
+            ("pending restart", "DEV-04"),
+            ("restart pending", "DEV-04"),
+            ("forced reboot", "DEV-04"),
             ("teams", "APP-01"),
             ("outlook", "APP-02"),
             ("email", "APP-02"),
@@ -1591,7 +1984,13 @@ class GuidedEngine:
             return best_code
         return None
 
-    def _offer_unknown_ticket(self, conversation: Conversation, detail: str) -> dict:
+    def _offer_unknown_ticket(
+        self,
+        conversation: Conversation,
+        detail: str,
+        *,
+        assistant_message: str | None = None,
+    ) -> dict:
         """Ask consent before raising a ticket for unanticipated free text."""
         case_id = conversation.current_case or generate_id("CASE")
         case = self._get_case(conversation)
@@ -1616,32 +2015,34 @@ class GuidedEngine:
         conversation.current_menu_node = "GEN-UNKNOWN"
         conversation.state = "AWAITING_UNKNOWN_TICKET_CONFIRM"
         self.db.commit()
+        default_msg = (
+            f"I can't effectively solve this here yet.\n\n"
+            f"Issue: {detail}\n\n"
+            "Raise a ticket with this issue, or go back to the main menu."
+        )
         return {
             "conversation_id": conversation.conversation_id,
             "case_id": case_id,
             "state": "AWAITING_UNKNOWN_TICKET_CONFIRM",
-            "assistant_message": (
-                "I don't have a guided fix for that yet. "
-                "Are you OK if I raise a support ticket with what you described?"
-            ),
+            "assistant_message": assistant_message or default_msg,
             "options": [
                 {
                     "id": "confirm_raise_ticket",
-                    "label": "Yes, raise a ticket",
+                    "label": "Raise a ticket",
                     "type": "action",
                 },
                 {
-                    "id": "decline_raise_ticket",
-                    "label": "No, try something else",
+                    "id": "others_main_menu",
+                    "label": "Back to main menu",
                     "type": "action",
                 },
             ],
-            "controls": ["start_over", "talk_to_it"],
+            "controls": ["start_over"],
             "demo_mode": True,
             "selection_mode": "single",
             "require_confirm": True,
             "confirm_label": "Confirm",
-            "breadcrumb": ["Describe issue", "Raise a ticket?"],
+            "breadcrumb": ["Others", "Raise a ticket?"],
         }
 
     def _confirm_unknown_ticket(self, conversation: Conversation) -> dict:
@@ -1777,6 +2178,8 @@ class GuidedEngine:
         )
         ticket_id = generate_id("INC")
         now = datetime.now(timezone.utc)
+        talk_team = route_team(category="requests", summary="talk to IT")
+        owner_id, owner_name = route_owner(self.db, self.tenant_id, talk_team)
         self.db.add(
             Ticket(
                 ticket_id=ticket_id,
@@ -1784,9 +2187,10 @@ class GuidedEngine:
                 requester=self.user_id,
                 summary="User requested to talk to IT",
                 description=description,
-                status="open",
+                status="in_progress",
                 priority="medium",
-                assigned_team="IT Support",
+                assigned_team=talk_team,
+                assigned_to=owner_id,
                 version=1,
                 created_at=now,
                 updated_at=now,
@@ -1801,13 +2205,15 @@ class GuidedEngine:
             "conversation_id": conversation_id,
             "state": "CASE_SUMMARY",
             "assistant_message": (
-                f"I've created ticket {ticket_id} for IT support with your complaint. "
-                "I haven't changed your settings. That task is done on my side."
+                f"I've created ticket {ticket_id} for {talk_team} and assigned it to "
+                f"{owner_name}. I haven't changed your settings. That task is done on my side."
             ),
             "ticket": {
                 "ticket_id": ticket_id,
-                "status": "open",
-                "assigned_team": "IT Support",
+                "status": "in_progress",
+                "assigned_team": talk_team,
+                "assigned_to": owner_id,
+                "assignee_name": owner_name,
                 "created_at": now.isoformat(),
             },
             "options": self._anything_else_options(),
@@ -1834,21 +2240,22 @@ class GuidedEngine:
         if "Outage-linked" in description or node == "NET-04" or issue_code == "NET-04":
             issue_code = "NET-04"
             summary = summary_override or "VPN/service outage-linked ticket"
-            team = "Network Operations"
+            team = route_team(issue_code="NET-04", category="network")
             priority = "high"
         elif issue_code.startswith("SEC"):
             summary = summary_override or "Security escalation"
-            team = "Security Team"
+            team = route_team(issue_code=issue_code, category="security")
             priority = "high"
         elif issue_code == "GEN-UNKNOWN":
             summary = summary_override or "Issue not in catalog"
-            team = "IT Support"
+            team = route_team(issue_code=issue_code, category="requests")
             priority = "medium"
         else:
             summary = summary_override or f"Escalation for {issue_code}"
-            team = "IT Support"
+            team = route_team(issue_code=issue_code, summary=summary)
             priority = "medium"
 
+        owner_id, owner_name = route_owner(self.db, self.tenant_id, team)
         ticket_id = generate_id("INC")
         existing = self.db.execute(
             select(Ticket).where(
@@ -1870,9 +2277,10 @@ class GuidedEngine:
                 issue_code=issue_code,
                 summary=summary,
                 description=description,
-                status="open",
+                status="in_progress",
                 priority=priority,
                 assigned_team=team,
+                assigned_to=owner_id,
                 version=1,
                 created_at=now,
                 updated_at=now,
@@ -1890,7 +2298,7 @@ class GuidedEngine:
         if close_session:
             assistant_message = (
                 f"Thanks. I've raised ticket **{ticket_id}** with your description "
-                f"and assigned it to {team}. We're looking into it and will get back to you. "
+                f"and assigned it to {owner_name} ({team}). We're looking into it and will get back to you. "
                 "You don't need to do anything else in this chat for now. "
                 "Use **Start over** if you have a new request."
             )
@@ -1912,11 +2320,13 @@ class GuidedEngine:
             "assistant_message": assistant_message,
             "ticket": {
                 "ticket_id": ticket_id,
-                "status": "open",
+                "status": "in_progress",
                 "issue_code": issue_code,
                 "summary": summary,
                 "description": description,
                 "assigned_team": team,
+                "assigned_to": owner_id,
+                "assignee_name": owner_name,
                 "created_at": created_at,
                 "source": "bakery",
             },

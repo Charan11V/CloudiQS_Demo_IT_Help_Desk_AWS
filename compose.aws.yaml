@@ -1,0 +1,248 @@
+# Production / AWS Compose — used on the single EC2 demo host.
+# enterprise-mock-api, agent-api, and bakery stay on the private Docker network only.
+# Only `web` is published (port 80). Bakery adds ~same-box Postgres (no extra AWS services).
+
+services:
+  bakery-postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bakery
+      POSTGRES_PASSWORD: bakery
+      POSTGRES_DB: bakery
+    command:
+      - postgres
+      - -c
+      - shared_buffers=64MB
+      - -c
+      - max_connections=40
+    volumes:
+      - bakery_pg_data:/var/lib/postgresql/data
+    networks:
+      - helio
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bakery -d bakery"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION:-us-east-1}
+        awslogs-group: /cloudiqs-demo/bakery-postgres
+        awslogs-create-group: "true"
+        tag: "{{.Name}}"
+
+  bakery-api:
+    image: ${ECR_BAKERY_IMAGE:-bakery-api:local}
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+psycopg://bakery:bakery@bakery-postgres:5432/bakery
+      ALLOW_DEMO_LOGIN: "1"
+      SPECS_PATH: /specs
+      CORS_ORIGINS: '["http://127.0.0.1","http://localhost"]'
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.groq.com/openai/v1}
+      OPENAI_MODEL_ID: ${OPENAI_MODEL_ID:-openai/gpt-oss-20b}
+    volumes:
+      - /opt/cloudiqs-demo/specs:/specs:ro
+    depends_on:
+      bakery-postgres:
+        condition: service_healthy
+    # Seed only when empty — never --reset on restart (preserves tickets across recreate)
+    command:
+      - sh
+      - -c
+      - python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1
+    networks:
+      - helio
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 45s
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION:-us-east-1}
+        awslogs-group: /cloudiqs-demo/bakery-api
+        awslogs-create-group: "true"
+        tag: "{{.Name}}"
+
+  enterprise-mock-api:
+    image: ${ECR_MOCK_IMAGE}
+    restart: unless-stopped
+    environment:
+      ENTERPRISE_DEMO_DB: /var/lib/helio/runtime.sqlite
+    volumes:
+      # Live database directory, separate from the image's fixtures and canonical files.
+      - /opt/cloudiqs-demo/data/mock:/var/lib/helio
+      - /opt/cloudiqs-demo/data/canonical:/app/data/canonical:ro
+    networks:
+      - helio
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION:-us-east-1}
+        awslogs-group: /cloudiqs-demo/mock-api
+        awslogs-create-group: "true"
+        tag: "{{.Name}}"
+
+  agent-api:
+    image: ${ECR_AGENT_IMAGE}
+    restart: unless-stopped
+    environment:
+      MODEL_PROVIDER: ${MODEL_PROVIDER:-openai_compatible}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      BEDROCK_MODEL_ID: ${BEDROCK_MODEL_ID:-amazon.nova-lite-v1:0}
+      # GPT-OSS-20B via Groq (Bedrock account currently NOT_AUTHORIZED for live Converse).
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.groq.com/openai/v1}
+      OPENAI_MODEL_ID: ${OPENAI_MODEL_ID:-openai/gpt-oss-20b}
+      # Optional Bedrock API key (boto3>=1.39) when MODEL_PROVIDER=bedrock.
+      AWS_BEARER_TOKEN_BEDROCK: ${AWS_BEARER_TOKEN_BEDROCK:-}
+      # AgentCore Runtime (IAM invoke from instance role; tools callback via bridge).
+      AGENTCORE_ENABLED: ${AGENTCORE_ENABLED:-0}
+      AGENTCORE_RUNTIME_ARN: ${AGENTCORE_RUNTIME_ARN:-}
+      AGENTCORE_REGION: ${AGENTCORE_REGION:-us-east-1}
+      AGENTCORE_QUALIFIER: ${AGENTCORE_QUALIFIER:-DEFAULT}
+      TOOL_BRIDGE_PUBLIC_URL: ${TOOL_BRIDGE_PUBLIC_URL:-}
+      TOOL_BRIDGE_SECRET: ${TOOL_BRIDGE_SECRET:-}
+      DEMO_NOW: ${DEMO_NOW:-2026-10-31T10:00:00Z}
+      APP_SESSION_SIGNING_KEY: ${APP_SESSION_SIGNING_KEY}
+      APP_DB_PATH: /data/app.sqlite
+      ENTERPRISE_API_URL: http://enterprise-mock-api:8000
+      ENABLE_FAULT_INJECTION: ${ENABLE_FAULT_INJECTION:-0}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      MAX_TOOL_CALLS_PER_RUN: ${MAX_TOOL_CALLS_PER_RUN:-20}
+      MAX_RUN_DURATION_SECONDS: ${MAX_RUN_DURATION_SECONDS:-90}
+      AWS_ACCESS_KEY_ID: ""
+      AWS_SECRET_ACCESS_KEY: ""
+      AWS_SESSION_TOKEN: ""
+    volumes:
+      # Directory mount so the WAL sits beside the database for S3 replication.
+      - /opt/cloudiqs-demo/data/agent:/data
+      - /opt/cloudiqs-demo/data/pack:/pack:ro
+    depends_on:
+      enterprise-mock-api:
+        condition: service_healthy
+    networks:
+      - helio
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health/ready')",
+        ]
+      interval: 10s
+      timeout: 8s
+      retries: 20
+      start_period: 25s
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION:-us-east-1}
+        awslogs-group: /cloudiqs-demo/agent-api
+        awslogs-create-group: "true"
+        tag: "{{.Name}}"
+
+  web:
+    image: ${ECR_WEB_IMAGE}
+    restart: unless-stopped
+    # Not published directly — Caddy terminates TLS on :443/:80 and proxies here.
+    expose:
+      - "3000"
+    environment:
+      AGENT_API_URL: http://agent-api:8001
+      BAKERY_API_URL: http://bakery-api:8000
+      HOSTNAME: "0.0.0.0"
+      PORT: "3000"
+      DEMO_GATE_ENABLED: ${DEMO_GATE_ENABLED:-1}
+      DEMO_ACCESS_SECRET: ${DEMO_ACCESS_SECRET}
+      ORIGIN_VERIFY_TOKEN: ${ORIGIN_VERIFY_TOKEN:-}
+      NEXT_PUBLIC_RUNTIME_BADGE: ${NEXT_PUBLIC_RUNTIME_BADGE:-AWS}
+    depends_on:
+      agent-api:
+        condition: service_healthy
+      bakery-api:
+        condition: service_healthy
+    networks:
+      - helio
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION:-us-east-1}
+        awslogs-group: /cloudiqs-demo/web
+        awslogs-create-group: "true"
+        tag: "{{.Name}}"
+
+  # Let's Encrypt HTTPS front door (CloudFront blocked until AWS account verification).
+  # Host defaults to <public-ip>.sslip.io — no purchased domain required.
+  caddy:
+    image: caddy:2.9-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DEMO_HTTPS_HOST: ${DEMO_HTTPS_HOST:-}
+    volumes:
+      - /opt/cloudiqs-demo/compose/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+    networks:
+      - helio
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION:-us-east-1}
+        awslogs-group: /cloudiqs-demo/caddy
+        awslogs-create-group: "true"
+        tag: "{{.Name}}"
+
+networks:
+  helio:
+    driver: bridge
+
+volumes:
+  bakery_pg_data:
+  caddy_data:
+  caddy_config:

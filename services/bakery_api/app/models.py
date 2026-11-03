@@ -287,6 +287,7 @@ class Ticket(Base):
     status = Column(String(50), default="open")  # open, in_progress, resolved, closed
     priority = Column(String(50), default="medium")  # low, medium, high, critical
     assigned_team = Column(String(100))
+    assigned_to = Column(String(50))  # user_id of the owner; never left null on new tickets
     version = Column(Integer, default=1, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
@@ -315,6 +316,8 @@ class Conversation(Base):
     current_menu_node = Column(String(200))
     current_case = Column(String(100))
     state = Column(String(50), default="WELCOME")
+    # Last UI turn payload so refresh can resume the same chat
+    ui_snapshot = Column(JSON, default=dict)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 

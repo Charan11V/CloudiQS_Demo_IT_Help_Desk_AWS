@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img">
+<title>AWS request path</title>
+<rect width="980" height="520" fill="#f8fafc"/>
+<defs>
+  <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 10 4, 0 8" fill="#0f172a"/>
+  </marker>
+</defs>
+
+<rect x="36" y="36" width="160" height="64" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="116.0" y="61.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Browser</text>
+<text x="116.0" y="82.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">one origin</text>
+<rect x="280" y="36" width="180" height="64" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="370.0" y="61.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Caddy :443</text>
+<text x="370.0" y="82.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">ZeroSSL</text>
+<rect x="540" y="36" width="180" height="64" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="630.0" y="61.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Next.js</text>
+<text x="630.0" y="82.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">rewrites</text>
+<line x1="196" y1="68" x2="280" y2="68" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="460" y1="68" x2="540" y2="68" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="250" y="170" width="200" height="64" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="350.0" y="195.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">agent-api</text>
+<text x="350.0" y="216.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">sessions and tools</text>
+<rect x="620" y="170" width="200" height="64" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="720.0" y="195.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">bakery-api</text>
+<text x="720.0" y="216.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">guided engine</text>
+<polyline points="630,100 350,100 350,170" fill="none" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<polyline points="630,100 720,100 720,170" fill="none" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="500" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">api-backend</text>
+<text x="740" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">bakery-api</text>
+<rect x="40" y="310" width="170" height="58" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="125.0" y="332.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">app.sqlite</text>
+<text x="125.0" y="353.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">sessions, runs</text>
+<rect x="250" y="310" width="200" height="58" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="350.0" y="332.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">mock API</text>
+<text x="350.0" y="353.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">enterprise SQLite</text>
+<rect x="640" y="310" width="180" height="58" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="730.0" y="332.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Postgres</text>
+<text x="730.0" y="353.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">guided tickets</text>
+<line x1="300" y1="234" x2="125" y2="310" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="350" y1="234" x2="350" y2="310" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="720" y1="234" x2="730" y2="310" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="250" y="420" width="210" height="64" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/>
+<text x="355.0" y="445.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">AgentCore</text>
+<text x="355.0" y="466.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">Hyderabad</text>
+<rect x="560" y="420" width="200" height="64" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/>
+<text x="660.0" y="445.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Groq GPT-OSS</text>
+<text x="660.0" y="466.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">openai/gpt-oss-20b</text>
+<line x1="350" y1="368" x2="340" y2="420" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="460" y1="452" x2="560" y2="452" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<polyline points="250,452 180,452 180,200 250,200" fill="none" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="78" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">HMAC callback</text>
+</svg>

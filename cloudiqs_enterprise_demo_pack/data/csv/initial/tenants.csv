@@ -1,0 +1,3 @@
+tenant_id,company_name,domain,industry,hq,timezone,ticket_platform,idp,device_platform,size_realistic,employee_sample,region,kb_style
+northstar,Northstar Technologies,northstar.example,Technology & SaaS,Bengaluru,Asia/Kolkata,Jira Service Management,Microsoft Entra ID,Microsoft Intune,2400,30,ap-south-1,markdown
+beacon,Beacon Retail Group,beacon.example,Omnichannel retail,London,Europe/London,ServiceNow,Okta,Jamf + Intune,5100,10,eu-west-2,markdown

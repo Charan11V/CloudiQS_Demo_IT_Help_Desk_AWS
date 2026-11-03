@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="760" viewBox="0 0 860 760" role="img">
+<title>Ticket owner</title>
+<rect width="860" height="760" fill="#f8fafc"/>
+<defs>
+  <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 10 4, 0 8" fill="#0f172a"/>
+  </marker>
+</defs>
+
+<rect x="300" y="16" width="260" height="56" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="430.0" y="37.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">New ticket</text>
+<text x="430.0" y="58.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">category on the request</text>
+<polygon points="430,100.0 550.0,140 430,180.0 310.0,140" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/><text x="430" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#0f172a">Category?</text>
+<line x1="430" y1="72" x2="430" y2="100" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="40" y="240" width="280" height="64" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/>
+<text x="180.0" y="265.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Security analyst</text>
+<text x="180.0" y="286.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">security, cloud access</text>
+<rect x="540" y="240" width="280" height="64" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.75"/>
+<text x="680.0" y="265.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">IT engineer</text>
+<text x="680.0" y="286.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">every other category</text>
+<line x1="350" y1="170" x2="180" y2="240" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="510" y1="170" x2="680" y2="240" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="250" y="360" width="360" height="64" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="430.0" y="385.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">First active user of that role</text>
+<text x="430.0" y="406.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">lowest user id</text>
+<polyline points="180,304 180,340 430,340 430,360" fill="none" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<polyline points="680,304 680,340 430,340" fill="none" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<polygon points="430,460.0 540.0,500 430,540.0 320.0,500" fill="#fff7ed" stroke="#c2410c" stroke-width="1.75"/><text x="430" y="505" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#0f172a">Role filled?</text>
+<line x1="430" y1="424" x2="430" y2="460" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="40" y="620" width="240" height="64" rx="10" fill="#f0fdf4" stroke="#047857" stroke-width="1.75"/>
+<text x="160.0" y="645.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">status = assigned</text>
+<text x="160.0" y="666.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">one person</text>
+<rect x="460" y="600" width="360" height="100" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.75"/>
+<text x="640.0" y="643.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a">Fallback</text>
+<text x="640.0" y="664.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#475569">IT engineer, manager, admin, analyst</text>
+<line x1="350" y1="530" x2="160" y2="620" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="510" y1="530" x2="640" y2="600" stroke="#0f172a" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="175" y="580" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">yes</text>
+<text x="530" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#334155">no</text>
+</svg>

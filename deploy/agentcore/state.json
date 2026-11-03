@@ -1,0 +1,48 @@
+{
+  "region": "ap-south-2",
+  "account_id": "672281861394",
+  "role_arn": "arn:aws:iam::672281861394:role/HelioAgentCoreRuntimeRole",
+  "code_bucket": "bedrock-agentcore-code-672281861394-ap-south-2",
+  "agent_name": "helio_gptoss_agent",
+  "agent_runtime_id": "helio_gptoss_agent-EAdCtN2scG",
+  "agent_runtime_arn": "arn:aws:bedrock-agentcore:ap-south-2:672281861394:runtime/helio_gptoss_agent-EAdCtN2scG",
+  "code_prefix": "helio_gptoss_agent/deployment_package.zip",
+  "openai_base_url": "https://api.groq.com/openai/v1",
+  "openai_model_id": "openai/gpt-oss-20b",
+  "tool_bridge_secret_set": true,
+  "deployed_at": "2026-11-03T06:42:13Z",
+  "note": "Deployed in ap-south-2 (Hyderabad) because us-east-1/us-west-2 AgentCore quotas were 0",
+  "previous_code_prefix": "helio_gptoss_agent/v1.0.2-20261103T065853Z/deployment_package.zip",
+  "versions": [
+    {
+      "runtime_id": "helio_gptoss_agent-EAdCtN2scG",
+      "arn": "arn:aws:bedrock-agentcore:ap-south-2:672281861394:runtime/helio_gptoss_agent-EAdCtN2scG",
+      "prefix": "helio_gptoss_agent/deployment_package.zip",
+      "deployed_at": "2026-11-03T06:57:02Z",
+      "version": "1.0.1"
+    },
+    {
+      "runtime_id": "helio_gptoss_agent-EAdCtN2scG",
+      "arn": "arn:aws:bedrock-agentcore:ap-south-2:672281861394:runtime/helio_gptoss_agent-EAdCtN2scG",
+      "prefix": "helio_gptoss_agent/v1.0.2-20261103T065853Z/deployment_package.zip",
+      "deployed_at": "2026-11-03T06:59:22Z",
+      "version": "1.0.2"
+    },
+    {
+      "runtime_id": "helio_gptoss_agent-EAdCtN2scG",
+      "arn": "arn:aws:bedrock-agentcore:ap-south-2:672281861394:runtime/helio_gptoss_agent-EAdCtN2scG",
+      "prefix": "helio_gptoss_agent/v1.0.3-20261103T070949Z/deployment_package.zip",
+      "deployed_at": "2026-11-03T07:10:16Z",
+      "version": "1.0.3"
+    },
+    {
+      "runtime_id": "helio_gptoss_agent-EAdCtN2scG",
+      "arn": "arn:aws:bedrock-agentcore:ap-south-2:672281861394:runtime/helio_gptoss_agent-EAdCtN2scG",
+      "prefix": "helio_gptoss_agent/v1.0.3-20261103T071257Z/deployment_package.zip",
+      "deployed_at": "2026-11-03T07:13:17Z",
+      "version": "1.0.3"
+    }
+  ],
+  "previous_versioned_prefix": "helio_gptoss_agent/v1.0.3-20261103T070949Z/deployment_package.zip",
+  "last_versioned_prefix": "helio_gptoss_agent/v1.0.3-20261103T071257Z/deployment_package.zip"
+}

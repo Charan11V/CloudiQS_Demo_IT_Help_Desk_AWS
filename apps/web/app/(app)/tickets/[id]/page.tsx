@@ -3,7 +3,12 @@
 import { useState, use } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { auth, tickets } from "@/lib/api-client";
-import { getHelioTicket, isBakeryTicketId } from "@/lib/helio-tickets";
+import {
+  getHelioTicket,
+  isBakeryTicketId,
+  isClosedStatus,
+  resolveOrCloseHelioTicket,
+} from "@/lib/helio-tickets";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
@@ -17,43 +22,6 @@ import {
   Skeleton,
   Eyebrow,
 } from "@/components/helio";
-
-/** Mock ITSM transitions (enterprise mock VALID_STATUS_TRANSITIONS). */
-function nextStatus(current: string): string | null {
-  switch (current) {
-    case "new":
-      return "triaged";
-    case "triaged":
-      return "assigned";
-    case "assigned":
-      return "in_progress";
-    case "in_progress":
-    case "escalated":
-    case "pending_user":
-    case "pending_vendor":
-      return "resolved";
-    default:
-      return null;
-  }
-}
-
-function statusActionLabel(current: string): string {
-  switch (current) {
-    case "new":
-      return "Triage";
-    case "triaged":
-      return "Assign";
-    case "assigned":
-      return "Start progress";
-    case "in_progress":
-    case "escalated":
-    case "pending_user":
-    case "pending_vendor":
-      return "Mark resolved";
-    default:
-      return "Change status";
-  }
-}
 
 function priorityTone(priority?: string): "danger" | "warning" | "neutral" {
   switch (priority) {
@@ -107,6 +75,17 @@ export default function TicketDetailPage({ params }: { params: Promise<{ id: str
     enabled: !!id && !bakeryTicket,
   });
 
+  const { data: bakeryEvents } = useQuery({
+    queryKey: ["ticket-events", id],
+    queryFn: async () => {
+      const { bakery } = await import("@/lib/bakery-client");
+      const { ensureBakerySession } = await import("@/lib/helio-tickets");
+      await ensureBakerySession(session?.user_id || session?.persona_key);
+      return bakery.listTicketEvents(id);
+    },
+    enabled: !!id && bakeryTicket && !!session,
+  });
+
   const comments: Array<{
     comment_id?: string;
     id?: string;
@@ -136,15 +115,35 @@ export default function TicketDetailPage({ params }: { params: Promise<{ id: str
     },
   });
 
-  const patchMutation = useMutation({
-    mutationFn: (data: { status?: string; priority?: string }) => tickets.patch(id, data),
+  const closeMutation = useMutation({
+    mutationFn: (currentStatus?: string) => resolveOrCloseHelioTicket(id, currentStatus),
     onSuccess: () => {
-      toast.success("Ticket updated");
+      toast.success("Ticket resolved / closed");
       void queryClient.invalidateQueries({ queryKey: ["ticket", id] });
       void queryClient.invalidateQueries({ queryKey: ["tickets"] });
     },
     onError: (error: unknown) => {
-      toast.error(error instanceof Error ? error.message : "Failed to update ticket");
+      toast.error(error instanceof Error ? error.message : "Failed to close ticket");
+    },
+  });
+
+  const reopenMutation = useMutation({
+    mutationFn: async () => {
+      if (bakeryTicket) {
+        const { bakery } = await import("@/lib/bakery-client");
+        const { ensureBakerySession } = await import("@/lib/helio-tickets");
+        await ensureBakerySession(session?.user_id || session?.persona_key);
+        return bakery.updateTicketStatus(id, "in_progress");
+      }
+      return tickets.patch(id, { status: "in_progress" });
+    },
+    onSuccess: () => {
+      toast.success("Ticket reopened");
+      void queryClient.invalidateQueries({ queryKey: ["ticket", id] });
+      void queryClient.invalidateQueries({ queryKey: ["tickets"] });
+    },
+    onError: (error: unknown) => {
+      toast.error(error instanceof Error ? error.message : "Failed to reopen ticket");
     },
   });
 
@@ -171,7 +170,7 @@ export default function TicketDetailPage({ params }: { params: Promise<{ id: str
     );
   }
 
-  const isClosed = ticket.status === "closed" || ticket.status === "resolved";
+  const isClosed = isClosedStatus(ticket.status);
   const isBakerySource = ticket.source === "bakery" || bakeryTicket;
 
   return (
@@ -322,55 +321,77 @@ export default function TicketDetailPage({ params }: { params: Promise<{ id: str
             </dl>
           </Surface>
 
+          {bakeryTicket && (bakeryEvents?.events?.length || 0) > 0 ? (
+            <Surface className="p-5">
+              <Eyebrow>Audit lineage</Eyebrow>
+              <ul className="mt-4 space-y-3 text-sm">
+                {bakeryEvents!.events.map((ev) => (
+                  <li
+                    key={ev.event_id}
+                    className="rounded-xl border border-[var(--stroke)] bg-[var(--surface-soft)] p-3"
+                  >
+                    <p className="font-medium text-[var(--ink)]">
+                      {(ev.prior_status || "?") + " → " + (ev.next_status || "?")}
+                    </p>
+                    <p className="mt-1 text-xs text-[var(--ink-secondary)]">
+                      {ev.actor || "system"}
+                      {ev.reason ? ` · ${ev.reason}` : ""}
+                    </p>
+                    {ev.occurred_at ? (
+                      <p className="mt-1 text-xs text-[var(--ink-tertiary)]">
+                        {formatDate(ev.occurred_at)}
+                      </p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </Surface>
+          ) : null}
+
           <Surface className="p-5">
             <Eyebrow>Actions</Eyebrow>
             <div className="mt-4 space-y-2">
-              {isBakerySource ? (
-                <p className="text-xs text-[var(--ink-secondary)]">
-                  This ticket was raised from Get help and is stored in the bakery ticket database.
-                  Status updates for bakery tickets are handled by IT in the guided workflow.
-                </p>
+              {!isBakerySource ? (
+                <HelioButton
+                  variant="secondary"
+                  className="w-full"
+                  onClick={() => setShowComment(true)}
+                  disabled={commentMutation.isPending}
+                >
+                  Add comment
+                </HelioButton>
               ) : (
-                <>
-                  <HelioButton
-                    variant="secondary"
-                    className="w-full"
-                    onClick={() => setShowComment(true)}
-                    disabled={commentMutation.isPending}
-                  >
-                    Add comment
-                  </HelioButton>
-                  {canManageTickets && !isClosed && nextStatus(ticket.status || "") ? (
-                    <HelioButton
-                      className="w-full"
-                      disabled={patchMutation.isPending}
-                      loading={patchMutation.isPending}
-                      onClick={() => {
-                        const next = nextStatus(ticket.status || "");
-                        if (next) patchMutation.mutate({ status: next });
-                      }}
-                    >
-                      {statusActionLabel(ticket.status || "")}
-                    </HelioButton>
-                  ) : null}
-                  {canManageTickets && isClosed ? (
-                    <HelioButton
-                      variant="secondary"
-                      className="w-full"
-                      disabled={patchMutation.isPending}
-                      loading={patchMutation.isPending}
-                      onClick={() => patchMutation.mutate({ status: "in_progress" })}
-                    >
-                      Reopen ticket
-                    </HelioButton>
-                  ) : null}
-                  {!canManageTickets ? (
-                    <p className="text-xs text-[var(--ink-secondary)] pt-1">
-                      Status changes require an IT role. You can still add comments on your tickets.
-                    </p>
-                  ) : null}
-                </>
+                <p className="text-xs text-[var(--ink-secondary)]">
+                  Raised from Get help (bakery). IT can resolve or close it below.
+                </p>
               )}
+              {canManageTickets && !isClosed ? (
+                <HelioButton
+                  className="w-full"
+                  disabled={closeMutation.isPending}
+                  loading={closeMutation.isPending}
+                  onClick={() => closeMutation.mutate(ticket.status)}
+                >
+                  Resolved / Close ticket
+                </HelioButton>
+              ) : null}
+              {canManageTickets && isClosed ? (
+                <HelioButton
+                  variant="secondary"
+                  className="w-full"
+                  disabled={reopenMutation.isPending}
+                  loading={reopenMutation.isPending}
+                  onClick={() => reopenMutation.mutate()}
+                >
+                  Reopen ticket
+                </HelioButton>
+              ) : null}
+              {!canManageTickets ? (
+                <p className="text-xs text-[var(--ink-secondary)] pt-1">
+                  Status changes require an IT role. Open tickets stay under In progress until IT
+                  closes them.
+                </p>
+              ) : null}
             </div>
           </Surface>
         </div>

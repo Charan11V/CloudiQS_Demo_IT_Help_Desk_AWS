@@ -8,6 +8,7 @@ from app.db import init_db
 from app.routers import (
     actions,
     admin,
+    agentcore_bridge,
     analytics,
     approvals,
     auth,
@@ -65,18 +66,23 @@ for r in (
     notifications,
     evaluations,
     dev,
+    agentcore_bridge,
 ):
     app.include_router(r.router)
 
 
 @app.get("/")
 async def root():
+    from app.agentcore.client import agentcore_configured
+    from app.config import AGENTCORE_RUNTIME_ARN
+
     return {
         "service": "HELIO Agent API",
         "version": "1.0.0",
         "status": "operational",
         "synthetic_data": True,
-        "agentcore_runtime": False,
+        "agentcore_runtime": agentcore_configured(),
+        "agentcore_runtime_configured": bool(AGENTCORE_RUNTIME_ARN),
     }
 
 

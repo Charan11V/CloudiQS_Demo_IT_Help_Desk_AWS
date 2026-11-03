@@ -60,16 +60,73 @@ export default function HelpdeskPage() {
     initConversation();
   }, []);
 
-  // Clear pending selection whenever the assistant presents a new step
+  const DRAFT_KEY = 'bakery.chatDraft.v2';
+  const ID_KEY = 'bakery.activeConversation';
+
+  // Persist typed text, selections, and conversation across refresh
   useEffect(() => {
-    setSelectedIds([]);
-    setFreeText('');
-  }, [conversation?.state, conversation?.assistant_message, conversation?.conversation_id]);
+    if (!conversation?.conversation_id || typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(
+        DRAFT_KEY,
+        JSON.stringify({
+          conversationId: conversation.conversation_id,
+          conversation,
+          selectedIds,
+          freeText,
+          savedAt: Date.now(),
+        })
+      );
+      window.localStorage.setItem(ID_KEY, conversation.conversation_id);
+    } catch {
+      /* ignore */
+    }
+  }, [conversation, selectedIds, freeText]);
 
   const initConversation = async () => {
     try {
-      const data = await apiClient.createConversation();
+      let data = null as Awaited<ReturnType<typeof apiClient.createConversation>> | null;
+      let draft: {
+        conversationId?: string;
+        selectedIds?: string[];
+        freeText?: string;
+      } | null = null;
+      if (typeof window !== 'undefined') {
+        try {
+          draft = JSON.parse(window.localStorage.getItem(DRAFT_KEY) || 'null');
+        } catch {
+          draft = null;
+        }
+      }
+      const storedId =
+        draft?.conversationId ||
+        (typeof window !== 'undefined' ? window.localStorage.getItem(ID_KEY) : null);
+      if (storedId) {
+        try {
+          data = await apiClient.getConversation(storedId);
+        } catch {
+          data = null;
+        }
+      }
+      if (!data) {
+        try {
+          data = await apiClient.getActiveConversation();
+        } catch {
+          data = null;
+        }
+      }
+      if (!data) {
+        data = await apiClient.createConversation();
+      }
+      if (typeof window !== 'undefined' && data.conversation_id) {
+        window.localStorage.setItem(ID_KEY, data.conversation_id);
+      }
       setConversation(data);
+      if (draft && draft.conversationId === data.conversation_id) {
+        const optionIds = new Set((data.options || []).map((o) => o.id));
+        setSelectedIds((draft.selectedIds || []).filter((id) => optionIds.has(id)));
+        setFreeText(draft.freeText || '');
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to start conversation');
       if (err instanceof Error && err.message.includes('401')) {
@@ -163,8 +220,15 @@ export default function HelpdeskPage() {
       const response = await apiClient.sendTurn(conversation.conversation_id, {
         control,
       });
+      if (control === 'start_over' && typeof window !== 'undefined') {
+        window.localStorage.removeItem(DRAFT_KEY);
+      }
+      if (response?.conversation_id && typeof window !== 'undefined') {
+        window.localStorage.setItem(ID_KEY, response.conversation_id);
+      }
       setConversation(response);
       setSelectedIds([]);
+      setFreeText('');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to send control');
     } finally {

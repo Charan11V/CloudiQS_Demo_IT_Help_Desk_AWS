@@ -47,6 +47,14 @@ export type BakeryConversation = {
   free_text_submit_label?: string;
   /** After Others ticket: no further input until Start over. */
   session_locked?: boolean;
+  /** Present when resuming after refresh */
+  resumed?: boolean;
+  messages?: Array<{
+    message_id?: string;
+    role: string;
+    content: string;
+    timestamp?: string | null;
+  }>;
 };
 
 const BASE = "/bakery-api";
@@ -95,6 +103,14 @@ export const bakery = {
       body: JSON.stringify({}),
     });
   },
+  getActiveConversation() {
+    return bakeryFetch<BakeryConversation>("/conversations/active");
+  },
+  resumeConversation(conversationId: string) {
+    return bakeryFetch<BakeryConversation>(
+      `/conversations/${encodeURIComponent(conversationId)}`
+    );
+  },
   sendTurn(
     conversationId: string,
     payload: {
@@ -114,5 +130,27 @@ export const bakery = {
   },
   getTicket(ticketId: string) {
     return bakeryFetch<BakeryTicket>(`/tickets/${encodeURIComponent(ticketId)}`);
+  },
+  updateTicketStatus(ticketId: string, status: "open" | "in_progress" | "resolved" | "closed") {
+    return bakeryFetch<BakeryTicket>(`/tickets/${encodeURIComponent(ticketId)}`, {
+      method: "PATCH",
+      body: JSON.stringify({ status }),
+    });
+  },
+  listTicketEvents(ticketId: string) {
+    return bakeryFetch<{
+      ticket_id: string;
+      assigned_team?: string;
+      status?: string;
+      events: Array<{
+        event_id: string;
+        actor?: string;
+        prior_status?: string;
+        next_status?: string;
+        reason?: string;
+        occurred_at?: string;
+      }>;
+      count: number;
+    }>(`/tickets/${encodeURIComponent(ticketId)}/events`);
   },
 };

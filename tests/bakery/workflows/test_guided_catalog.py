@@ -74,7 +74,7 @@ def test_others_unknown_offers_ticket_then_raises_on_confirm(asha):
 
 
 def test_others_answerable_does_not_auto_raise(asha):
-    """Others → known IT topic → answer + catalog; no ticket."""
+    """Others → known IT topic → guidance chat; no ticket auto-raised."""
     code, conv = asha.request("POST", "/api/conversations", {})
     cid = conv["conversation_id"]
     asha.request("POST", f"/api/conversations/{cid}/turns", {"option_id": "cant_find"})
@@ -89,10 +89,13 @@ def test_others_answerable_does_not_auto_raise(asha):
     assert state.get("state") != "CLOSED"
     assert not state.get("session_locked")
     msg = (state.get("assistant_message") or "").lower()
-    assert "no ticket was created" in msg
     assert "vpn" in msg or "certificate" in msg or "net-01" in msg
+    # Stays in Others guidance so the user can follow up or raise a ticket
+    assert state.get("state") == "DESCRIBING_OTHER"
+    assert state.get("allow_free_text") is True
     ids = [o["id"] for o in state.get("options") or []]
-    assert "cant_find" in ids  # opening catalog re-shown
+    assert "others_raise_ticket" in ids
+    assert "others_main_menu" in ids
     assert "not_sure" not in ids
 
 

@@ -27,6 +27,17 @@ services:
       MODEL_PROVIDER: ${MODEL_PROVIDER:-simulator}
       AWS_REGION: ${AWS_REGION:-us-east-1}
       BEDROCK_MODEL_ID: ${BEDROCK_MODEL_ID:-}
+      # GPT-OSS-20B via Groq (or any OpenAI-compatible endpoint)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.groq.com/openai/v1}
+      OPENAI_MODEL_ID: ${OPENAI_MODEL_ID:-openai/gpt-oss-20b}
+      # Local Docker stays independent of AgentCore unless explicitly enabled.
+      AGENTCORE_ENABLED: ${AGENTCORE_ENABLED:-0}
+      AGENTCORE_RUNTIME_ARN: ${AGENTCORE_RUNTIME_ARN:-}
+      AGENTCORE_REGION: ${AGENTCORE_REGION:-us-east-1}
+      TOOL_BRIDGE_PUBLIC_URL: ${TOOL_BRIDGE_PUBLIC_URL:-http://host.docker.internal:8001/internal/agentcore/tools}
+      TOOL_BRIDGE_SECRET: ${TOOL_BRIDGE_SECRET:-local-dev-bridge-secret}
       DEMO_NOW: ${DEMO_NOW:-2026-10-31T10:00:00Z}
       APP_SESSION_SIGNING_KEY: ${APP_SESSION_SIGNING_KEY:-dev-only-insecure-key-change-me}
       APP_DB_PATH: /data/app.sqlite

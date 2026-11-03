@@ -16,6 +16,11 @@ class TurnRequest(BaseModel):
     control: Optional[str] = None
 
 
+def _persist(engine: GuidedEngine, conversation_id: str, result: dict) -> dict:
+    engine.save_ui_snapshot(conversation_id, result)
+    return result
+
+
 @router.post("")
 async def create_conversation(
     current_user: dict = Depends(get_current_user),
@@ -24,10 +29,27 @@ async def create_conversation(
     """Create a new conversation"""
     engine = GuidedEngine(db, current_user["tenant_id"], current_user["user_id"])
     conversation_id = engine.create_conversation()
-    
-    # Return initial welcome state (includes selection_mode / require_confirm)
+
     result = engine.process_turn(conversation_id)
-    return result
+    if result.get("assistant_message"):
+        engine.add_message(conversation_id, "assistant", result["assistant_message"])
+    return _persist(engine, conversation_id, result)
+
+
+@router.get("/active")
+async def get_active_conversation(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Resume the user's most recent chat (refresh-safe)."""
+    engine = GuidedEngine(db, current_user["tenant_id"], current_user["user_id"])
+    conversation = engine.get_active_conversation()
+    if not conversation:
+        raise HTTPException(status_code=404, detail="No active conversation")
+    payload = engine.resume_conversation(conversation.conversation_id)
+    if not payload:
+        raise HTTPException(status_code=404, detail="No active conversation")
+    return payload
 
 
 @router.post("/{conversation_id}/turns")
@@ -39,13 +61,11 @@ async def process_turn(
 ):
     """Process a conversation turn"""
     engine = GuidedEngine(db, current_user["tenant_id"], current_user["user_id"])
-    
-    # Verify conversation exists and belongs to user
+
     conversation = engine.get_conversation(conversation_id)
     if not conversation:
         raise HTTPException(status_code=404, detail="Conversation not found")
-    
-    # Add user message if there's content
+
     if request.free_text:
         engine.add_message(conversation_id, "user", request.free_text)
     elif request.option_ids:
@@ -54,8 +74,9 @@ async def process_turn(
         )
     elif request.option_id:
         engine.add_message(conversation_id, "user", f"Confirmed selection: {request.option_id}")
-    
-    # Process turn
+    elif request.control:
+        engine.add_message(conversation_id, "user", f"Control: {request.control}")
+
     result = engine.process_turn(
         conversation_id,
         option_id=request.option_id,
@@ -63,12 +84,11 @@ async def process_turn(
         free_text=request.free_text,
         control=request.control
     )
-    
-    # Add assistant message
+
     if result.get("assistant_message"):
         engine.add_message(conversation_id, "assistant", result["assistant_message"])
-    
-    return result
+
+    return _persist(engine, conversation_id, result)
 
 
 @router.get("/{conversation_id}")
@@ -77,18 +97,10 @@ async def get_conversation(
     current_user: dict = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Get conversation details"""
+    """Get conversation details / resume snapshot"""
     engine = GuidedEngine(db, current_user["tenant_id"], current_user["user_id"])
-    
-    conversation = engine.get_conversation(conversation_id)
-    if not conversation:
+
+    payload = engine.resume_conversation(conversation_id)
+    if not payload:
         raise HTTPException(status_code=404, detail="Conversation not found")
-    
-    return {
-        "conversation_id": conversation.conversation_id,
-        "state": conversation.state,
-        "current_menu_node": conversation.current_menu_node,
-        "current_case": conversation.current_case,
-        "created_at": conversation.created_at.isoformat(),
-        "updated_at": conversation.updated_at.isoformat()
-    }
+    return payload

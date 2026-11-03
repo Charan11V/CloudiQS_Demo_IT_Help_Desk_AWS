@@ -41,10 +41,11 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await auth.login(selectedPersona);
-      router.push("/");
+      // Full navigation so the session cookie is included on the next document request
+      window.location.assign("/");
+      return;
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : "Login failed");
-    } finally {
       setIsLoading(false);
     }
   };

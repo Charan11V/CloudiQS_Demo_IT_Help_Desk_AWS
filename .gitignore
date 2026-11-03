@@ -17,7 +17,11 @@ cookies_bakery.txt
 **/.next/
 **/out/
 **/build/
+!deploy/agentcore/build/
 **/dist/
+deploy/agentcore/build/deployment_package/
+deploy/agentcore/build/*.zip
+
 **/.turbo/
 **/.cache/
 **/coverage/

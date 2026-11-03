@@ -206,7 +206,7 @@ export default function OverviewPage() {
                 variant="secondary"
                 size="sm"
                 className="mt-4"
-                onClick={() => router.push("/support?topic=devices")}
+                onClick={() => router.push("/support?mode=guided&topic=devices")}
               >
                 Troubleshoot
                 <ArrowUpRight className="h-3.5 w-3.5" />
